@@ -1,0 +1,881 @@
+/* screen -  */
+
+.x {
+  background-color: var(--ffffff);
+  height: 35.19vw;
+  min-width: 100.0vw;
+  position: relative;
+  width: 100%;
+}
+
+.x .line {
+  height: 0.06vw;
+  left: 5.69vw;
+  top: 9.72vw;
+  width: 85.78vw;
+}
+
+.x .light-border {
+  color: var(--x1c1c1c);
+  font-family: var(--font-family-plus_jakarta_display-medium);
+  font-size: 2.37vw;
+  font-weight: 500;
+  left: 5.69%;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: calc(50.00% - 13.15vw);
+  width: 6.64%;
+}
+
+.x .iconly-sharp-arrow-right-circle {
+  left: 76.78vw;
+}
+
+.x .iconly-sharp-arrow-right {
+  top: 16.41vw;
+}
+
+.x .iconly-sharp-arrow-right-square {
+  left: 80.09vw;
+}
+
+.x .iconly-sharp-arrow-right-2 {
+  left: 86.73vw;
+}
+
+.x .iconly-sharp-arrow-right-3 {
+  left: 90.05vw;
+}
+
+.x .iconly-sharp-arrow-up-circle {
+  left: 76.78vw;
+}
+
+.x .iconly-sharp-arrow-up {
+  top: 19.73vw;
+}
+
+.x .iconly-sharp-arrow-up-square {
+  left: 80.09vw;
+}
+
+.x .iconly-sharp-arrow-up-2 {
+  left: 86.73vw;
+}
+
+.x .iconly-sharp-arrow-up-3 {
+  left: 90.05vw;
+}
+
+.x .iconly-sharp-arrow-left-circle {
+  left: 76.78vw;
+}
+
+.x .iconly-sharp-arrow-left {
+  top: 23.05vw;
+}
+
+.x .iconly-sharp-arrow-left-square {
+  left: 80.09vw;
+}
+
+.x .iconly-sharp-arrow-left-2 {
+  left: 86.73vw;
+}
+
+.x .iconly-sharp-arrow-left-3 {
+  left: 90.05vw;
+}
+
+.x .iconly-sharp-arrow-down-circle {
+  left: 76.78vw;
+}
+
+.x .iconly-sharp-arrow-down {
+  top: 13.09vw;
+}
+
+.x .iconly-sharp-arrow-down-square {
+  left: 80.09vw;
+}
+
+.x .iconly-sharp-arrow-down-2 {
+  left: 86.73vw;
+}
+
+.x .iconly-sharp-arrow-down-3 {
+  left: 90.05vw;
+}
+
+.x .line-1 {
+  height: 14.69vw;
+  left: 73.46vw;
+  top: 13.09vw;
+  width: 0.06vw;
+}
+
+.x .iconly-sharp-search {
+  left: 5.70%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-folder {
+  left: 9.02%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-wallet {
+  left: 12.34%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-graph {
+  left: 15.65%;
+  top: 37.21%;
+}
+
+.x .ellipse-5 {
+  height: 1.01vw;
+  left: 0.12vw;
+  position: absolute;
+  top: 0.3vw;
+  width: 1.01vw;
+}
+
+.x .ellipse-6 {
+  height: 0.53vw;
+  left: 0.77vw;
+  position: absolute;
+  top: 0.12vw;
+  width: 0.53vw;
+}
+
+.x .iconly-sharp-bookmark {
+  left: 18.97%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-category {
+  left: 22.29%;
+  top: 37.21%;
+}
+
+.x .rectangle-1124 {
+  left: 0.12vw;
+  top: 0.18vw;
+}
+
+.x .rectangle-1125 {
+  left: 0.77vw;
+  top: 0.18vw;
+  transform: rotate(15.00deg);
+}
+
+.x .rectangle-1126 {
+  left: 0.12vw;
+  top: 0.83vw;
+}
+
+.x .rectangle-1127 {
+  left: 0.77vw;
+  top: 0.83vw;
+}
+
+.x .iconly-sharp-home {
+  left: 25.61%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-home-2 {
+  height: 4.04%;
+  left: 18.97%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-notification {
+  left: 28.92%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-notification-2 {
+  left: 48.83%;
+}
+
+.x .iconly-sharp-notification-3 {
+  left: 45.51%;
+}
+
+.x .iconly-sharp-chat {
+  left: 32.24%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-chat-2 {
+  height: 4.04%;
+  left: 22.29%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-heart {
+  left: 35.56%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-heart2 {
+  left: 25.61%;
+  top: 74.60%;
+}
+
+.x .iconly-sharp-paper {
+  left: 38.88%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-ticket-star {
+  height: 4.04%;
+  left: 38.88%;
+  position: absolute;
+  top: 46.55%;
+  width: 0;
+}
+
+.x .iconly-sharp-ticket {
+  left: 38.88%;
+  top: 56.06%;
+}
+
+.x .iconly-sharp-filter {
+  left: 38.88%;
+  top: 65.25%;
+}
+
+.x .iconly-sharp-voice {
+  left: 5.70%;
+  top: 65.25%;
+}
+
+.x .iconly-sharp-paper-negative {
+  left: 45.51%;
+}
+
+.x .iconly-sharp-more-square {
+  left: 45.51%;
+}
+
+.x .iconly-sharp-video {
+  left: 18.97%;
+  top: 46.55%;
+}
+
+.x .iconly-sharp-delete {
+  left: 12.34%;
+  top: 65.25%;
+}
+
+.x .iconly-sharp-delete-2 {
+  height: 4.04%;
+  left: 12.34%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-image {
+  left: 45.51%;
+  top: 65.25%;
+}
+
+.x .iconly-sharp-paper-download {
+  left: 52.15%;
+}
+
+.x .iconly-sharp-paper-download-1 {
+  height: 4.04%;
+  left: 52.15%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-buy {
+  left: 52.15%;
+  top: 46.55%;
+}
+
+.x .iconly-sharp2-user {
+  height: 4.04%;
+  left: 52.15%;
+  position: absolute;
+  top: 56.06%;
+  width: 0;
+}
+
+.x .iconly-sharp-call {
+  left: 52.15%;
+  top: 65.25%;
+}
+
+.x .iconly-sharp-edit-square {
+  height: 4.04%;
+  left: 18.97%;
+  position: absolute;
+  top: 65.25%;
+  width: 0;
+}
+
+.x .iconly-sharp-paper-plus {
+  left: 42.19%;
+}
+
+.x .iconly-sharp-more-circle {
+  left: 42.19%;
+}
+
+.x .iconly-sharp-camera {
+  left: 42.19%;
+  top: 56.06%;
+}
+
+.x .iconly-sharp-filter-3 {
+  height: 4.04%;
+  left: 42.19%;
+  position: absolute;
+  top: 65.25%;
+  width: 0;
+}
+
+.x .iconly-sharp-voice-3 {
+  height: 4.04%;
+  left: 9.02%;
+  position: absolute;
+  top: 65.25%;
+  width: 0;
+}
+
+.x .iconly-sharp-paper-fail {
+  left: 48.83%;
+}
+
+.x .iconly-sharp-discount {
+  left: 48.83%;
+  top: 46.55%;
+}
+
+.x .iconly-sharp-add-user {
+  height: 4.04%;
+  left: 48.83%;
+  position: absolute;
+  top: 56.06%;
+  width: 0;
+}
+
+.x .iconly-sharp-image-3 {
+  height: 4.04%;
+  left: 48.83%;
+  position: absolute;
+  top: 65.25%;
+  width: 0;
+}
+
+.x .iconly-sharp-edit {
+  left: 15.65%;
+  top: 65.25%;
+}
+
+.x .iconly-sharp-paper-upload {
+  left: 55.47%;
+}
+
+.x .iconly-sharp-paper-upload-1 {
+  height: 4.04%;
+  left: 55.47%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-danger-circle {
+  left: 58.78%;
+}
+
+.x .iconly-sharp3-user {
+  height: 4.04%;
+  left: 55.47%;
+  position: absolute;
+  top: 56.06%;
+  width: 0;
+}
+
+.x .iconly-sharp-calling {
+  left: 55.47%;
+  top: 65.25%;
+}
+
+.x .iconly-sharp-play {
+  left: 22.29%;
+  top: 65.25%;
+}
+
+.x .iconly-sharp-card {
+  left: 15.65%;
+  top: 74.60%;
+}
+
+.x .iconly-sharp-send {
+  left: 58.78%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-info-square {
+  height: 4.04%;
+  left: 55.47%;
+  position: absolute;
+  top: 46.55%;
+  width: 0;
+}
+
+.x .iconly-sharp-login {
+  left: 58.78%;
+  top: 56.06%;
+}
+
+.x .iconly-sharp-login-1 {
+  height: 4.04%;
+  left: 58.78%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-call-missed {
+  left: 58.78%;
+}
+
+.x .iconly-sharp-shield-done {
+  left: 25.61%;
+}
+
+.x .iconly-sharp-swap {
+  left: 65.42%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-close-square {
+  height: 4.04%;
+  left: 65.42%;
+  position: absolute;
+  top: 46.55%;
+  width: 0;
+}
+
+.x .iconly-sharp-download {
+  left: 65.42%;
+  top: 56.06%;
+}
+
+.x .iconly-sharp-download-1 {
+  height: 4.04%;
+  left: 65.42%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-work {
+  left: 68.74%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-show {
+  left: 32.24%;
+  top: 65.25%;
+}
+
+.x .iconly-sharp-password {
+  left: 62.10%;
+  top: 37.21%;
+}
+
+.x .iconly-sharp-danger-triangle {
+  left: 62.10%;
+}
+
+.x .iconly-sharp-logout {
+  left: 62.10%;
+  top: 56.06%;
+}
+
+.x .iconly-sharp-logout-1 {
+  height: 4.04%;
+  left: 62.10%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-call-silent {
+  left: 62.10%;
+}
+
+.x .iconly-sharp-shield-fail {
+  left: 28.92%;
+}
+
+.x .iconly-sharp-lock {
+  left: 65.42%;
+  top: 65.25%;
+}
+
+.x .iconly-sharp-tick-square {
+  height: 4.04%;
+  left: 68.74%;
+  position: absolute;
+  top: 46.55%;
+  width: 0;
+}
+
+.x .iconly-sharp-upload {
+  left: 68.74%;
+  top: 56.06%;
+}
+
+.x .iconly-sharp-upload-1 {
+  height: 4.04%;
+  left: 68.74%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-unlock {
+  left: 68.74%;
+  top: 65.25%;
+}
+
+.x .iconly-sharp-hide {
+  left: 35.56%;
+  top: 65.25%;
+}
+
+.x .iconly-sharp-scan {
+  left: 5.64%;
+  top: 46.55%;
+}
+
+.x .iconly-sharpqr {
+  height: 4.04%;
+  left: 5.70%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-activity {
+  left: 9.02%;
+  top: 46.55%;
+}
+
+.x .iconly-sharp-calendar {
+  left: 12.34%;
+  top: 46.55%;
+}
+
+.x .iconly-sharp-message {
+  left: 15.65%;
+  top: 46.55%;
+}
+
+.x .iconly-sharp-profile {
+  left: 45.51%;
+  top: 56.06%;
+}
+
+.x .iconly-sharp-emoji {
+  left: 32.24%;
+  top: 74.60%;
+}
+
+.x .iconly-sharp-avatar {
+  left: 35.56%;
+  top: 74.60%;
+}
+
+.x .iconly-sharp-plus {
+  left: 22.29%;
+  top: 46.55%;
+}
+
+.x .iconly-sharp-chart {
+  left: 25.61%;
+  top: 46.55%;
+}
+
+.x .iconly-sharp-game {
+  left: 28.92%;
+  top: 46.55%;
+}
+
+.x .iconly-sharp-bag {
+  left: 35.56%;
+  top: 46.55%;
+}
+
+.x .iconly-sharp-star {
+  left: 35.56%;
+  top: 56.06%;
+}
+
+.x .iconly-sharp-bag-3 {
+  left: 28.92%;
+  top: 74.60%;
+}
+
+.x .iconly-sharp-bag-2 {
+  left: 32.24%;
+  top: 46.55%;
+}
+
+.x .iconly-sharp-discovery {
+  left: 5.70%;
+  top: 56.06%;
+}
+
+.x .iconly-sharp-time-square {
+  left: 18.97%;
+}
+
+.x .iconly-sharp-location {
+  left: 9.02%;
+  top: 56.06%;
+}
+
+.x .iconly-sharp-location-2 {
+  height: 4.04%;
+  left: 9.02%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-time-circle {
+  left: 22.29%;
+}
+
+.x .iconly-sharp-document {
+  left: 12.34%;
+  top: 56.06%;
+}
+
+.x .iconly-sharp-volume-up {
+  left: 25.61%;
+}
+
+.x .iconly-sharp-setting {
+  left: 15.65%;
+  top: 56.06%;
+}
+
+.x .iconly-sharp-setting-2 {
+  height: 4.04%;
+  left: 38.88%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-star-2 {
+  left: 42.19%;
+  top: 74.60%;
+}
+
+.x .iconly-sharp-star-3 {
+  display: flex;
+  left: 80.11%;
+  top: 74.92%;
+}
+
+.x .star-5 {
+  height: 1.35vw;
+  margin-left: 0.04vw;
+  margin-top: 0.04vw;
+  width: 1.35vw;
+}
+
+.x .iconly-sharp-star-4 {
+  left: 76.79%;
+  top: 74.92%;
+}
+
+.x .iconly-sharp-star-5 {
+  display: flex;
+  left: 83.43%;
+  top: 74.92%;
+}
+
+.x .star-6 {
+  height: 1.25vw;
+  margin-left: 0.05vw;
+  margin-top: 0.02vw;
+  width: 1.32vw;
+}
+
+.x .iconly-sharp-star-6 {
+  display: flex;
+  left: 86.74%;
+  top: 74.92%;
+}
+
+.x .star-7 {
+  height: 1.42vw;
+  margin-left: 0.09vw;
+  margin-top: 0;
+  width: 1.23vw;
+}
+
+.x .iconly-sharp-star-7 {
+  display: flex;
+  left: 90.06%;
+  top: 74.92%;
+}
+
+.x .star-7-1 {
+  height: 1.32vw;
+  margin-left: 0.05vw;
+  margin-top: 0.05vw;
+  width: 1.32vw;
+}
+
+.x .iconly-sharp-volume-down {
+  left: 28.92%;
+}
+
+.x .iconly-sharp-volume-off {
+  left: 32.24%;
+}
+
+.x .iconly-sharp {
+  height: 4.04%;
+  position: absolute;
+  width: 0;
+}
+
+.x .iconly-sharp-arrow {
+  height: 1.42vw;
+  left: 83.41vw;
+  position: absolute;
+  width: 1.42vw;
+}
+
+.x .iconly-sharp-arrow-down-1 {
+  height: 1.42vw;
+  position: absolute;
+  top: 13.09vw;
+  width: 1.42vw;
+}
+
+.x .iconly-sharp-arrow-left-1 {
+  height: 1.42vw;
+  position: absolute;
+  top: 23.05vw;
+  width: 1.42vw;
+}
+
+.x .iconly-sharp-arrow-right-1 {
+  height: 1.42vw;
+  position: absolute;
+  top: 16.41vw;
+  width: 1.42vw;
+}
+
+.x .iconly-sharp-arrow-up-1 {
+  height: 1.42vw;
+  position: absolute;
+  top: 19.73vw;
+  width: 1.42vw;
+}
+
+.x .iconly-sharp-bag-1 {
+  height: 4.04%;
+  position: absolute;
+  width: 0;
+}
+
+.x .iconly-sharp-call-1 {
+  height: 4.04%;
+  position: absolute;
+  top: 65.25%;
+  width: 0;
+}
+
+.x .iconly-sharp-danger {
+  height: 4.04%;
+  position: absolute;
+  top: 46.55%;
+  width: 0;
+}
+
+.x .iconly-sharp-more {
+  height: 4.04%;
+  position: absolute;
+  top: 46.55%;
+  width: 0;
+}
+
+.x .iconly-sharp-notification-1 {
+  height: 4.04%;
+  position: absolute;
+  top: 74.60%;
+  width: 0;
+}
+
+.x .iconly-sharp-paper-1 {
+  height: 4.04%;
+  position: absolute;
+  top: 37.21%;
+  width: 0;
+}
+
+.x .iconly-sharp-shield {
+  height: 4.04%;
+  position: absolute;
+  top: 65.25%;
+  width: 0;
+}
+
+.x .iconly-sharp-star-1 {
+  height: 4.04%;
+  position: absolute;
+  width: 0;
+}
+
+.x .iconly-sharp-time {
+  height: 4.04%;
+  position: absolute;
+  top: 56.06%;
+  width: 0;
+}
+
+.x .iconly-sharp-volume {
+  height: 4.04%;
+  position: absolute;
+  top: 56.06%;
+  width: 0;
+}
+
+.x .line-2 {
+  object-fit: cover;
+  position: absolute;
+}
+
+.x .rectangle {
+  border: 0.09vw solid;
+  border-color: var(--x1c1c1c);
+  height: 0.47vw;
+  position: absolute;
+  width: 0.47vw;
+}
