@@ -1,0 +1,21 @@
+{% if banners %}
+<div class="banner-module">
+    {% for banner in banners %}
+    <div class="banner-item">
+        {% if banner.link %}
+        <a href="{{ banner.link }}">
+            <img src="{{ banner.image }}" alt="{{ banner.title }}" class="banner-image" />
+            {% if banner.title %}
+            <div class="banner-title poppins-semi-bold-white-24px">{{ banner.title }}</div>
+            {% endif %}
+        </a>
+        {% else %}
+        <img src="{{ banner.image }}" alt="{{ banner.title }}" class="banner-image" />
+        {% if banner.title %}
+        <div class="banner-title poppins-semi-bold-white-24px">{{ banner.title }}</div>
+        {% endif %}
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}

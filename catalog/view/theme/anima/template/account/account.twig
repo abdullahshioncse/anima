@@ -1,0 +1,73 @@
+{{ header }}
+
+<h1 class="text-173 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+
+<div class="number-1">
+    <img class="line-2 line-3" src="catalog/view/theme/anima/image/line-2-1.svg" alt="" />
+    <p class="text-174">{{ text_welcome|default('مرحباً بك في حسابك') }}</p>
+    <img class="line" src="catalog/view/theme/anima/image/line-2-1.svg" alt="" />
+</div>
+
+{{ content_top }}
+
+<div class="account-wrapper">
+    <div class="account-menu">
+        <div class="menu-item-1">
+            <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ text_my_account }}</div>
+            <a href="{{ edit }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_edit }}</a>
+            <a href="{{ password }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_password }}</a>
+            {% if address %}
+            <a href="{{ address }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_address }}</a>
+            {% endif %}
+            <a href="{{ wishlist }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_wishlist }}</a>
+        </div>
+        
+        <img class="line-3" src="catalog/view/theme/anima/image/line-2-5.svg" alt="" />
+        
+        <div class="menu-item-1">
+            <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ text_my_orders }}</div>
+            <a href="{{ order }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_order }}</a>
+            {% if download %}
+            <a href="{{ download }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_download }}</a>
+            {% endif %}
+            {% if return %}
+            <a href="{{ return }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_return }}</a>
+            {% endif %}
+            {% if reward %}
+            <a href="{{ reward }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_reward }}</a>
+            {% endif %}
+        </div>
+        
+        {% if subscription %}
+        <img class="line-3" src="catalog/view/theme/anima/image/line-2-5.svg" alt="" />
+        
+        <div class="menu-item-1">
+            <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ text_my_subscription }}</div>
+            <a href="{{ subscription }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_subscription }}</a>
+        </div>
+        {% endif %}
+        
+        {% if affiliate %}
+        <img class="line-3" src="catalog/view/theme/anima/image/line-2-5.svg" alt="" />
+        
+        <div class="menu-item-1">
+            <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ text_my_affiliate }}</div>
+            <a href="{{ affiliate }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_affiliate }}</a>
+            {% if tracking %}
+            <a href="{{ tracking }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_tracking }}</a>
+            {% endif %}
+        </div>
+        {% endif %}
+        
+        <img class="line-3" src="catalog/view/theme/anima/image/line-2-5.svg" alt="" />
+        
+        <div class="menu-item-1">
+            <a href="{{ newsletter }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_newsletter }}</a>
+            <a href="{{ logout }}" class="text-1 poppins-medium-eerie-black-18px">{{ text_logout }}</a>
+        </div>
+    </div>
+</div>
+
+{{ content_bottom }}
+
+{{ footer }}

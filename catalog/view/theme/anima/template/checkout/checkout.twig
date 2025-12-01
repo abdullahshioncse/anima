@@ -1,0 +1,205 @@
+{{ header }}
+
+<h1 class="text-173 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+
+{{ content_top }}
+
+<div class="checkout-wrapper" id="checkout">
+    {% if not logged %}
+    <!-- Login/Register Section -->
+    <div class="checkout-section" id="checkout-customer">
+        <h2 class="poppins-semi-bold-eerie-black-24px">{{ text_checkout_customer|default('معلومات العميل') }}</h2>
+        
+        <div class="checkout-options">
+            <label class="poppins-medium-eerie-black-16px">
+                <input type="radio" name="account" value="register" checked />
+                {{ text_register|default('تسجيل حساب جديد') }}
+            </label>
+            <label class="poppins-medium-eerie-black-16px">
+                <input type="radio" name="account" value="guest" />
+                {{ text_guest|default('متابعة كضيف') }}
+            </label>
+            <label class="poppins-medium-eerie-black-16px">
+                <input type="radio" name="account" value="login" />
+                {{ text_login|default('لديك حساب؟ سجل الدخول') }}
+            </label>
+        </div>
+        
+        <!-- Login Form -->
+        <div id="login-form" class="hidden">
+            <div class="form-group">
+                <label class="poppins-normal-eerie-black-16px">{{ entry_email }}</label>
+                <input type="email" name="email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label class="poppins-normal-eerie-black-16px">{{ entry_password }}</label>
+                <input type="password" name="password" class="form-control" />
+            </div>
+            <button type="button" id="button-login" class="button-4">
+                <span class="button poppins-semi-bold-white-16px">{{ button_login }}</span>
+            </button>
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- Shipping Address -->
+    <div class="checkout-section" id="checkout-shipping-address">
+        <h2 class="poppins-semi-bold-eerie-black-24px">{{ text_shipping_address|default('عنوان الشحن') }}</h2>
+        
+        {% if shipping_addresses %}
+        <div class="form-group">
+            <select name="shipping_address" id="input-shipping-address" class="form-control">
+                {% for address in shipping_addresses %}
+                <option value="{{ address.address_id }}" {% if address.address_id == shipping_address_id %}selected{% endif %}>{{ address.address }}</option>
+                {% endfor %}
+                <option value="0">{{ text_new_address|default('أضف عنوان جديد') }}</option>
+            </select>
+        </div>
+        {% endif %}
+        
+        <div id="shipping-address-form" {% if shipping_addresses %}class="hidden"{% endif %}>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="poppins-normal-eerie-black-16px">{{ entry_firstname }}</label>
+                    <input type="text" name="shipping_firstname" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label class="poppins-normal-eerie-black-16px">{{ entry_lastname }}</label>
+                    <input type="text" name="shipping_lastname" class="form-control" required />
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="poppins-normal-eerie-black-16px">{{ entry_address_1 }}</label>
+                <input type="text" name="shipping_address_1" class="form-control" required />
+            </div>
+            
+            <div class="form-group">
+                <label class="poppins-normal-eerie-black-16px">{{ entry_address_2 }}</label>
+                <input type="text" name="shipping_address_2" class="form-control" />
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="poppins-normal-eerie-black-16px">{{ entry_city }}</label>
+                    <input type="text" name="shipping_city" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label class="poppins-normal-eerie-black-16px">{{ entry_postcode }}</label>
+                    <input type="text" name="shipping_postcode" class="form-control" />
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="poppins-normal-eerie-black-16px">{{ entry_country }}</label>
+                    <select name="shipping_country_id" id="input-shipping-country" class="form-control" required>
+                        <option value="">{{ text_select }}</option>
+                        {% for country in countries %}
+                        <option value="{{ country.country_id }}">{{ country.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="poppins-normal-eerie-black-16px">{{ entry_zone }}</label>
+                    <select name="shipping_zone_id" id="input-shipping-zone" class="form-control" required>
+                        <option value="">{{ text_select }}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Shipping Method -->
+    <div class="checkout-section" id="checkout-shipping-method">
+        <h2 class="poppins-semi-bold-eerie-black-24px">{{ text_shipping_method|default('طريقة الشحن') }}</h2>
+        <div id="shipping-methods">
+            <!-- Loaded via AJAX -->
+        </div>
+    </div>
+    
+    <!-- Payment Method -->
+    <div class="checkout-section" id="checkout-payment-method">
+        <h2 class="poppins-semi-bold-eerie-black-24px">{{ text_payment_method|default('طريقة الدفع') }}</h2>
+        <div id="payment-methods">
+            <!-- Loaded via AJAX -->
+        </div>
+    </div>
+    
+    <!-- Order Summary -->
+    <div class="checkout-section" id="checkout-confirm">
+        <h2 class="poppins-semi-bold-eerie-black-24px">{{ text_confirm|default('تأكيد الطلب') }}</h2>
+        
+        <div class="order-products">
+            <!-- Products list loaded via AJAX -->
+        </div>
+        
+        <div class="order-totals">
+            <!-- Totals loaded via AJAX -->
+        </div>
+        
+        <div class="order-comment">
+            <label class="poppins-normal-eerie-black-16px">{{ entry_comment|default('ملاحظات على الطلب') }}</label>
+            <textarea name="comment" rows="3" class="form-control"></textarea>
+        </div>
+        
+        {% if config_checkout_id %}
+        <div class="form-group">
+            <label class="poppins-normal-eerie-black-16px">
+                <input type="checkbox" name="agree" value="1" required />
+                {{ text_agree }} <a href="{{ privacy }}" target="_blank"><b>{{ text_agree_link }}</b></a>
+            </label>
+        </div>
+        {% endif %}
+        
+        <button type="button" id="button-confirm" class="button-4">
+            <span class="button poppins-semi-bold-white-16px">{{ button_confirm|default('تأكيد الطلب') }}</span>
+        </button>
+    </div>
+</div>
+
+{{ content_bottom }}
+
+<script type="text/javascript">
+// Checkout JavaScript logic would go here
+// This handles the multi-step checkout process
+
+$(document).ready(function() {
+    // Toggle login form
+    $('input[name="account"]').on('change', function() {
+        if ($(this).val() === 'login') {
+            $('#login-form').removeClass('hidden');
+        } else {
+            $('#login-form').addClass('hidden');
+        }
+    });
+    
+    // Toggle new address form
+    $('#input-shipping-address').on('change', function() {
+        if ($(this).val() === '0') {
+            $('#shipping-address-form').removeClass('hidden');
+        } else {
+            $('#shipping-address-form').addClass('hidden');
+        }
+    });
+    
+    // Country change - load zones
+    $('#input-shipping-country').on('change', function() {
+        $.ajax({
+            url: 'index.php?route=localisation/country.country&country_id=' + $(this).val(),
+            dataType: 'json',
+            success: function(json) {
+                var html = '<option value="">{{ text_select }}</option>';
+                if (json.zone && json.zone.length) {
+                    for (var i = 0; i < json.zone.length; i++) {
+                        html += '<option value="' + json.zone[i].zone_id + '">' + json.zone[i].name + '</option>';
+                    }
+                }
+                $('#input-shipping-zone').html(html);
+            }
+        });
+    });
+});
+</script>
+
+{{ footer }}
