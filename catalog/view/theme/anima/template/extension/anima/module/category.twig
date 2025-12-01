@@ -1,0 +1,15 @@
+{% if categories %}
+<div class="category-module">
+    <div class="text-1 text-5 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</div>
+    <div class="category-grid">
+        {% for category in categories %}
+        <a href="{{ category.href }}" class="category-item">
+            <div class="category-image">
+                <img src="{{ category.image }}" alt="{{ category.name }}" />
+            </div>
+            <div class="category-name poppins-medium-eerie-black-16px">{{ category.name }}</div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}

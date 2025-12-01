@@ -1,0 +1,70 @@
+{% if products %}
+<div class="new-in module-latest">
+    <div class="new-in-1">
+        <div class="text-1 text-5 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</div>
+        {% if categories %}
+        <div class="categories poppins-normal-eerie-black-16px">
+            {% for category in categories %}
+            {% if loop.index == 1 %}
+            <div class="active">
+                <a href="{{ category.href }}" class="text-53 text-5 poppins-semi-bold-eerie-black-16px">{{ category.name }}</a>
+                <img class="line-1" src="catalog/view/theme/anima/image/line-1-1.svg" alt="Line" />
+            </div>
+            {% else %}
+            <a href="{{ category.href }}" class="text-51 text-5">{{ category.name }}</a>
+            {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    
+    <div class="cards">
+        {% for product in products %}
+        <article class="card">
+            <div class="info-1">
+                <div class="image" style="background-image: url('{{ product.thumb }}');">
+                    <a href="javascript:void(0);" onclick="wishlist.add('{{ product.product_id }}');" class="wishlist-btn">
+                        <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-heart.svg" alt="{{ button_wishlist }}" />
+                    </a>
+                    {% if product.labels|default([])|length > 0 %}
+                    <div class="frame-5-1">
+                        {% for label in product.labels %}
+                        <div class="button-1"><div class="button-9 poppins-medium-white-14px {{ label.class }}">{{ label.text }}</div></div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="frame-5-1">
+                        <div class="button-1"><div class="button-9 poppins-medium-white-14px">{{ text_new_collection|default('مجموعة جديدة') }}</div></div>
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="info">
+                    <a href="{{ product.href }}" class="t-shirt-energy-red-and-white poppins-medium-eerie-black-12px">{{ product.name }}</a>
+                    <div class="phone poppins-normal-eerie-black-12px">{{ product.model }}</div>
+                </div>
+                <div class="x5000-kd poppins-semi-bold-eerie-black-16px">
+                    {% if product.special %}
+                    <span class="price-old">{{ product.original_price }}</span>
+                    {% endif %}
+                    {{ product.price }}
+                </div>
+            </div>
+            <div class="button-2" onclick="cart.add('{{ product.product_id }}');">
+                <div class="button poppins-semi-bold-white-16px">{{ button_cart }}</div>
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    
+    <div class="way-3">
+        <div class="rectangle-116-1"></div>
+        <div class="rectangle-116-1"></div>
+        <div class="rectangle-116-1"></div>
+        <div class="rectangle-1162"></div>
+    </div>
+    
+    <a href="{{ view_all_url|default('#') }}" class="button-1">
+        <div class="button-13 poppins-medium-white-14px">{{ button_view_all }}</div>
+    </a>
+</div>
+{% endif %}

@@ -1,0 +1,101 @@
+</main>
+
+<!-- Footer -->
+<img class="line-2 footer-line" src="catalog/view/theme/anima/image/line-2-1.svg" alt="Line" />
+
+<footer class="footer">
+    <!-- Newsletter Section -->
+    <div class="email">
+        <p class="text-54 text-5 poppins-semi-bold-white-24px">{{ newsletter_title|default('هل ترغب في الاشتراك في نشرتنا الإخبارية؟') }}</p>
+        <div class="email-1">
+            <form action="{{ newsletter_action|default('#') }}" method="post" id="newsletter-form">
+                <button type="submit" class="button-14">
+                    <span class="button-15 poppins-semi-bold-white-14px">{{ button_send|default('إرسال') }}</span>
+                </button>
+                <input type="email" name="email" class="text-55 text-5 poppins-medium-eerie-black-16px" placeholder="{{ newsletter_placeholder|default('البريد الإلكتروني') }}" required />
+            </form>
+        </div>
+    </div>
+    
+    <div class="info-5">
+        <div class="menu-2">
+            <!-- Payment Icons -->
+            <div class="payment-icons-2">
+                <article class="payment-icons"></article>
+                <article class="payment-icons"></article>
+                <article class="payment-icons-1">
+                    <img class="visa-logo" src="catalog/view/theme/anima/image/visa-logo-1.svg" alt="Visa" />
+                </article>
+                <article class="payment-icons-1">
+                    <img class="apple-pay" src="catalog/view/theme/anima/image/applepay-1.svg" alt="Apple Pay" />
+                </article>
+                <article class="payment-icons-1">
+                    <img class="mastercard" src="catalog/view/theme/anima/image/mastercard-1@2x.png" alt="Mastercard" />
+                </article>
+            </div>
+            
+            <!-- Footer Menus -->
+            <div class="menu-3">
+                <!-- Shop Now Menu -->
+                <div class="menu-item">
+                    <div class="menu">
+                        <div class="text-56 text-5 poppins-bold-white-18px">{{ text_shop_now|default('تسوّق الآن') }}</div>
+                        {% if shop_menu %}
+                            {% for item in shop_menu %}
+                            <a href="{{ item.href }}" class="text-2 text-5 poppins-semi-bold-white-14px">{{ item.name }}</a>
+                            {% endfor %}
+                        {% else %}
+                            {% for category in categories|default([]) %}
+                            <a href="{{ category.href }}" class="text-2 text-5 poppins-semi-bold-white-14px">{{ category.name }}</a>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Contact Menu -->
+                <div class="menu-item">
+                    <div class="menu">
+                        <div class="text-6 text-5 poppins-bold-white-18px">{{ text_contact_us|default('تواصل معنا') }}</div>
+                        {% for item in contact_menu|default([]) %}
+                        <a href="{{ item.href }}" class="text-4 text-5 poppins-semi-bold-white-14px">{{ item.text }}</a>
+                        {% endfor %}
+                        {% if contact_menu|default([])|length == 0 %}
+                        <a href="{{ contact|default('#') }}" class="text-4 text-5 poppins-semi-bold-white-14px">{{ text_contact|default('تواصل معنا') }}</a>
+                        <a href="{{ privacy|default('#') }}" class="text-4 text-5 poppins-semi-bold-white-14px">{{ text_privacy|default('سياسه الخصوصيه') }}</a>
+                        <a href="{{ returns|default('#') }}" class="text-4 text-5 poppins-semi-bold-white-14px">{{ text_returns|default('سياسة الاسترجاع') }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Quick Links Menu -->
+                <div class="menu-item">
+                    <div class="menu">
+                        <div class="text-6 text-5 poppins-bold-white-18px">{{ text_quick_links|default('روابط سريعة') }}</div>
+                        {% for item in quick_links|default([]) %}
+                        <a href="{{ item.href }}" class="text-4 text-5 poppins-semi-bold-white-14px">{{ item.text }}</a>
+                        {% endfor %}
+                        {% if quick_links|default([])|length == 0 %}
+                        <a href="{{ account|default('#') }}" class="text-4 text-5 poppins-semi-bold-white-14px">{{ text_account|default('حسابي') }}</a>
+                        <a href="{{ about|default('#') }}" class="text-4 text-5 poppins-semi-bold-white-14px">{{ text_about|default('من نحن') }}</a>
+                        <a href="{{ help|default('#') }}" class="text-4 text-5 poppins-semi-bold-white-14px">{{ text_help|default('مساعدة') }}</a>
+                        <a href="{{ privacy|default('#') }}" class="text-4 text-5 poppins-semi-bold-white-14px">{{ text_privacy|default('سياسة الخصوصية') }}</a>
+                        <a href="{{ terms|default('#') }}" class="text-4 text-5 poppins-semi-bold-white-14px">{{ text_terms|default('شروط الاستخدام') }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Copyright -->
+        <div class="text-71 text-5 poppins-medium-white-14px">{{ copyright|default('@2025') }}</div>
+    </div>
+</footer>
+
+<!-- JavaScript -->
+{% for script in scripts.footer %}
+<script src="{{ script.href }}" type="text/javascript"></script>
+{% endfor %}
+<script src="catalog/view/theme/anima/javascript/common.js" type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,67 @@
+{{ header }}
+<div class="desktop-4 screen" dir="{{ direction }}">
+    <h1 class="text-217 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+    
+    <div id="checkout">
+        <div class="checkout-steps">
+            <!-- Step 1: Customer Details -->
+            <div class="checkout-step" id="step-customer">
+                <h2 class="poppins-semi-bold-eerie-black-24px">{{ text_checkout_account|default('تفاصيل العميل') }}</h2>
+                <div id="customer-content">
+                    <!-- Customer form will be loaded via AJAX -->
+                </div>
+            </div>
+            
+            <!-- Step 2: Shipping Address -->
+            <div class="checkout-step" id="step-shipping-address">
+                <h2 class="poppins-semi-bold-eerie-black-24px">{{ text_checkout_shipping_address|default('عنوان الشحن') }}</h2>
+                <div id="shipping-address-content">
+                    <!-- Shipping address form will be loaded via AJAX -->
+                </div>
+            </div>
+            
+            <!-- Step 3: Shipping Method -->
+            <div class="checkout-step" id="step-shipping-method">
+                <h2 class="poppins-semi-bold-eerie-black-24px">{{ text_checkout_shipping_method|default('طريقة الشحن') }}</h2>
+                <div id="shipping-method-content">
+                    <!-- Shipping methods will be loaded via AJAX -->
+                </div>
+            </div>
+            
+            <!-- Step 4: Payment Method -->
+            <div class="checkout-step" id="step-payment-method">
+                <h2 class="poppins-semi-bold-eerie-black-24px">{{ text_checkout_payment_method|default('طريقة الدفع') }}</h2>
+                <div id="payment-method-content">
+                    <!-- Payment methods will be loaded via AJAX -->
+                </div>
+            </div>
+            
+            <!-- Step 5: Confirm Order -->
+            <div class="checkout-step" id="step-confirm">
+                <h2 class="poppins-semi-bold-eerie-black-24px">{{ text_checkout_confirm|default('تأكيد الطلب') }}</h2>
+                <div id="confirm-content">
+                    <!-- Order confirmation will be loaded via AJAX -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Order Summary -->
+        <div class="checkout-summary">
+            <h3 class="poppins-semi-bold-eerie-black-20px">{{ text_cart_items|default('ملخص الطلب') }}</h3>
+            <div id="checkout-cart">
+                <!-- Cart summary will be loaded via AJAX -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize checkout
+    if (typeof checkout !== 'undefined') {
+        checkout.init();
+    }
+});
+</script>
+
+{{ footer }}

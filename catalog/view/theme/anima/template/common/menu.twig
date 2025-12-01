@@ -1,0 +1,14 @@
+<nav class="navbar-menu" dir="{{ direction }}">
+    {% for category in categories %}
+    <div class="menu-item">
+        <a href="{{ category.href }}" class="poppins-medium-eerie-black-16px">{{ category.name }}</a>
+        {% if category.children %}
+        <div class="submenu">
+            {% for child in category.children %}
+            <a href="{{ child.href }}" class="submenu-item poppins-normal-eerie-black-14px">{{ child.name }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    {% endfor %}
+</nav>
