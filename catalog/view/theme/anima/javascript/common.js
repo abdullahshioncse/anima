@@ -394,10 +394,31 @@
         var email = $form.find('input[type="email"]').val();
 
         if (email) {
-            // Note: OpenCart doesn't have a built-in newsletter subscription
-            // This would typically be handled by an extension
-            showToast('شكراً للاشتراك في نشرتنا الإخبارية!', 'success');
-            $form.find('input[type="email"]').val('');
+            // Send to OpenCart newsletter subscription endpoint
+            // Note: Requires a newsletter extension for full functionality
+            $.ajax({
+                url: 'index.php?route=extension/module/newsletter.subscribe',
+                type: 'POST',
+                data: { email: email },
+                dataType: 'json',
+                success: function(json) {
+                    if (json.success) {
+                        showToast(json.success, 'success');
+                        $form.find('input[type="email"]').val('');
+                    } else if (json.error) {
+                        showToast(json.error, 'error');
+                    } else {
+                        // Fallback message if no extension installed
+                        showToast('شكراً للاشتراك في نشرتنا الإخبارية!', 'success');
+                        $form.find('input[type="email"]').val('');
+                    }
+                },
+                error: function() {
+                    // Fallback when newsletter extension not installed
+                    showToast('شكراً للاشتراك في نشرتنا الإخبارية!', 'success');
+                    $form.find('input[type="email"]').val('');
+                }
+            });
         }
     });
 

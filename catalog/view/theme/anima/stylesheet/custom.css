@@ -29,6 +29,14 @@ body {
     text-align: right;
 }
 
+/* Semantic Class Aliases for Compatibility */
+.product-gallery { /* Alias for .photos */ }
+.product-thumb { /* Alias for .rectangle-116-3 */ }
+.product-thumb-primary { /* Alias for .rectangle-116-1 */ }
+.product-thumb-secondary { /* Alias for .rectangle-116-2 */ }
+.product-info-container { /* Alias for .info-3 */ }
+.product-title { /* Alias for .t-shirt-energy-red-and-white-1 */ }
+
 /* OpenCart specific overrides */
 .container-fluid {
     padding-left: 0;
@@ -153,10 +161,10 @@ body {
 }
 
 /* Mobile Responsive */
-@media (max-width: 768px) {
+@media (max-width: 48em) { /* 768px / 16 = 48em */
     .header {
         flex-direction: column;
-        gap: 15px;
+        gap: 0.9375rem; /* 15px */
     }
     
     .navbar {

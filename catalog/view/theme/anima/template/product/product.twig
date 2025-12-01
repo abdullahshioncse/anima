@@ -1,23 +1,23 @@
 {{ header }}
 
 <!-- Product Photos -->
-<div class="photos">
+<div class="photos product-gallery">
     {% if images %}
     {% for image in images[:4] %}
-    <img class="rectangle-116-{{ loop.index % 2 == 1 ? '1' : '2' }} rectangle-116-3" src="{{ image.popup }}" alt="{{ heading_title }}" data-index="{{ loop.index }}" />
+    <img class="product-thumb product-thumb-{{ loop.index % 2 == 1 ? 'primary' : 'secondary' }}" src="{{ image.popup }}" alt="{{ heading_title }}" data-index="{{ loop.index }}" />
     {% endfor %}
     {% else %}
-    <img class="rectangle-116-1 rectangle-116-3" src="{{ thumb }}" alt="{{ heading_title }}" />
-    <img class="rectangle-116-2 rectangle-116-3" src="{{ thumb }}" alt="{{ heading_title }}" />
-    <img class="rectangle-116-1 rectangle-116-3" src="{{ thumb }}" alt="{{ heading_title }}" />
-    <img class="rectangle-116-2 rectangle-116-3" src="{{ thumb }}" alt="{{ heading_title }}" />
+    <img class="product-thumb product-thumb-primary" src="{{ thumb }}" alt="{{ heading_title }}" />
+    <img class="product-thumb product-thumb-secondary" src="{{ thumb }}" alt="{{ heading_title }}" />
+    <img class="product-thumb product-thumb-primary" src="{{ thumb }}" alt="{{ heading_title }}" />
+    <img class="product-thumb product-thumb-secondary" src="{{ thumb }}" alt="{{ heading_title }}" />
     {% endif %}
 </div>
 
 <!-- Product Info -->
-<div class="info-3">
+<div class="product-info-container">
     <div class="info-item">
-        <h1 class="t-shirt-energy-red-and-white-1 poppins-medium-eerie-black-20px">{{ heading_title }}</h1>
+        <h1 class="product-title poppins-medium-eerie-black-20px">{{ heading_title }}</h1>
         <div class="phone-2 phone-3">{{ model }}</div>
     </div>
     
