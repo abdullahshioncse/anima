@@ -86,14 +86,14 @@
         
         <div class="buttons">
             <div class="buttons-1 poppins-semi-bold-white-16px">
-                <div class="button-12" onclick="wishlist.add('{{ product_id }}');">
+                <div class="button-12" id="btn-wishlist" data-product-id="{{ product_id }}">
                     <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-heart-39.svg" alt="{{ button_wishlist }}" />
                 </div>
-                <div class="button-13" onclick="cart.add('{{ product_id }}', document.getElementById('input-quantity').value);">
+                <div class="button-13" id="btn-cart" data-product-id="{{ product_id }}">
                     <div class="text-141 text">{{ button_cart }}</div>
                     <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-bag-2-1.svg" alt="{{ button_cart }}" />
                 </div>
-                <div class="button-14" onclick="buyNow('{{ product_id }}');">
+                <div class="button-14" id="btn-buy-now" data-product-id="{{ product_id }}">
                     <div class="button-15">{{ button_buy_now|default('اشتري الآن') }}</div>
                 </div>
             </div>
@@ -201,27 +201,39 @@
 </div>
 
 <script type="text/javascript">
-var product_id = {{ product_id }};
-var minimum = {{ minimum }};
+var product_id = {{ product_id|e('js') }};
+var minimum = {{ minimum|e('js') }};
 
 function incrementQuantity() {
     var input = document.getElementById('input-quantity');
-    var value = parseInt(input.value) || minimum;
-    input.value = value + 1;
+    var value = parseInt(input.value, 10) || minimum;
+    // Limit to reasonable max quantity
+    if (value < 999) {
+        input.value = value + 1;
+    }
 }
 
 function decrementQuantity() {
     var input = document.getElementById('input-quantity');
-    var value = parseInt(input.value) || minimum;
+    var value = parseInt(input.value, 10) || minimum;
     if (value > minimum) {
         input.value = value - 1;
     }
 }
 
-function buyNow(product_id) {
-    var quantity = document.getElementById('input-quantity').value;
-    cart.add(product_id, quantity, function() {
-        window.location.href = '{{ checkout }}';
+function buyNow(pid) {
+    // Validate product_id is numeric
+    if (!/^\d+$/.test(pid)) {
+        return;
+    }
+    var quantityInput = document.getElementById('input-quantity');
+    var quantity = parseInt(quantityInput.value, 10);
+    // Validate quantity
+    if (isNaN(quantity) || quantity < minimum || quantity > 999) {
+        quantity = minimum;
+    }
+    cart.add(pid, quantity, function() {
+        window.location.href = '{{ checkout|e('js') }}';
     });
 }
 
@@ -234,6 +246,41 @@ document.querySelectorAll('.frame-1, .frame-1-1, .frame-11').forEach(function(el
         });
         this.classList.add('selected');
     });
+});
+
+// Product page button event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    var btnWishlist = document.getElementById('btn-wishlist');
+    if (btnWishlist) {
+        btnWishlist.addEventListener('click', function() {
+            var pid = this.getAttribute('data-product-id');
+            if (/^\d+$/.test(pid)) {
+                wishlist.add(pid);
+            }
+        });
+    }
+    
+    var btnCart = document.getElementById('btn-cart');
+    if (btnCart) {
+        btnCart.addEventListener('click', function() {
+            var pid = this.getAttribute('data-product-id');
+            var quantityInput = document.getElementById('input-quantity');
+            var quantity = parseInt(quantityInput.value, 10);
+            if (/^\d+$/.test(pid) && !isNaN(quantity) && quantity >= minimum && quantity <= 999) {
+                cart.add(pid, quantity);
+            }
+        });
+    }
+    
+    var btnBuyNow = document.getElementById('btn-buy-now');
+    if (btnBuyNow) {
+        btnBuyNow.addEventListener('click', function() {
+            var pid = this.getAttribute('data-product-id');
+            if (/^\d+$/.test(pid)) {
+                buyNow(pid);
+            }
+        });
+    }
 });
 </script>
 

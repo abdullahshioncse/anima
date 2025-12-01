@@ -77,9 +77,14 @@
 document.querySelectorAll('.frame-20').forEach(function(el) {
     el.addEventListener('click', function() {
         var sortValue = this.getAttribute('data-sort');
-        var url = '{{ special_url|default("#") }}';
+        // Validate sort value format
+        var validSortPattern = /^[a-z_.]+-(ASC|DESC)$/i;
+        if (!validSortPattern.test(sortValue)) {
+            return;
+        }
+        var url = '{{ special_url|default("#")|e('js') }}';
         var parts = sortValue.split('-');
-        url += '&sort=' + parts[0] + '&order=' + parts[1];
+        url += '&sort=' + encodeURIComponent(parts[0]) + '&order=' + encodeURIComponent(parts[1]);
         window.location.href = url;
     });
 });

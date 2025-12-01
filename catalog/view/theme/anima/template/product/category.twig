@@ -106,11 +106,15 @@
 
 <script type="text/javascript">
 function applyFilter() {
-    var url = '{{ category_url }}';
+    var url = '{{ category_url|e('js') }}';
     var filters = [];
     
     document.querySelectorAll('input[name="filter[]"]:checked').forEach(function(checkbox) {
-        filters.push(checkbox.value);
+        // Validate filter value is numeric to prevent injection
+        var value = checkbox.value;
+        if (/^\d+$/.test(value)) {
+            filters.push(value);
+        }
     });
     
     if (filters.length > 0) {
@@ -124,9 +128,14 @@ function applyFilter() {
 document.querySelectorAll('.frame-20').forEach(function(el) {
     el.addEventListener('click', function() {
         var sortValue = this.getAttribute('data-sort');
-        var url = '{{ category_url }}';
+        // Validate sort value format (e.g., p.sort_order-ASC, pd.name-DESC)
+        var validSortPattern = /^[a-z_.]+-(ASC|DESC)$/i;
+        if (!validSortPattern.test(sortValue)) {
+            return;
+        }
+        var url = '{{ category_url|e('js') }}';
         var parts = sortValue.split('-');
-        url += '&sort=' + parts[0] + '&order=' + parts[1];
+        url += '&sort=' + encodeURIComponent(parts[0]) + '&order=' + encodeURIComponent(parts[1]);
         window.location.href = url;
     });
 });

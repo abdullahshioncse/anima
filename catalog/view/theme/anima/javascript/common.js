@@ -222,14 +222,21 @@ var voucher = {
 
 // Utility Functions
 function getLanguageCode() {
+    // Valid language code pattern (e.g., en-gb, ar, fr-FR)
+    var validLangPattern = /^[a-z]{2}(-[a-z]{2})?$/i;
+    
     // Try to get language from URL or meta tag
     var urlParams = new URLSearchParams(window.location.search);
     var lang = urlParams.get('language');
-    if (lang) return lang;
+    if (lang && validLangPattern.test(lang)) {
+        return encodeURIComponent(lang);
+    }
     
     // Check HTML lang attribute
     var htmlLang = document.documentElement.lang;
-    if (htmlLang) return htmlLang;
+    if (htmlLang && validLangPattern.test(htmlLang)) {
+        return encodeURIComponent(htmlLang);
+    }
     
     // Default
     return 'en-gb';
@@ -238,10 +245,39 @@ function getLanguageCode() {
 function showNotification(message, type) {
     type = type || 'info';
     
+    // Sanitize message to prevent XSS
+    var sanitizedMessage = String(message).replace(/[<>'"&]/g, function(char) {
+        switch (char) {
+            case '<': return '&lt;';
+            case '>': return '&gt;';
+            case "'": return '&#39;';
+            case '"': return '&quot;';
+            case '&': return '&amp;';
+            default: return char;
+        }
+    });
+    
+    // Validate type to prevent class injection
+    var validTypes = ['success', 'error', 'info', 'warning'];
+    if (validTypes.indexOf(type) === -1) {
+        type = 'info';
+    }
+    
     // Create notification element
     var notification = document.createElement('div');
     notification.className = 'anima-notification anima-notification-' + type;
-    notification.innerHTML = '<span class="notification-message">' + message + '</span><button type="button" class="notification-close">&times;</button>';
+    
+    var messageSpan = document.createElement('span');
+    messageSpan.className = 'notification-message';
+    messageSpan.textContent = message; // Use textContent for safety
+    
+    var closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'notification-close';
+    closeBtn.innerHTML = '&times;';
+    
+    notification.appendChild(messageSpan);
+    notification.appendChild(closeBtn);
     
     // Add to page
     document.body.appendChild(notification);
@@ -453,7 +489,15 @@ function initNewsletter() {
         newsletterForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            var email = newsletterForm.querySelector('input[name="email"]').value;
+            var emailInput = newsletterForm.querySelector('input[name="email"]');
+            var email = emailInput ? emailInput.value.trim() : '';
+            
+            // Validate email format
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailPattern.test(email)) {
+                showNotification('Please enter a valid email address', 'error');
+                return;
+            }
             
             fetch('index.php?route=extension/anima/newsletter.subscribe&language=' + getLanguageCode(), {
                 method: 'POST',
