@@ -3,7 +3,7 @@
 <!-- Product Photos -->
 <div class="photos product-gallery">
     {% if images %}
-    {% for image in images[:4] %}
+    {% for image in images|slice(0, 4) %}
     <img class="product-thumb product-thumb-{{ loop.index % 2 == 1 ? 'primary' : 'secondary' }}" src="{{ image.popup }}" alt="{{ heading_title }}" data-index="{{ loop.index }}" />
     {% endfor %}
     {% else %}

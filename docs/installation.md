@@ -155,6 +155,16 @@ find catalog/view/theme/anima/ -type f -exec chmod 644 {} \;
 2. Configure similar to Featured module
 3. Add to layout
 
+### Newsletter Module (Optional)
+
+The theme includes a newsletter subscription form in the footer. To enable full functionality:
+
+1. Install a newsletter extension from the OpenCart marketplace
+2. The extension should provide a route at `extension/module/newsletter.subscribe`
+3. The theme will gracefully fall back to showing a success message if no extension is installed
+
+**Note**: OpenCart doesn't include built-in newsletter functionality. Without a newsletter extension, the form will show a success message but won't actually store subscriptions.
+
 ---
 
 ## Customization
