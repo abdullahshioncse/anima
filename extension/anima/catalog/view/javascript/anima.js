@@ -63,7 +63,7 @@
       quantity = quantity || 1;
       
       $.ajax({
-        url: 'index.php?route=checkout/cart|add',
+        url: 'index.php?route=checkout/cart.add',
         type: 'post',
         data: {product_id: product_id, quantity: quantity},
         dataType: 'json',
@@ -96,7 +96,7 @@
       var quantity = $(element).closest('.input-group').find('input[name^="quantity"]').val();
       
       $.ajax({
-        url: 'index.php?route=checkout/cart|edit',
+        url: 'index.php?route=checkout/cart.edit',
         type: 'post',
         data: {key: cart_id, quantity: quantity},
         dataType: 'json',
@@ -111,7 +111,7 @@
 
     remove: function(cart_id) {
       $.ajax({
-        url: 'index.php?route=checkout/cart|remove',
+        url: 'index.php?route=checkout/cart.remove',
         type: 'post',
         data: {key: cart_id},
         dataType: 'json',
@@ -129,7 +129,7 @@
   var wishlist = {
     add: function(product_id) {
       $.ajax({
-        url: 'index.php?route=account/wishlist|add',
+        url: 'index.php?route=account/wishlist.add',
         type: 'post',
         data: {product_id: product_id},
         dataType: 'json',
@@ -151,7 +151,7 @@
 
     remove: function(product_id) {
       $.ajax({
-        url: 'index.php?route=account/wishlist|remove',
+        url: 'index.php?route=account/wishlist.remove',
         type: 'post',
         data: {product_id: product_id},
         dataType: 'json',
@@ -169,7 +169,7 @@
   var compare = {
     add: function(product_id) {
       $.ajax({
-        url: 'index.php?route=product/compare|add',
+        url: 'index.php?route=product/compare.add',
         type: 'post',
         data: {product_id: product_id},
         dataType: 'json',
@@ -190,7 +190,7 @@
 
     remove: function(product_id) {
       $.ajax({
-        url: 'index.php?route=product/compare|remove',
+        url: 'index.php?route=product/compare.remove',
         type: 'post',
         data: {product_id: product_id},
         dataType: 'json',
@@ -212,7 +212,7 @@
       var email = $(this).find('input[name="email"]').val();
       
       $.ajax({
-        url: 'index.php?route=account/newsletter|save',
+        url: 'index.php?route=account/newsletter.save',
         type: 'post',
         data: {newsletter: 1, email: email},
         dataType: 'json',
