@@ -3,13 +3,13 @@
 <!-- Hero Banner Section -->
 <section class="hero-banner">
   <div class="banner-image">
-    <img src="extension/anima/catalog/view/image/rectangle-5-1.png" alt="Banner" />
+    <img src="{{ base }}{{ base }}{{ base }}extension/anima/catalog/view/image/rectangle-5-1.png" alt="Banner" />
   </div>
   <div class="banner-content">
-    <h1 class="banner-title">{{ language.get('text_shop_now') ?: 'تسوّق الآن' }}</h1>
+    <h1 class="banner-title">تسوّق الآن</h1>
     <div class="banner-buttons">
-      <a href="{{ view_details_url }}" class="btn btn-outline">{{ language.get('button_view_details') ?: 'عرض التفاصيل' }}</a>
-      <a href="{{ shop_url }}" class="btn btn-primary">{{ language.get('button_start_shopping') ?: 'ابدأ التسوّق' }}</a>
+      <a href="#" class="btn btn-outline">عرض التفاصيل</a>
+      <a href="#" class="btn btn-primary">ابدأ التسوّق</a>
     </div>
     <div class="banner-indicators">
       <span class="indicator"></span>
@@ -26,7 +26,7 @@
 <!-- Products You May Like Section -->
 <section class="products-section you-may-like">
   <div class="container-fluid">
-    <h2 class="section-title">{{ language.get('text_you_may_like') ?: 'منتجات قد تعجبك' }}</h2>
+    <h2 class="section-title">منتجات قد تعجبك</h2>
     
     <div class="products-grid">
       {% if products_may_like %}
@@ -38,11 +38,11 @@
                   <img src="{{ product.thumb }}" alt="{{ product.name }}" />
                 </a>
                 <button type="button" class="wishlist-btn" onclick="wishlist.add('{{ product.product_id }}');">
-                  <img src="extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
+                  <img src="{{ base }}{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
                 </button>
                 {% if product.special %}
                   <div class="product-badge">
-                    <span class="badge-text">{{ language.get('text_new_collection') ?: 'مجموعة جديدة' }}</span>
+                    <span class="badge-text">مجموعة جديدة</span>
                   </div>
                 {% endif %}
               </div>
@@ -69,9 +69,9 @@
           <article class="product-card">
             <div class="product-info">
               <div class="product-image">
-                <img src="extension/anima/catalog/view/image/placeholder.svg" alt="Product" />
+                <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/placeholder.svg" alt="Product" />
                 <button type="button" class="wishlist-btn">
-                  <img src="extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
+                  <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
                 </button>
               </div>
               <div class="product-details">
@@ -100,10 +100,10 @@
     <!-- Navigation Arrows -->
     <div class="carousel-arrows">
       <button class="arrow arrow-left">
-        <img src="extension/anima/catalog/view/image/iconly-sharp-arrow---left.svg" alt="Previous" />
+        <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-arrow---left.svg" alt="Previous" />
       </button>
       <button class="arrow arrow-right">
-        <img src="extension/anima/catalog/view/image/iconly-sharp-arrow---left-1.svg" alt="Next" />
+        <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-arrow---left-1.svg" alt="Next" />
       </button>
     </div>
   </div>
@@ -149,7 +149,7 @@
                   <img src="{{ product.thumb }}" alt="{{ product.name }}" />
                 </a>
                 <button type="button" class="wishlist-btn" onclick="wishlist.add('{{ product.product_id }}');">
-                  <img src="extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
+                  <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
                 </button>
                 <div class="product-badge">
                   <span class="badge-text">{{ language.get('text_new_collection') ?: 'مجموعة جديدة' }}</span>
@@ -178,9 +178,9 @@
           <article class="product-card">
             <div class="product-info">
               <div class="product-image">
-                <img src="extension/anima/catalog/view/image/placeholder.svg" alt="Product" />
+                <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/placeholder.svg" alt="Product" />
                 <button type="button" class="wishlist-btn">
-                  <img src="extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
+                  <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
                 </button>
                 <div class="product-badge">
                   <span class="badge-text">{{ language.get('text_new_collection') ?: 'مجموعة جديدة' }}</span>
@@ -216,10 +216,10 @@
     <!-- Navigation Arrows -->
     <div class="carousel-arrows">
       <button class="arrow arrow-left">
-        <img src="extension/anima/catalog/view/image/iconly-sharp-arrow---left.svg" alt="Previous" />
+        <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-arrow---left.svg" alt="Previous" />
       </button>
       <button class="arrow arrow-right">
-        <img src="extension/anima/catalog/view/image/iconly-sharp-arrow---left-1.svg" alt="Next" />
+        <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-arrow---left-1.svg" alt="Next" />
       </button>
     </div>
   </div>

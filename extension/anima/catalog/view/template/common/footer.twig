@@ -59,13 +59,13 @@
         <!-- Payment Icons -->
         <div class="payment-icons">
           <div class="payment-icon">
-            <img src="extension/anima/catalog/view/image/mastercard-1.png" alt="Mastercard" />
+            <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/mastercard-1.png" alt="Mastercard" />
           </div>
           <div class="payment-icon">
-            <img src="extension/anima/catalog/view/image/applepay-1.svg" alt="Apple Pay" />
+            <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/applepay-1.svg" alt="Apple Pay" />
           </div>
           <div class="payment-icon">
-            <img src="extension/anima/catalog/view/image/visa-logo-1.svg" alt="Visa" />
+            <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/visa-logo-1.svg" alt="Visa" />
           </div>
           <div class="payment-icon placeholder"></div>
           <div class="payment-icon placeholder"></div>
@@ -81,7 +81,7 @@
 </footer>
 
 <!-- Scripts -->
-<script src="extension/anima/catalog/view/javascript/anima.js"></script>
+<script src="{{ base }}extension/anima/catalog/view/javascript/anima.js"></script>
 
 {% for script in scripts %}
   <script src="{{ script }}"></script>

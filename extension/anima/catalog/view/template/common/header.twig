@@ -15,20 +15,18 @@
   
   <!-- Styles -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
-  <link href="extension/anima/catalog/view/stylesheet/anima.css" rel="stylesheet" type="text/css" />
-  
   {% for style in styles %}
     <link href="{{ style.href }}" rel="stylesheet" media="{{ style.media }}" />
   {% endfor %}
+  <link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+  <link href="{{ base }}extension/anima/catalog/view/stylesheet/anima.css" rel="stylesheet" type="text/css" />
   
   <!-- Scripts -->
-  <script src="catalog/view/javascript/jquery/jquery-3.6.0.min.js"></script>
-  <script src="catalog/view/javascript/bootstrap/js/bootstrap.bundle.min.js"></script>
-  
   {% for script in scripts %}
     <script src="{{ script.href }}"></script>
   {% endfor %}
+  <script src="catalog/view/javascript/jquery/jquery-3.6.0.min.js"></script>
+  <script src="catalog/view/javascript/bootstrap/js/bootstrap.bundle.min.js"></script>
   
   {% for link in links %}
     <link href="{{ link.href }}" rel="{{ link.rel }}" />
@@ -45,24 +43,24 @@
   <div class="container-fluid">
     <div class="info-items">
       <div class="info-item">
-        <img class="info-icon" src="extension/anima/catalog/view/image/iconly-sharp-bag-2-1.svg" alt="Shopping" />
+        <img class="info-icon" src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-bag-2-1.svg" alt="Shopping" />
         <div class="info-content">
-          <div class="info-title">{{ language.get('text_returns_exchange') ?: 'الاسترجاع و التبديل' }}</div>
-          <p class="info-text">{{ language.get('text_returns_exchange_desc') ?: 'إمكانيه الأسترجاع في حال كان القياس غير مناسب' }}</p>
+          <div class="info-title">الاسترجاع و التبديل</div>
+          <p class="info-text">إمكانيه الأسترجاع في حال كان القياس غير مناسب</p>
         </div>
       </div>
       <div class="info-item">
-        <img class="info-icon" src="extension/anima/catalog/view/image/iconly-sharp-time-circle.svg" alt="Fast Delivery" />
+        <img class="info-icon" src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-time-circle.svg" alt="Fast Delivery" />
         <div class="info-content">
-          <div class="info-title">{{ language.get('text_fast_delivery') ?: 'توصيل خلال ٢٤ ساعة' }}</div>
-          <p class="info-text">{{ language.get('text_fast_delivery_desc') ?: 'توصيل محلي لجميع مناطق الكويت خلال ٢٤ ساعه فقط ١ دينار كويتي من العبدلي الى الخيران' }}</p>
+          <div class="info-title">توصيل خلال ٢٤ ساعة</div>
+          <p class="info-text">توصيل محلي لجميع مناطق الكويت خلال ٢٤ ساعه فقط ١ دينار كويتي من العبدلي الى الخيران</p>
         </div>
       </div>
       <div class="info-item">
-        <img class="info-icon" src="extension/anima/catalog/view/image/iconly-sharp-tick-square.svg" alt="Original Products" />
+        <img class="info-icon" src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-tick-square.svg" alt="Original Products" />
         <div class="info-content">
-          <div class="info-title">{{ language.get('text_original_products') ?: 'منتجات أصلية 100%' }}</div>
-          <p class="info-text">{{ language.get('text_original_products_desc') ?: 'جميع المنتجات الأصلية من المصنع مباشره ملابس رياضية - أكسسوارات لتمارين' }}</p>
+          <div class="info-title">منتجات أصلية 100%</div>
+          <p class="info-text">جميع المنتجات الأصلية من المصنع مباشره ملابس رياضية - أكسسوارات لتمارين</p>
         </div>
       </div>
     </div>
@@ -70,11 +68,9 @@
 </div>
 
 <!-- Sale Banner -->
-{% if sale_message %}
 <div class="sale-banner">
-  <p class="sale-text">{{ sale_message }}</p>
+  <p class="sale-text">حصل على خصم 20٪ قبل نهاية نوفمبر!</p>
 </div>
-{% endif %}
 
 <!-- Header -->
 <header class="header-main">
@@ -107,18 +103,18 @@
       <div class="header-menu">
         <!-- Phone Number -->
         <div class="phone-wrapper">
-          <img class="menu-icon" src="extension/anima/catalog/view/image/iconly-sharp-call.svg" alt="Call" />
+          <img class="menu-icon" src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-call.svg" alt="Call" />
           <div class="phone-number">{{ telephone ?: '965-22091914' }}</div>
         </div>
         
         <!-- Search -->
         <a href="{{ search }}" class="menu-icon-link">
-          <img class="menu-icon" src="extension/anima/catalog/view/image/iconly-sharp-search-1.svg" alt="Search" />
+          <img class="menu-icon" src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-search-1.svg" alt="Search" />
         </a>
         
         <!-- Wishlist -->
         <a href="{{ wishlist }}" class="menu-icon-link" id="wishlist-total">
-          <img class="menu-icon" src="extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
+          <img class="menu-icon" src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
           {% if wishlist_total %}
             <span class="badge">{{ wishlist_total }}</span>
           {% endif %}
@@ -126,7 +122,7 @@
         
         <!-- Cart -->
         <a href="{{ shopping_cart }}" class="menu-icon-link" id="cart-total">
-          <img class="menu-icon" src="extension/anima/catalog/view/image/iconly-sharp-bag-2.svg" alt="Cart" />
+          <img class="menu-icon" src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-bag-2.svg" alt="Cart" />
           {% if cart_total %}
             <span class="badge">{{ cart_total }}</span>
           {% endif %}
@@ -134,7 +130,7 @@
         
         <!-- Account -->
         <a href="{{ account }}" class="menu-icon-link">
-          <img class="menu-icon" src="extension/anima/catalog/view/image/iconly-sharp-profile.svg" alt="Account" />
+          <img class="menu-icon" src="{{ base }}{{ base }}extension/anima/catalog/view/image/iconly-sharp-profile.svg" alt="Account" />
         </a>
       </div>
     </div>
