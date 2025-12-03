@@ -1,0 +1,23 @@
+{
+  "name": "Anima Theme",
+  "version": "1.0.0",
+  "author": "Anima Design",
+  "link": "https://github.com/abdullahshioncse/anima",
+  "license": {
+    "type": "GPL-3.0",
+    "url": "https://www.gnu.org/licenses/gpl-3.0.html"
+  },
+  "opencart_version": "4.1.0.3",
+  "type": "theme",
+  "description": "Modern e-commerce theme with Arabic RTL support, based on Anima design. Features clean product cards, responsive layout, and OpenCart 4.1.0.3 compatibility.",
+  "compatibility": ">=4.1.0.3",
+  "required": {
+    "php": ">=8.0.0",
+    "opencart": ">=4.1.0.0"
+  },
+  "support": {
+    "email": "support@example.com",
+    "docs": "https://github.com/abdullahshioncse/anima"
+  },
+  "tags": ["theme", "responsive", "rtl", "arabic", "modern", "ecommerce"]
+}
