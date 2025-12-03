@@ -155,4 +155,37 @@ class Anima extends \Opencart\System\Engine\Controller {
 
 		return !$this->error;
 	}
+
+	/**
+	 * Install method - called when theme is installed
+	 * Registers event hooks for template override
+	 *
+	 * @return void
+	 */
+	public function install(): void {
+		$this->load->model('setting/event');
+		
+		// Register event to override view templates
+		$this->model_setting_event->addEvent([
+			'code' => 'anima_theme',
+			'description' => 'Anima Theme Template Override',
+			'trigger' => 'catalog/view/*/before',
+			'action' => 'extension/anima/theme/anima.event',
+			'status' => true,
+			'sort_order' => 0
+		]);
+	}
+
+	/**
+	 * Uninstall method - called when theme is uninstalled
+	 * Removes event hooks
+	 *
+	 * @return void
+	 */
+	public function uninstall(): void {
+		$this->load->model('setting/event');
+		
+		// Remove event
+		$this->model_setting_event->deleteEventByCode('anima_theme');
+	}
 }
