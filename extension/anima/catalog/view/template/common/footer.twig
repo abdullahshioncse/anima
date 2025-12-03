@@ -1,0 +1,75 @@
+<footer class="footer">
+  <!-- Newsletter Subscription -->
+  <div class="email">
+    <p class="text-155 poppins-semi-bold-white-24px">{{ config_anima_newsletter_text|default('هل ترغب في الاشتراك في نشرتنا الإخبارية؟') }}</p>
+    <div class="email-1">
+      <form action="{{ newsletter }}" method="post" id="newsletter-form">
+        <input type="text" name="email" class="text-156 poppins-medium-eerie-black-16px" placeholder="{{ text_email|default('البريد الإلكتروني') }}" />
+        <button type="submit" class="button-3">
+          <div class="button-4 poppins-semi-bold-white-14px">{{ text_send|default('إرسال') }}</div>
+        </button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="info-2 info-3">
+    <div class="menu-2">
+      <!-- Payment Icons -->
+      <div class="payment-icons-2">
+        <article class="payment-icons"></article>
+        <article class="payment-icons"></article>
+        <article class="payment-icons-1">
+          <img class="visa-logo" src="catalog/view/theme/extension/anima/image/visa-logo-1.svg" alt="Visa" />
+        </article>
+        <article class="payment-icons-1">
+          <img class="apple-pay" src="catalog/view/theme/extension/anima/image/applepay-1.svg" alt="Apple Pay" />
+        </article>
+        <article class="payment-icons-1">
+          <img class="mastercard" src="catalog/view/theme/extension/anima/image/mastercard-1@2x.png" alt="Mastercard" />
+        </article>
+      </div>
+      
+      <!-- Footer Menu -->
+      <div class="menu-3">
+        <div class="menu-item">
+          <div class="menu">
+            <div class="text-157 poppins-bold-white-18px">{{ text_shop_now|default('تسوّق الآن') }}</div>
+            <a href="{{ mens_clothing }}" class="text-1 poppins-semi-bold-white-14px">{{ text_mens_clothing|default('ملابس رجالية') }}</a>
+            <a href="{{ womens_clothing }}" class="text-1 poppins-semi-bold-white-14px">{{ text_womens_clothing|default('ملابس نسائية') }}</a>
+            <a href="{{ accessories }}" class="text-1 poppins-semi-bold-white-14px">{{ text_accessories|default('إكسسوارات') }}</a>
+            <a href="{{ sale }}" class="text-1 poppins-semi-bold-white-14px">{{ text_sale|default('تخفيضات') }}</a>
+          </div>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu">
+            <div class="text-16 poppins-bold-white-18px">{{ text_contact_us|default('تواصل معنا') }}</div>
+            <a href="{{ contact }}" class="text-1-1 text-1-3 poppins-semi-bold-white-14px">{{ text_contact_us|default('تواصل معنا') }}</a>
+            <a href="{{ privacy_policy }}" class="text-1-1 text-1-3 poppins-semi-bold-white-14px">{{ text_privacy_policy|default('سياسه الخصوصيه') }}</a>
+            <a href="{{ return_policy }}" class="text-1-1 text-1-3 poppins-semi-bold-white-14px">{{ text_return_policy|default('سياسة الاسترجاع') }}</a>
+          </div>
+        </div>
+        
+        <div class="menu-item">
+          <div class="menu">
+            <div class="text-16 poppins-bold-white-18px">روابط سريعة</div>
+            <a href="{{ account }}" class="text-1-1 text-1-3 poppins-semi-bold-white-14px">حسابي</a>
+            <a href="{{ about_us }}" class="text-1-1 text-1-3 poppins-semi-bold-white-14px">{{ text_about_us|default('من نحن') }}</a>
+            <a href="{{ contact }}" class="text-1-1 text-1-3 poppins-semi-bold-white-14px">مساعدة</a>
+            <a href="{{ privacy_policy }}" class="text-1-1 text-1-3 poppins-semi-bold-white-14px">{{ text_privacy_policy|default('سياسة الخصوصية') }}</a>
+            <a href="{{ terms }}" class="text-1-1 text-1-3 poppins-semi-bold-white-14px">شروط الاستخدام</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-172 poppins-medium-white-14px">@{{ "now"|date("Y") }}</div>
+  </div>
+</footer>
+
+{% for script in scripts_bottom %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "Anima Theme",
+  "version": "1.0.0",
+  "author": "Abdullah Shion",
+  "link": "https://github.com/abdullahshioncse/anima",
+  "type": "theme",
+  "license": {
+    "type": "MIT"
+  },
+  "require": {
+    "opencart": "~4.1.0"
+  }
+}

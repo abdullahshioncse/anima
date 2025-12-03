@@ -1,0 +1,22 @@
+{{ header }}
+
+<div class="desktop-4 screen">
+  <!-- Page Title -->
+  <h1 class="text-217 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+  
+  <!-- Last Updated -->
+  {% if meta_date %}
+  <div class="number">
+    <img class="line-2 line" src="catalog/view/theme/extension/anima/image/line-2-1.svg" alt="Line" />
+    <div class="text-218">آخر تحديث: {{ meta_date }}</div>
+    <img class="line" src="catalog/view/theme/extension/anima/image/line-2-1.svg" alt="Line" />
+  </div>
+  {% endif %}
+  
+  <!-- Information Content -->
+  <div class="text-3">
+    {{ description }}
+  </div>
+</div>
+
+{{ footer }}

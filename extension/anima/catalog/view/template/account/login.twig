@@ -1,0 +1,35 @@
+{{ header }}
+
+<div class="iphone-13-u38-14-1 screen">
+  <div class="login-wrapper">
+    <h1 class="text-271 text">تسجيل الدخول</h1>
+    
+    <form action="{{ action }}" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label class="poppins-semi-bold-white-16px">{{ entry_email }}</label>
+        <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" class="form-control poppins-medium-eerie-black-16px" />
+      </div>
+      
+      <div class="form-group">
+        <label class="poppins-semi-bold-white-16px">{{ entry_password }}</label>
+        <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" class="form-control poppins-medium-eerie-black-16px" />
+        <a href="{{ forgotten }}" class="forgotten-link poppins-normal-white-12px">{{ text_forgotten }}</a>
+      </div>
+      
+      <div class="button-group">
+        <button type="submit" class="button-4">
+          <div class="button poppins-semi-bold-white-16px">{{ button_login }}</div>
+        </button>
+      </div>
+    </form>
+    
+    <div class="register-link">
+      <p class="poppins-normal-white-12px">{{ text_new_customer }}</p>
+      <a href="{{ register }}" class="button-3">
+        <div class="button poppins-medium-white-16px">{{ text_register }}</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+{{ footer }}

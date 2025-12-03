@@ -1,0 +1,80 @@
+{{ header }}
+
+<div class="iphone-13-u38-14-1 screen">
+  <div class="register-wrapper">
+    <h1 class="text-271 text">إنشاء حساب جديد</h1>
+    
+    <form action="{{ action }}" method="post" enctype="multipart/form-data">
+      <fieldset>
+        <legend>{{ text_your_details }}</legend>
+        
+        <div class="form-group required">
+          <label class="poppins-semi-bold-white-16px">{{ entry_firstname }}</label>
+          <input type="text" name="firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" class="form-control poppins-medium-eerie-black-16px" />
+        </div>
+        
+        <div class="form-group required">
+          <label class="poppins-semi-bold-white-16px">{{ entry_lastname }}</label>
+          <input type="text" name="lastname" value="{{ lastname }}" placeholder="{{ entry_lastname }}" class="form-control poppins-medium-eerie-black-16px" />
+        </div>
+        
+        <div class="form-group required">
+          <label class="poppins-semi-bold-white-16px">{{ entry_email }}</label>
+          <input type="email" name="email" value="{{ email }}" placeholder="{{ entry_email }}" class="form-control poppins-medium-eerie-black-16px" />
+        </div>
+        
+        <div class="form-group required">
+          <label class="poppins-semi-bold-white-16px">{{ entry_telephone }}</label>
+          <input type="tel" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" class="form-control poppins-medium-eerie-black-16px" />
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend>{{ text_your_password }}</legend>
+        
+        <div class="form-group required">
+          <label class="poppins-semi-bold-white-16px">{{ entry_password }}</label>
+          <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" class="form-control poppins-medium-eerie-black-16px" />
+        </div>
+        
+        <div class="form-group required">
+          <label class="poppins-semi-bold-white-16px">{{ entry_confirm }}</label>
+          <input type="password" name="confirm" value="{{ confirm }}" placeholder="{{ entry_confirm }}" class="form-control poppins-medium-eerie-black-16px" />
+        </div>
+      </fieldset>
+      
+      {% if config_account_newsletter %}
+      <fieldset>
+        <legend>{{ text_newsletter }}</legend>
+        <div class="form-group">
+          <label class="radio-inline">
+            <input type="radio" name="newsletter" value="1"{% if newsletter %} checked{% endif %} />
+            {{ text_yes }}
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="newsletter" value="0"{% if not newsletter %} checked{% endif %} />
+            {{ text_no }}
+          </label>
+        </div>
+      </fieldset>
+      {% endif %}
+      
+      {% if agree %}
+      <div class="form-group">
+        <label class="checkbox-inline">
+          <input type="checkbox" name="agree" value="1" />
+          {{ text_agree }}
+        </label>
+      </div>
+      {% endif %}
+      
+      <div class="button-group">
+        <button type="submit" class="button-4">
+          <div class="button poppins-semi-bold-white-16px">{{ button_continue }}</div>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{{ footer }}
