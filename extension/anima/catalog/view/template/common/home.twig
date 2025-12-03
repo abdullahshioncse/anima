@@ -1,0 +1,234 @@
+{{ header }}
+
+<!-- Hero Banner Section -->
+<section class="hero-banner">
+  <div class="banner-image">
+    <img src="extension/anima/catalog/view/image/rectangle-5-1.png" alt="Banner" />
+  </div>
+  <div class="banner-content">
+    <h1 class="banner-title">{{ language.get('text_shop_now') ?: 'تسوّق الآن' }}</h1>
+    <div class="banner-buttons">
+      <a href="{{ view_details_url }}" class="btn btn-outline">{{ language.get('button_view_details') ?: 'عرض التفاصيل' }}</a>
+      <a href="{{ shop_url }}" class="btn btn-primary">{{ language.get('button_start_shopping') ?: 'ابدأ التسوّق' }}</a>
+    </div>
+    <div class="banner-indicators">
+      <span class="indicator"></span>
+      <span class="indicator"></span>
+      <span class="indicator"></span>
+      <span class="indicator active"></span>
+    </div>
+  </div>
+</section>
+
+<!-- Content Top -->
+{{ content_top }}
+
+<!-- Products You May Like Section -->
+<section class="products-section you-may-like">
+  <div class="container-fluid">
+    <h2 class="section-title">{{ language.get('text_you_may_like') ?: 'منتجات قد تعجبك' }}</h2>
+    
+    <div class="products-grid">
+      {% if products_may_like %}
+        {% for product in products_may_like %}
+          <article class="product-card">
+            <div class="product-info">
+              <div class="product-image">
+                <a href="{{ product.href }}">
+                  <img src="{{ product.thumb }}" alt="{{ product.name }}" />
+                </a>
+                <button type="button" class="wishlist-btn" onclick="wishlist.add('{{ product.product_id }}');">
+                  <img src="extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
+                </button>
+                {% if product.special %}
+                  <div class="product-badge">
+                    <span class="badge-text">{{ language.get('text_new_collection') ?: 'مجموعة جديدة' }}</span>
+                  </div>
+                {% endif %}
+              </div>
+              <div class="product-details">
+                <p class="product-name">{{ product.name }}</p>
+                <div class="product-model">{{ product.model }}</div>
+              </div>
+              <div class="product-price">
+                {% if product.special %}
+                  <span class="price-old">{{ product.price }}</span>
+                  <span class="price-new">{{ product.special }}</span>
+                {% else %}
+                  <span class="price">{{ product.price }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <button type="button" class="add-to-cart-btn" onclick="cart.add('{{ product.product_id }}');">
+              {{ language.get('button_add_to_cart') ?: 'أضف إلى السلة' }}
+            </button>
+          </article>
+        {% endfor %}
+      {% else %}
+        {% for i in 1..4 %}
+          <article class="product-card">
+            <div class="product-info">
+              <div class="product-image">
+                <img src="extension/anima/catalog/view/image/placeholder.png" alt="Product" />
+                <button type="button" class="wishlist-btn">
+                  <img src="extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
+                </button>
+              </div>
+              <div class="product-details">
+                <p class="product-name">T-SHIRT ENERGY - Red and White -</p>
+                <div class="product-model">8001254914589</div>
+              </div>
+              <div class="product-price">
+                <span class="price">5.000KD</span>
+              </div>
+            </div>
+            <button type="button" class="add-to-cart-btn">
+              {{ language.get('button_add_to_cart') ?: 'أضف إلى السلة' }}
+            </button>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="carousel-indicators">
+      <span class="indicator"></span>
+      <span class="indicator"></span>
+      <span class="indicator"></span>
+      <span class="indicator active"></span>
+    </div>
+
+    <!-- Navigation Arrows -->
+    <div class="carousel-arrows">
+      <button class="arrow arrow-left">
+        <img src="extension/anima/catalog/view/image/iconly-sharp-arrow---left.svg" alt="Previous" />
+      </button>
+      <button class="arrow arrow-right">
+        <img src="extension/anima/catalog/view/image/iconly-sharp-arrow---left-1.svg" alt="Next" />
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- New Arrivals Section -->
+<section class="products-section new-arrivals">
+  <div class="container-fluid">
+    <div class="section-header">
+      <h2 class="section-title">{{ language.get('text_new_arrivals') ?: 'وصل حديثًا' }}</h2>
+      <div class="category-tabs">
+        {% if categories %}
+          {% for category in categories|slice(0, 3) %}
+            <div class="category-tab{% if loop.first %} active{% endif %}">
+              <a href="{{ category.href }}" class="tab-link">{{ category.name }}</a>
+              {% if loop.first %}
+                <span class="tab-underline"></span>
+              {% endif %}
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="category-tab active">
+            <span class="tab-link">ملابس رجالية</span>
+            <span class="tab-underline"></span>
+          </div>
+          <div class="category-tab">
+            <span class="tab-link">ملابس نسائية</span>
+          </div>
+          <div class="category-tab">
+            <span class="tab-link">إكسسوارات</span>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="products-grid">
+      {% if products_new %}
+        {% for product in products_new %}
+          <article class="product-card">
+            <div class="product-info">
+              <div class="product-image">
+                <a href="{{ product.href }}">
+                  <img src="{{ product.thumb }}" alt="{{ product.name }}" />
+                </a>
+                <button type="button" class="wishlist-btn" onclick="wishlist.add('{{ product.product_id }}');">
+                  <img src="extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
+                </button>
+                <div class="product-badge">
+                  <span class="badge-text">{{ language.get('text_new_collection') ?: 'مجموعة جديدة' }}</span>
+                </div>
+              </div>
+              <div class="product-details">
+                <p class="product-name">{{ product.name }}</p>
+                <div class="product-model">{{ product.model }}</div>
+              </div>
+              <div class="product-price">
+                {% if product.special %}
+                  <span class="price-old">{{ product.price }}</span>
+                  <span class="price-new">{{ product.special }}</span>
+                {% else %}
+                  <span class="price">{{ product.price }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <button type="button" class="add-to-cart-btn" onclick="cart.add('{{ product.product_id }}');">
+              {{ language.get('button_add_to_cart') ?: 'أضف إلى السلة' }}
+            </button>
+          </article>
+        {% endfor %}
+      {% else %}
+        {% for i in 1..4 %}
+          <article class="product-card">
+            <div class="product-info">
+              <div class="product-image">
+                <img src="extension/anima/catalog/view/image/placeholder.png" alt="Product" />
+                <button type="button" class="wishlist-btn">
+                  <img src="extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
+                </button>
+                <div class="product-badge">
+                  <span class="badge-text">{{ language.get('text_new_collection') ?: 'مجموعة جديدة' }}</span>
+                </div>
+              </div>
+              <div class="product-details">
+                <p class="product-name">T-SHIRT ENERGY - Red and White -</p>
+                <div class="product-model">8001254914589</div>
+              </div>
+              <div class="product-price">
+                <span class="price">5.000KD</span>
+              </div>
+            </div>
+            <button type="button" class="add-to-cart-btn">
+              {{ language.get('button_add_to_cart') ?: 'أضف إلى السلة' }}
+            </button>
+          </article>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="carousel-indicators">
+      <span class="indicator"></span>
+      <span class="indicator"></span>
+      <span class="indicator"></span>
+      <span class="indicator active"></span>
+    </div>
+
+    <button class="view-all-btn">
+      {{ language.get('button_view_all') ?: 'عرض الكل' }}
+    </button>
+
+    <!-- Navigation Arrows -->
+    <div class="carousel-arrows">
+      <button class="arrow arrow-left">
+        <img src="extension/anima/catalog/view/image/iconly-sharp-arrow---left.svg" alt="Previous" />
+      </button>
+      <button class="arrow arrow-right">
+        <img src="extension/anima/catalog/view/image/iconly-sharp-arrow---left-1.svg" alt="Next" />
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Content Bottom -->
+{{ content_bottom }}
+
+{{ column_left }}
+{{ column_right }}
+
+{{ footer }}

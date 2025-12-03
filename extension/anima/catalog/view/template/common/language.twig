@@ -1,0 +1,29 @@
+<form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-language">
+  <div class="btn-group">
+    <button type="button" class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">
+      {% if code == 'ar' %}
+        <img src="catalog/view/image/flags/ar.png" alt="{{ name }}" title="{{ name }}" />
+      {% else %}
+        <img src="catalog/view/image/flags/{{ code }}.png" alt="{{ name }}" title="{{ name }}" />
+      {% endif %}
+      <span class="d-none d-md-inline">{{ name }}</span>
+      <i class="fa-solid fa-caret-down"></i>
+    </button>
+    <ul class="dropdown-menu">
+      {% for language in languages %}
+        <li>
+          <button type="button" name="code" value="{{ language.code }}" class="dropdown-item">
+            {% if language.code == 'ar' %}
+              <img src="catalog/view/image/flags/ar.png" alt="{{ language.name }}" title="{{ language.name }}" />
+            {% else %}
+              <img src="catalog/view/image/flags/{{ language.code }}.png" alt="{{ language.name }}" title="{{ language.name }}" />
+            {% endif %}
+            {{ language.name }}
+          </button>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <input type="hidden" name="code" value="" />
+  <input type="hidden" name="redirect" value="{{ redirect }}" />
+</form>
