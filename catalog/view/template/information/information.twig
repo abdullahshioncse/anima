@@ -1,0 +1,72 @@
+{{ header }}
+
+<div class="desktop-4 screen">
+  <!-- Breadcrumb -->
+  {% if breadcrumbs %}
+    <ol class="breadcrumb">
+      {% for breadcrumb in breadcrumbs %}
+        <li class="breadcrumb-item">
+          {% if not loop.last %}
+            <a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a>
+          {% else %}
+            {{ breadcrumb.text }}
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  {% endif %}
+  
+  <!-- Page Title -->
+  <h1 class="text-217 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+  
+  <!-- Last Updated Info -->
+  {% if date_modified %}
+    <div class="number">
+      <img class="line-2 line" src="catalog/view/theme/anima/image/line-2-1.svg" alt="Line">
+      <div class="text-218">{{ text_last_updated|default('آخر تحديث:') }} {{ date_modified }}</div>
+      <img class="line" src="catalog/view/theme/anima/image/line-2-1.svg" alt="Line">
+    </div>
+  {% endif %}
+  
+  <!-- Page Content -->
+  <div class="text-3">
+    {{ description }}
+  </div>
+  
+  <!-- Additional Sections (if present) -->
+  {% if sections %}
+    {% for section in sections %}
+      <div class="text-1">
+        <div class="text-2 poppins-semi-bold-eerie-black-24px">{{ section.title }}</div>
+        <div class="poppins-medium-eerie-black-18px">
+          {{ section.content }}
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+  
+  <!-- Contact Information (for contact page) -->
+  {% if telephone or email %}
+    <div class="email">
+      {% if email %}
+        <div class="infosportakwcom poppins-medium-eerie-black-18px">
+          <a href="mailto:{{ email }}">{{ email }}</a>
+        </div>
+      {% endif %}
+      {% if telephone %}
+        <div class="phone poppins-medium-eerie-black-18px">
+          <a href="tel:{{ telephone }}">{{ telephone }}</a>
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+  
+  <!-- Continue/Back Button -->
+  <div class="buttons">
+    <div class="float-end">
+      <a href="{{ continue }}" class="btn btn-primary">{{ button_continue|default('متابعة') }}</a>
+    </div>
+  </div>
+</div>
+
+{{ footer }}

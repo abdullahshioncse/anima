@@ -1,0 +1,25 @@
+{
+  "name": "Anima",
+  "version": "1.0.0",
+  "author": "Anima Team",
+  "link": "https://animaapp.com",
+  "opencart_version": "4.0.1.3",
+  "description": "A modern, responsive OpenCart theme with Arabic RTL support. Features clean design, product showcase, and full e-commerce functionality.",
+  "compatibility": ">=4.0.0.0",
+  "type": "theme",
+  "license": "Commercial",
+  "support": {
+    "email": "Info@sportakw.com",
+    "phone": "00965 22091914"
+  },
+  "features": [
+    "Responsive design (Desktop & Mobile)",
+    "RTL (Right-to-Left) support for Arabic",
+    "Modern product cards",
+    "Clean navigation",
+    "Custom color scheme",
+    "Category listings",
+    "Product detail pages",
+    "Information pages"
+  ]
+}
