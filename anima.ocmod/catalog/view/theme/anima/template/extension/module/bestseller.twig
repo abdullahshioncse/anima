@@ -15,7 +15,7 @@
         <div class="poppins-semi-bold-eerie-black-16px">{{ product.price }}</div>
       </div>
       <div class="button-2">
-        <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button poppins-semi-bold-white-16px">أضف إلى السلة</button>
+        <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button poppins-semi-bold-white-16px">{{ button_cart }}</button>
       </div>
     </article>
     {% endfor %}

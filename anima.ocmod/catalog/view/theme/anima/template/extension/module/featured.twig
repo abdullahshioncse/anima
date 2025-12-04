@@ -12,7 +12,7 @@
           {% if product.special %}
           <div class="frame-5-1">
             <div class="button-1">
-              <div class="button poppins-medium-white-14px">مجموعة جديدة</div>
+              <div class="button poppins-medium-white-14px">{{ text_sale }}</div>
             </div>
           </div>
           {% endif %}
@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="button-2">
-        <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button poppins-semi-bold-white-16px">أضف إلى السلة</button>
+        <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button poppins-semi-bold-white-16px">{{ button_cart }}</button>
       </div>
     </article>
     {% endfor %}
