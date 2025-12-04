@@ -24,9 +24,11 @@ Following the reference repository (abdullahshioncse/plam), the following direct
 │       ├── stylesheet/
 │       │   └── fonts/
 │       └── template/
-│           ├── account/
-│           ├── common/
-│           └── product/
+│           ├── extension/
+│           │   └── oc_theme_anima/
+│           │       ├── common/
+│           │       └── product/
+│           └── account/
 └── system/
     ├── helper/
     └── library/
@@ -53,37 +55,39 @@ Following the reference repository (abdullahshioncse/plam), the following direct
 
 #### Templates Created:
 
-**catalog/view/template/common/header.twig**
+**catalog/view/template/extension/oc_theme_anima/common/header.twig**
 - Converted from HTML header section
 - Includes: info bar, sale banner, navigation menu
 - Integrated OpenCart variables: {{ name }}, {{ telephone }}, {{ categories }}
 - Added wishlist and cart links
 
-**catalog/view/template/common/footer.twig**
+**catalog/view/template/extension/oc_theme_anima/common/footer.twig**
 - Converted from HTML footer section
 - Newsletter subscription form
 - Payment method icons
 - Three-column menu structure
 - Integrated OpenCart variables for links
 
-**catalog/view/template/common/home.twig**
+**catalog/view/template/extension/oc_theme_anima/common/home.twig**
 - Converted from desktop-1.html
 - Hero banner section
 - "You May Like" product section
 - "New Arrivals" product section
 - Product cards with OpenCart integration
 
-**catalog/view/template/product/category.twig**
+**catalog/view/template/extension/oc_theme_anima/product/category.twig**
 - Converted from desktop-3.html
 - Category title and product count
 - Product grid with cards
 - Pagination support
 
-**catalog/view/template/product/product.twig**
+**catalog/view/template/extension/oc_theme_anima/product/product.twig**
 - Product detail page
 - Product images and information
 - Add to cart functionality
 - Related products section
+
+**Note:** Templates are placed in the `extension/oc_theme_anima/` subdirectory to match OpenCart 4.x extension architecture requirements.
 
 ### 4. OpenCart Integration Files
 

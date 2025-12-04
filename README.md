@@ -12,20 +12,39 @@ An Arabic RTL e-commerce theme for OpenCart 4.0.1.3, converted from a static HTM
 
 ## Installation
 
-1. Upload the theme files to your OpenCart installation directory, maintaining the folder structure:
-   - `admin/` - Admin panel files
-   - `catalog/` - Frontend theme files
-   - `system/` - System files (if any)
+1. **Upload Theme Files**
+   - Upload the entire theme directory to your OpenCart installation root directory
+   - Make sure to maintain the folder structure:
+     - `admin/` - Admin panel files
+     - `catalog/` - Frontend theme files
+     - `system/` - System files (if any)
+   - All files should merge with existing OpenCart directories
 
-2. Go to **Extensions → Extensions** in your OpenCart admin panel
+2. **Install the Theme Extension**
+   - Go to **Extensions → Extensions** in your OpenCart admin panel
+   - Filter by **Themes**
+   - Find **Anima Theme** in the list
+   - Click the **Install** button (green plus icon)
+   - After installation, click **Edit** to enable the theme
 
-3. Filter by **Themes** and find **Anima Theme**
+3. **Set as Default Theme**
+   - Go to **System → Settings**
+   - Click **Edit** on your store
+   - Go to the **Server** tab
+   - In the **Theme** dropdown, select **Anima Theme** (or **theme_anima**)
+   - Click **Save**
 
-4. Click **Install** to install the theme
+4. **Verify Installation**
+   - Clear your browser cache
+   - Visit your store's frontend
+   - You should see the Anima theme with Arabic RTL layout and custom styling
 
-5. Click **Edit** to enable the theme
-
-6. Go to **System → Settings**, edit your store, and select **Anima Theme** as the theme
+**Troubleshooting:**
+- If the frontend still shows the default theme after installation:
+  - Make sure you selected the theme in System → Settings → Server tab
+  - Clear OpenCart cache: System → Maintenance → Clear cache
+  - Check that the startup entry exists in System → Maintenance → Startup
+  - Verify theme status is enabled in Extensions → Themes → Anima Theme → Edit
 
 ## Directory Structure
 
@@ -59,13 +78,15 @@ An Arabic RTL e-commerce theme for OpenCart 4.0.1.3, converted from a static HTM
 │       │   ├── styleguide.css
 │       │   └── [page-specific CSS files]
 │       └── template
-│           ├── common
-│           │   ├── header.twig
-│           │   ├── footer.twig
-│           │   └── home.twig
-│           ├── product
-│           │   ├── category.twig
-│           │   └── product.twig
+│           ├── extension
+│           │   └── oc_theme_anima
+│           │       ├── common
+│           │       │   ├── header.twig
+│           │       │   ├── footer.twig
+│           │       │   └── home.twig
+│           │       └── product
+│           │           ├── category.twig
+│           │           └── product.twig
 │           └── account
 └── system
     ├── helper
