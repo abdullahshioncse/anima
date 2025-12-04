@@ -74,10 +74,10 @@
       </div>
       
       <div class="button-group">
-        <button type="button" id="button-cart" class="button-2 poppins-semi-bold-white-16px">
+        <button type="button" id="button-cart" data-product-id="{{ product_id }}" class="button-2 poppins-semi-bold-white-16px btn-cart-product">
           أضف إلى السلة
         </button>
-        <button type="button" class="wishlist">
+        <button type="button" class="wishlist" data-product-id="{{ product_id }}">
           <img class="iconly-sharp" src="catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
         </button>
       </div>
@@ -110,7 +110,9 @@
         <div class="x5000-kd poppins-semi-bold-eerie-black-16px">{{ product.price }}</div>
       </div>
       <div class="button-1">
-        <div class="button-3 poppins-semi-bold-white-16px">أضف إلى السلة</div>
+        <div class="button-3 poppins-semi-bold-white-16px">
+          <button type="button" data-product-id="{{ product.product_id }}" class="btn-cart">أضف إلى السلة</button>
+        </div>
       </div>
     </article>
     {% endfor %}

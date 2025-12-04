@@ -49,7 +49,8 @@
 <div class="you-may-like">
   <div class="text-1 text-5 poppins-semi-bold-eerie-black-40px">منتجات قد تعجبك</div>
   <div class="cards">
-    {% for product in products_you_may_like %}
+    {% if products is defined %}
+    {% for product in products %}
     <article class="card">
       <div class="info-1">
         <div class="image">
@@ -108,7 +109,8 @@
     </div>
   </div>
   <div class="cards">
-    {% for product in products_new %}
+    {% if latest_products is defined %}
+    {% for product in latest_products %}
     <article class="card">
       <div class="info-1">
         <div class="image">
@@ -128,6 +130,7 @@
       <div class="button-2"><div class="button poppins-semi-bold-white-16px">أضف إلى السلة</div></div>
     </article>
     {% endfor %}
+    {% endif %}
   </div>
   <div class="way-3">
     <div class="rectangle-116-1"></div>

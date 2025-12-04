@@ -62,6 +62,14 @@ The theme follows the OpenCart 4.0.1.3 standard directory structure:
 - **Fonts**: Custom fonts are located in `catalog/view/javascript/fonts/`
   - Plus Jakarta Display Medium
 
+## JavaScript
+
+The theme includes a custom JavaScript file (`catalog/view/javascript/anima.js`) that handles:
+- Safe add-to-cart functionality using data attributes
+- Wishlist functionality
+- Event-driven approach without inline onclick handlers
+- Compatibility with OpenCart's native cart system
+
 ## Template Files
 
 ### Common Templates
