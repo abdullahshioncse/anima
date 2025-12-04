@@ -1,0 +1,50 @@
+{{ header }}
+
+<h1 class="text-173 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+<div class="number-1">
+  <img class="line-2 line-3" src="extension/oc_theme_anima/catalog/view/image/line-2-1.svg" alt="Line 2" />
+  <p class="text-174">تم العثور على {{ product_total }} منتجًا</p>
+  <img class="line" src="extension/oc_theme_anima/catalog/view/image/line-2-1.svg" alt="Line 3" />
+</div>
+
+{% if products %}
+<div class="cards">
+  {% for product in products %}
+  <article class="card">
+    <div class="info">
+      <div class="image">
+        <a href="{{ product.wishlist }}" class="wishlist-icon">
+          <img class="iconly-sharp" src="extension/oc_theme_anima/catalog/view/image/iconly-sharp-heart.svg" alt="Iconly/Sharp/Heart" />
+        </a>
+        {% if product.special %}
+        <div class="frame-5 frame">
+          <div class="button"><div class="button-5 poppins-medium-white-14px">مجموعة جديدة</div></div>
+        </div>
+        {% endif %}
+        <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a>
+      </div>
+      <div class="info-1 info-3">
+        <p class="t-shirt-energy-red-and-white poppins-medium-eerie-black-12px">
+          <a href="{{ product.href }}">{{ product.name }}</a>
+        </p>
+        <div class="phone poppins-normal-eerie-black-12px">{{ product.model }}</div>
+      </div>
+      <div class="x5000-kd poppins-semi-bold-eerie-black-16px">{{ product.price }}</div>
+    </div>
+    <div class="button-1">
+      <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button-2 poppins-semi-bold-white-16px">أضف إلى السلة</button>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+
+<!-- Pagination -->
+{% if pagination %}
+<div class="pagination">{{ pagination }}</div>
+{% endif %}
+
+{% else %}
+<p>{{ text_no_results }}</p>
+{% endif %}
+
+{{ footer }}
