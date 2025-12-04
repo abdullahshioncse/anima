@@ -1,5 +1,5 @@
 <?php
-namespace Opencart\Admin\Controller\Theme;
+namespace Opencart\Admin\Controller\Extension\Theme;
 
 /**
  * Class Anima
@@ -7,7 +7,7 @@ namespace Opencart\Admin\Controller\Theme;
  * Admin Controller for Anima Theme Settings
  * OpenCart 4.1.0.3 Compatible
  * 
- * @package Opencart\Admin\Controller\Theme
+ * @package Opencart\Admin\Controller\Extension\Theme
  */
 class Anima extends \Opencart\System\Engine\Controller {
     
@@ -19,7 +19,7 @@ class Anima extends \Opencart\System\Engine\Controller {
      * @return void
      */
     public function index(): void {
-        $this->load->language('theme/anima');
+        $this->load->language('extension/theme/anima');
         
         $this->document->setTitle($this->language->get('heading_title'));
         
@@ -45,7 +45,7 @@ class Anima extends \Opencart\System\Engine\Controller {
         $data['column_left'] = $this->load->controller('common/column_left');
         $data['footer'] = $this->load->controller('common/footer');
         
-        $this->response->setOutput($this->load->view('theme/anima', $data));
+        $this->response->setOutput($this->load->view('extension/theme/anima', $data));
     }
     
     /**
@@ -92,7 +92,7 @@ class Anima extends \Opencart\System\Engine\Controller {
         }
         
         // Actions
-        $data['action'] = $this->url->link('theme/anima', 'user_token=' . $this->session->data['user_token']);
+        $data['action'] = $this->url->link('extension/theme/anima', 'user_token=' . $this->session->data['user_token']);
         $data['cancel'] = $this->url->link('marketplace/extension', 'user_token=' . $this->session->data['user_token'] . '&type=theme');
         
         // Settings
@@ -168,7 +168,7 @@ class Anima extends \Opencart\System\Engine\Controller {
         
         $breadcrumbs[] = [
             'text' => $this->language->get('heading_title'),
-            'href' => $this->url->link('theme/anima', 'user_token=' . $this->session->data['user_token'])
+            'href' => $this->url->link('extension/theme/anima', 'user_token=' . $this->session->data['user_token'])
         ];
         
         return $breadcrumbs;
@@ -180,7 +180,7 @@ class Anima extends \Opencart\System\Engine\Controller {
      * @return bool
      */
     private function validate(): bool {
-        if (!$this->user->hasPermission('modify', 'theme/anima')) {
+        if (!$this->user->hasPermission('modify', 'extension/theme/anima')) {
             $this->error['warning'] = $this->language->get('error_permission');
         }
         

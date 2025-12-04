@@ -15,10 +15,10 @@
     "catalog/view/theme/anima/**",
     "catalog/language/en-gb/theme/anima.php",
     "catalog/language/ar/theme/anima.php",
-    "admin/controller/theme/anima.php",
-    "admin/language/en-gb/theme/anima.php",
-    "admin/language/ar/theme/anima.php",
-    "admin/view/template/theme/anima.twig"
+    "admin/controller/extension/theme/anima.php",
+    "admin/language/en-gb/extension/theme/anima.php",
+    "admin/language/ar/extension/theme/anima.php",
+    "admin/view/template/extension/theme/anima.twig"
   ],
   "dirs": [
     "catalog/controller/theme",
@@ -26,9 +26,9 @@
     "catalog/view/theme/anima",
     "catalog/language/en-gb/theme",
     "catalog/language/ar/theme",
-    "admin/controller/theme",
-    "admin/language/en-gb/theme",
-    "admin/language/ar/theme",
-    "admin/view/template/theme"
+    "admin/controller/extension/theme",
+    "admin/language/en-gb/extension/theme",
+    "admin/language/ar/extension/theme",
+    "admin/view/template/extension/theme"
   ]
 }
