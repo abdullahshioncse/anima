@@ -1,0 +1,34 @@
+{
+  "name": "Anima Theme",
+  "version": "1.0.0",
+  "author": "Abdullah Shion",
+  "link": "https://github.com/abdullahshioncse/anima",
+  "license": {
+    "type": "MIT",
+    "url": "https://opensource.org/licenses/MIT"
+  },
+  "opencart_version": "4.1.0.3",
+  "type": "theme",
+  "files": [
+    "catalog/controller/theme/anima.php",
+    "catalog/model/theme/anima.php",
+    "catalog/view/theme/anima/**",
+    "catalog/language/en-gb/theme/anima.php",
+    "catalog/language/ar/theme/anima.php",
+    "admin/controller/theme/anima.php",
+    "admin/language/en-gb/theme/anima.php",
+    "admin/language/ar/theme/anima.php",
+    "admin/view/template/theme/anima.twig"
+  ],
+  "dirs": [
+    "catalog/controller/theme",
+    "catalog/model/theme",
+    "catalog/view/theme/anima",
+    "catalog/language/en-gb/theme",
+    "catalog/language/ar/theme",
+    "admin/controller/theme",
+    "admin/language/en-gb/theme",
+    "admin/language/ar/theme",
+    "admin/view/template/theme"
+  ]
+}
