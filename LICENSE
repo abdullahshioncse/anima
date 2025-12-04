@@ -1,0 +1,94 @@
+MIT License
+
+Copyright (c) 2025 Abdullah Shion
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Third-Party Assets
+
+This theme includes the following third-party assets:
+
+### Fonts
+
+**Poppins Font**
+- Copyright: Indian Type Foundry, Jonny Pinhorn
+- License: SIL Open Font License 1.1
+- Source: Google Fonts
+- URL: https://fonts.google.com/specimen/Poppins
+
+**Plus Jakarta Display**
+- License: SIL Open Font License 1.1
+- Included in: catalog/view/theme/anima/stylesheet/fonts/
+
+### Icons
+
+**Iconly Sharp Icon Set**
+- Copyright: Piqo Design
+- License: Free for commercial use
+- Used with permission for e-commerce applications
+
+### CSS Reset
+
+**Meyer Reset**
+- Copyright: Eric Meyer
+- License: Public Domain
+- Source: https://meyerweb.com/eric/tools/css/reset/
+
+### OpenCart
+
+This theme is designed for OpenCart:
+- Copyright: OpenCart Limited
+- License: GNU General Public License v3.0
+- URL: https://www.opencart.com/
+
+---
+
+## Attribution
+
+When using this theme, attribution is appreciated but not required. If you choose to provide attribution, please use:
+
+"Anima Theme by Abdullah Shion - https://github.com/abdullahshioncse/anima"
+
+---
+
+## Disclaimer
+
+This software is provided "as is" without warranty of any kind. The authors are not responsible for any damages or losses resulting from the use of this software.
+
+While this theme is designed to work with OpenCart 4.1.0.3, it is the user's responsibility to:
+- Test thoroughly before deploying to production
+- Keep regular backups of their store
+- Ensure compatibility with other extensions
+- Follow security best practices
+
+---
+
+## Contact
+
+For licensing questions or permissions beyond the scope of this license:
+
+- GitHub: https://github.com/abdullahshioncse/anima
+- Email: info@sportakw.com
+- Phone: 965-22091914
+
+---
+
+Last Updated: January 4, 2025
