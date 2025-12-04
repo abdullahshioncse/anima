@@ -1,0 +1,82 @@
+{{ header }}
+
+<div class="account-register screen">
+  <div class="container">
+    <h1 class="poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+    
+    <p class="poppins-medium-eerie-black-16px">{{ text_account_already }}</p>
+    
+    <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-register">
+      <fieldset>
+        <legend class="poppins-semi-bold-eerie-black-24px">{{ text_your_details }}</legend>
+        
+        <div class="form-group required">
+          <label for="input-firstname" class="poppins-medium-eerie-black-16px">{{ entry_firstname }}</label>
+          <input type="text" name="firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" id="input-firstname" class="form-control" required/>
+        </div>
+        
+        <div class="form-group required">
+          <label for="input-lastname" class="poppins-medium-eerie-black-16px">{{ entry_lastname }}</label>
+          <input type="text" name="lastname" value="{{ lastname }}" placeholder="{{ entry_lastname }}" id="input-lastname" class="form-control" required/>
+        </div>
+        
+        <div class="form-group required">
+          <label for="input-email" class="poppins-medium-eerie-black-16px">{{ entry_email }}</label>
+          <input type="email" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" required/>
+        </div>
+        
+        <div class="form-group required">
+          <label for="input-telephone" class="poppins-medium-eerie-black-16px">{{ entry_telephone }}</label>
+          <input type="tel" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" class="form-control" required/>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend class="poppins-semi-bold-eerie-black-24px">{{ text_your_password }}</legend>
+        
+        <div class="form-group required">
+          <label for="input-password" class="poppins-medium-eerie-black-16px">{{ entry_password }}</label>
+          <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="form-control" required/>
+        </div>
+        
+        <div class="form-group required">
+          <label for="input-confirm" class="poppins-medium-eerie-black-16px">{{ entry_confirm }}</label>
+          <input type="password" name="confirm" value="{{ confirm }}" placeholder="{{ entry_confirm }}" id="input-confirm" class="form-control" required/>
+        </div>
+      </fieldset>
+      
+      <fieldset>
+        <legend class="poppins-semi-bold-eerie-black-24px">{{ text_newsletter }}</legend>
+        
+        <div class="form-group">
+          <label class="poppins-medium-eerie-black-16px">{{ entry_newsletter }}</label>
+          <div class="radio">
+            <label>
+              <input type="radio" name="newsletter" value="1" {% if newsletter %}checked{% endif %}/>
+              {{ text_yes }}
+            </label>
+            <label>
+              <input type="radio" name="newsletter" value="0" {% if not newsletter %}checked{% endif %}/>
+              {{ text_no }}
+            </label>
+          </div>
+        </div>
+      </fieldset>
+      
+      {% if agree %}
+      <div class="form-group">
+        <label>
+          <input type="checkbox" name="agree" value="1" required/>
+          {{ text_agree }}
+        </label>
+      </div>
+      {% endif %}
+      
+      <div class="buttons">
+        <button type="submit" class="button-register poppins-semi-bold-white-16px">{{ button_continue }}</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+{{ footer }}
