@@ -23,7 +23,7 @@
       <div class="search-options">
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="description" value="1" {% if description %}checked{% endif %}>
+            <input type="checkbox" name="description" value="1" {% if description %}checked="checked"{% endif %}>
             {{ text_description|default('البحث في الوصف') }}
           </label>
         </div>
@@ -34,14 +34,14 @@
           <select name="category_id" id="input-category" class="form-control">
             <option value="0">{{ text_all_categories|default('جميع الأقسام') }}</option>
             {% for category in categories %}
-            <option value="{{ category.category_id }}" {% if category.category_id == category_id %}selected{% endif %}>{{ category.name }}</option>
+            <option value="{{ category.category_id }}" {% if category.category_id == category_id %}selected="selected"{% endif %}>{{ category.name }}</option>
             {% endfor %}
           </select>
         </div>
         
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="sub_category" value="1" {% if sub_category %}checked{% endif %}>
+            <input type="checkbox" name="sub_category" value="1" {% if sub_category %}checked="checked"{% endif %}>
             {{ text_sub_category|default('البحث في الأقسام الفرعية') }}
           </label>
         </div>
