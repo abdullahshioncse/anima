@@ -1,13 +1,11 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
 @import url("https://fonts.googleapis.com/css?family=Poppins:500,400,700,600");
-/* The following line is used to measure usage of this code. You can remove it if you want. */
-@import url("https://px.animaapp.com/69024c344e1c71fb6c05aa2a.69024c354e1c71fb6c05aa2d.QEgsGOj.hcp.png");
 
 @font-face {
   font-family: "Plus Jakarta Display-Medium";
   font-style: normal;
   font-weight: 500;
-  src: url("../fonts/PlusJakartaDisplay-Medium.ttf") format("truetype");
+  src: url("fonts/PlusJakartaDisplay-Medium.ttf") format("truetype");
 }
 
 

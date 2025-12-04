@@ -1,0 +1,12 @@
+# Original static HTML files (converted to Twig templates)
+*.html
+
+# Original CSS and image directories (moved to catalog/view/)
+/css/
+/img/
+/fonts/
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
