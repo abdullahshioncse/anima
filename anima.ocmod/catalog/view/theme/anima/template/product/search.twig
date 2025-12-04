@@ -1,0 +1,51 @@
+{{ header }}
+
+<div id="product-search" class="container">
+  <h1>{{ heading_title }}</h1>
+  
+  <div class="search-form">
+    <div class="form-group">
+      <label for="input-search">{{ entry_search }}</label>
+      <input type="text" name="search" value="{{ search }}" placeholder="{{ entry_search }}" id="input-search" class="form-control" />
+    </div>
+    
+    <div class="form-group">
+      <label for="input-category">{{ entry_category }}</label>
+      <select name="category_id" id="input-category" class="form-control">
+        <option value="0">{{ text_category }}</option>
+        {% for category_1 in categories %}
+        <option value="{{ category_1.category_id }}"{% if category_1.category_id == category_id %} selected{% endif %}>{{ category_1.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    
+    <button type="button" id="button-search" class="btn btn-primary">{{ button_search }}</button>
+  </div>
+  
+  {% if products %}
+  <div class="cards">
+    {% for product in products %}
+    <article class="card">
+      <div class="info-1">
+        <div class="image">
+          <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a>
+        </div>
+        <div class="info">
+          <p class="poppins-medium-eerie-black-12px">{{ product.name }}</p>
+          <div class="poppins-semi-bold-eerie-black-16px">{{ product.price }}</div>
+        </div>
+      </div>
+      <div class="button-2">
+        <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button poppins-semi-bold-white-16px">{{ button_cart }}</button>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  
+  {{ pagination }}
+  {% else %}
+  <p>{{ text_empty }}</p>
+  {% endif %}
+</div>
+
+{{ footer }}

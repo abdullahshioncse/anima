@@ -1,0 +1,29 @@
+<div class="cart-widget">
+  <a href="{{ cart }}" title="{{ text_items }}">
+    <img src="catalog/view/theme/anima/image/iconly-sharp-bag-2.svg" alt="{{ text_shopping_cart }}" />
+    <span class="cart-total">{{ text_items }}</span>
+  </a>
+  
+  {% if products or vouchers %}
+  <div class="dropdown-menu">
+    <ul>
+      {% for product in products %}
+      <li>
+        <a href="{{ product.href }}">
+          <img src="{{ product.thumb }}" alt="{{ product.name }}" />
+          <div>
+            <div>{{ product.name }}</div>
+            <div>{{ product.quantity }} x {{ product.price }}</div>
+          </div>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="total">{{ text_total }}: {{ total }}</div>
+    <div class="buttons">
+      <a href="{{ cart }}" class="btn btn-primary">{{ text_cart }}</a>
+      <a href="{{ checkout }}" class="btn btn-success">{{ text_checkout }}</a>
+    </div>
+  </div>
+  {% endif %}
+</div>
