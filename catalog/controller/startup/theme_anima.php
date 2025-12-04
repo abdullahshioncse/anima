@@ -24,10 +24,16 @@ class ThemeAnima extends \Opencart\System\Engine\Controller {
                 $this->document->addStyle($css_map[$route]);
             }
             
+            // Add responsive CSS for all devices
+            $this->document->addStyle('catalog/view/stylesheet/responsive.css');
+            
             // Add mobile CSS for mobile devices
             if ($this->request->isMobile()) {
                 $this->document->addStyle('catalog/view/stylesheet/iphone-13-u38-14-1.css');
             }
+            
+            // Add theme JavaScript
+            $this->document->addScript('catalog/view/javascript/anima.js');
         }
     }
 }
