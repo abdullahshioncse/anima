@@ -14,6 +14,12 @@
 @import url("desktop-3.css");
 @import url("desktop-4.css");
 
+/* Import mobile styles - must be at top level */
+@import url("iphone-13-u38-14-1.css");
+@import url("iphone-13-u38-14-4.css");
+@import url("iphone-13-u38-14-5.css");
+@import url("iphone-13-u38-14-6.css");
+
 /* Desktop styles - Default (1440px+) */
 @media (min-width: 1440px) {
   /* Desktop styles are already included above */
@@ -45,12 +51,6 @@
 
 /* Mobile styles (up to 767px) */
 @media (max-width: 767px) {
-  /* Import mobile-specific styles */
-  @import url("iphone-13-u38-14-1.css");
-  @import url("iphone-13-u38-14-4.css");
-  @import url("iphone-13-u38-14-5.css");
-  @import url("iphone-13-u38-14-6.css");
-  
   .desktop-1,
   .desktop-2,
   .desktop-3,
