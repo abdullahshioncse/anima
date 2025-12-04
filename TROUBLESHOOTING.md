@@ -81,11 +81,35 @@ admin/
 - Make sure you've clicked "Install" in Extensions > Extensions > Themes
 - Use correct route: `extension/theme/anima`
 
-### Issue: Theme Not Listed
-**Cause**: Files not uploaded correctly
+### Issue: Theme Not Listed in Extensions > Themes
+**Cause**: Extension not properly registered in database OR files uploaded incorrectly
 **Solution**: 
-- Verify file structure matches above
-- Check file permissions (755 for directories, 644 for files)
+1. **First, verify the extension was uploaded:**
+   - Check **Extensions > Installer** - "Anima Theme" should be listed
+   
+2. **If listed but not showing in Themes:**
+   - The extension was uploaded but NOT installed yet
+   - You must click the **Install** button (green plus icon) in **Extensions > Extensions > Themes**
+   
+3. **If not listed at all:**
+   - Files not uploaded correctly
+   - Try re-uploading the ZIP file
+   - Check file permissions (755 for directories, 644 for files)
+   
+4. **Manual database registration (last resort):**
+   If the theme still doesn't appear, you may need to manually register it in the database:
+   ```sql
+   INSERT INTO `oc_extension` SET `extension` = 'Anima Theme', `type` = 'theme', `code` = 'anima';
+   ```
+   Note: Replace `oc_` with your actual database prefix
+
+### Issue: Theme Installed But Not in Themes List
+**Cause**: Extension registered but not appearing in the themes selector
+**Solution**:
+- Go to **Extensions > Extensions** and select **Themes** from dropdown
+- Look for "Anima Theme" in the list
+- If you see it, click **Edit** (pencil icon) to configure
+- Then go to **Design > Themes** to activate it for your store
 
 ### Issue: Blank Page
 **Cause**: PHP errors
