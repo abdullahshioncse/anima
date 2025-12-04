@@ -1,0 +1,18 @@
+<nav class="navbar poppins-medium-eerie-black-16px">
+  {% if categories %}
+    {% for category in categories %}
+    <div class="navbar-link-text">
+      <a href="{{ category.href }}">{{ category.name }}</a>
+      {% if category.children %}
+      <div class="dropdown-menu">
+        {% for child in category.children %}
+        <div class="dropdown-item">
+          <a href="{{ child.href }}">{{ child.name }}</a>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  {% endif %}
+</nav>

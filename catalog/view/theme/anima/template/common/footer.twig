@@ -1,0 +1,124 @@
+<img class="line-2" src="catalog/view/theme/anima/image/line-2-1.svg" alt="Line">
+
+<footer class="footer">
+  <!-- Newsletter Section -->
+  <div class="email">
+    <p class="text-54 text-5 poppins-semi-bold-white-24px">{{ text_newsletter|default('هل ترغب في الاشتراك في نشرتنا الإخبارية؟') }}</p>
+    <div class="email-1">
+      <form action="{{ newsletter_action }}" method="post" id="newsletter-form">
+        <div class="button-14">
+          <button type="submit" class="button-15 poppins-semi-bold-white-14px">{{ button_send|default('إرسال') }}</button>
+        </div>
+        <input type="email" name="email" class="text-55 text-5 poppins-medium-eerie-black-16px" placeholder="{{ entry_email|default('البريد الإلكتروني') }}" required>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Footer Content -->
+  <div class="info-5">
+    <div class="menu-2">
+      <!-- Payment Icons -->
+      <div class="payment-icons-2">
+        <article class="payment-icons"></article>
+        <article class="payment-icons"></article>
+        <article class="payment-icons-1">
+          <img class="visa-logo" src="catalog/view/theme/anima/image/visa-logo-1.svg" alt="Visa">
+        </article>
+        <article class="payment-icons-1">
+          <img class="apple-pay" src="catalog/view/theme/anima/image/applepay-1.svg" alt="Apple Pay">
+        </article>
+        <article class="payment-icons-1">
+          <img class="mastercard" src="catalog/view/theme/anima/image/mastercard-1@2x.png" alt="Mastercard">
+        </article>
+      </div>
+      
+      <!-- Footer Menus -->
+      <div class="menu-3">
+        <!-- Shop Now Menu -->
+        <div class="menu-item">
+          <div class="menu">
+            <div class="text-56 text-5 poppins-bold-white-18px">{{ text_shop_now|default('تسوّق الآن') }}</div>
+            {% if categories %}
+              {% for category in categories|slice(0, 4) %}
+              <div class="text-2 text-5 poppins-semi-bold-white-14px">
+                <a href="{{ category.href }}">{{ category.name }}</a>
+              </div>
+              {% endfor %}
+            {% else %}
+              <div class="text-2 text-5 poppins-semi-bold-white-14px">
+                <a href="#">{{ text_mens_clothing|default('ملابس رجالية') }}</a>
+              </div>
+              <div class="text-2 text-5 poppins-semi-bold-white-14px">
+                <a href="#">{{ text_womens_clothing|default('ملابس نسائية') }}</a>
+              </div>
+              <div class="text-2 text-5 poppins-semi-bold-white-14px">
+                <a href="#">{{ text_accessories|default('إكسسوارات') }}</a>
+              </div>
+              <div class="text-2 text-5 poppins-semi-bold-white-14px">
+                <a href="#">{{ text_sale|default('تخفيضات') }}</a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+        
+        <!-- Contact Us Menu -->
+        <div class="menu-item">
+          <div class="menu">
+            <div class="text-6 text-5 poppins-bold-white-18px">{{ text_contact_us|default('تواصل معنا') }}</div>
+            <div class="text-4 text-5 poppins-semi-bold-white-14px">
+              <a href="{{ contact }}">{{ text_contact|default('تواصل معنا') }}</a>
+            </div>
+            <div class="text-4 text-5 poppins-semi-bold-white-14px">
+              <a href="{{ privacy_policy }}">{{ text_privacy_policy|default('سياسه الخصوصيه') }}</a>
+            </div>
+            <div class="text-4 text-5 poppins-semi-bold-white-14px">
+              <a href="{{ return_policy }}">{{ text_return_policy|default('سياسة الاسترجاع') }}</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Quick Links Menu -->
+        <div class="menu-item">
+          <div class="menu">
+            <div class="text-6 text-5 poppins-bold-white-18px">{{ text_quick_links|default('روابط سريعة') }}</div>
+            <div class="text-4 text-5 poppins-semi-bold-white-14px">
+              <a href="{{ account }}">{{ text_account|default('حسابي') }}</a>
+            </div>
+            <div class="text-4 text-5 poppins-semi-bold-white-14px">
+              <a href="{{ about_us }}">{{ text_about_us|default('من نحن') }}</a>
+            </div>
+            <div class="text-4 text-5 poppins-semi-bold-white-14px">
+              <a href="{{ help }}">{{ text_help|default('مساعدة') }}</a>
+            </div>
+            <div class="text-4 text-5 poppins-semi-bold-white-14px">
+              <a href="{{ privacy_policy }}">{{ text_privacy|default('سياسة الخصوصية') }}</a>
+            </div>
+            <div class="text-4 text-5 poppins-semi-bold-white-14px">
+              <a href="{{ terms }}">{{ text_terms|default('شروط الاستخدام') }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Copyright -->
+    <div class="text-71 text-5 poppins-medium-white-14px">
+      {{ powered|default('Powered by OpenCart') }} &copy; {{ date('Y') }} {{ name }}
+    </div>
+  </div>
+</footer>
+
+<!-- Back to Top Button -->
+<div id="back-to-top" class="back-to-top" style="display: none;">
+  <i class="fa fa-chevron-up"></i>
+</div>
+
+<!-- Scripts -->
+{% for script in scripts %}
+{% if script.position == 'footer' %}
+<script src="{{ script.href }}"></script>
+{% endif %}
+{% endfor %}
+
+</body>
+</html>
