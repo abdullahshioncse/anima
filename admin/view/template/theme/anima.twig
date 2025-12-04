@@ -1,0 +1,134 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="float-end">
+        <button type="submit" form="form-theme" data-bs-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary">
+          <i class="fas fa-save"></i>
+        </button>
+        <a href="{{ cancel }}" data-bs-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-light">
+          <i class="fas fa-reply"></i>
+        </a>
+      </div>
+      <h1>{{ heading_title }}</h1>
+      <ol class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ol>
+    </div>
+  </div>
+  
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible">
+      <i class="fas fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endif %}
+    
+    {% if success %}
+    <div class="alert alert-success alert-dismissible">
+      <i class="fas fa-check-circle"></i> {{ success }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+    {% endif %}
+    
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-pencil-alt"></i> {{ text_edit }}
+      </div>
+      <div class="card-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-theme" class="form-horizontal">
+          
+          <!-- General Settings -->
+          <fieldset>
+            <legend>{{ text_general|default('General Settings') }}</legend>
+            
+            <!-- Status -->
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="input-status">{{ entry_status }}</label>
+              <div class="col-sm-10">
+                <div class="form-check form-switch form-switch-lg">
+                  <input type="hidden" name="theme_anima_status" value="0">
+                  <input type="checkbox" name="theme_anima_status" value="1" id="input-status" class="form-check-input" {% if theme_anima_status %}checked{% endif %}>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Phone -->
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="input-phone">{{ entry_phone|default('Phone Number') }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="theme_anima_phone" value="{{ theme_anima_phone }}" placeholder="{{ entry_phone }}" id="input-phone" class="form-control">
+              </div>
+            </div>
+            
+            <!-- Email -->
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="input-email">{{ entry_email|default('Email') }}</label>
+              <div class="col-sm-10">
+                <input type="email" name="theme_anima_email" value="{{ theme_anima_email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control">
+              </div>
+            </div>
+            
+            <!-- Sale Banner Text -->
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="input-sale-banner">{{ entry_sale_banner|default('Sale Banner Text') }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="theme_anima_sale_banner" value="{{ theme_anima_sale_banner }}" placeholder="{{ entry_sale_banner }}" id="input-sale-banner" class="form-control">
+                <small class="form-text text-muted">{{ help_sale_banner|default('This text will appear in the top banner across all pages') }}</small>
+              </div>
+            </div>
+          </fieldset>
+          
+          <!-- Social Media Settings -->
+          <fieldset>
+            <legend>{{ text_social|default('Social Media Links') }}</legend>
+            
+            <!-- Facebook -->
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="input-facebook">{{ entry_social_facebook|default('Facebook URL') }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="theme_anima_social_facebook" value="{{ theme_anima_social_facebook }}" placeholder="{{ entry_social_facebook }}" id="input-facebook" class="form-control">
+              </div>
+            </div>
+            
+            <!-- Twitter -->
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="input-twitter">{{ entry_social_twitter|default('Twitter URL') }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="theme_anima_social_twitter" value="{{ theme_anima_social_twitter }}" placeholder="{{ entry_social_twitter }}" id="input-twitter" class="form-control">
+              </div>
+            </div>
+            
+            <!-- Instagram -->
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label" for="input-instagram">{{ entry_social_instagram|default('Instagram URL') }}</label>
+              <div class="col-sm-10">
+                <input type="text" name="theme_anima_social_instagram" value="{{ theme_anima_social_instagram }}" placeholder="{{ entry_social_instagram }}" id="input-instagram" class="form-control">
+              </div>
+            </div>
+          </fieldset>
+          
+          <!-- Theme Information -->
+          <fieldset>
+            <legend>{{ text_theme_info|default('Theme Information') }}</legend>
+            <div class="alert alert-info">
+              <h4><i class="fas fa-info-circle"></i> Anima Theme v1.0.0</h4>
+              <p>{{ text_theme_description|default('Anima is a modern, RTL-ready e-commerce theme designed for Arabic markets. It features a clean design, responsive layout, and full OpenCart 4.1.0.3 compatibility.') }}</p>
+              <ul>
+                <li>{{ text_feature_rtl|default('Full RTL (Right-to-Left) support') }}</li>
+                <li>{{ text_feature_responsive|default('Fully responsive design') }}</li>
+                <li>{{ text_feature_arabic|default('Arabic language optimized') }}</li>
+                <li>{{ text_feature_modern|default('Modern UI/UX design') }}</li>
+              </ul>
+            </div>
+          </fieldset>
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{ footer }}
