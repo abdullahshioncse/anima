@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html dir="{{ direction }}" lang="{{ lang }}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ title }}</title>
+<base href="{{ base }}" />
+{% if description %}
+<meta name="description" content="{{ description }}" />
+{% endif %}
+{% if keywords %}
+<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+<link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/globals.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/styleguide.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/desktop-1.css" />
+{% for style in styles %}
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<script src="catalog/view/javascript/anima.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="desktop-1 screen">
+  <!-- Sale Banner -->
+  <div class="sale">
+    <p class="text-43 text-5 poppins-medium-white-16px">حصل على خصم 20٪ قبل نهاية نوفمبر!</p>
+  </div>
+  
+  <!-- Header -->
+  <header class="header">
+    <div class="menu-1">
+      <a href="{{ account }}">
+        <img class="iconly-sharp" src="catalog/view/image/iconly-sharp-profile.svg" alt="Iconly/Sharp/Profile" />
+      </a>
+      <a href="{{ shopping_cart }}">
+        <img class="iconly-sharp" src="catalog/view/image/iconly-sharp-bag-2.svg" alt="Iconly/Sharp/Bag 2" />
+      </a>
+      <a href="{{ wishlist }}">
+        <img class="iconly-sharp" src="catalog/view/image/iconly-sharp-heart.svg" alt="Iconly/Sharp/Heart" />
+      </a>
+      <a href="{{ search }}">
+        <img class="iconly-sharp" src="catalog/view/image/iconly-sharp-search-1.svg" alt="Iconly/Sharp/Search" />
+      </a>
+      <div class="frame-6 frame">
+        <div class="phone-1 poppins-normal-eerie-black-16px">965-22091914</div>
+        <img class="iconly-sharp" src="catalog/view/image/iconly-sharp-call.svg" alt="Iconly/Sharp/Call" />
+      </div>
+    </div>
+    <div class="logo poppins-medium-eerie-black-20px">
+      <a href="{{ home }}">{{ name }}</a>
+    </div>
+    <nav class="navbar poppins-medium-eerie-black-16px">
+      {% for category in categories %}
+      <div class="navbar-link-text">
+        <a href="{{ category.href }}">{{ category.name }}</a>
+      </div>
+      {% endfor %}
+    </nav>
+  </header>

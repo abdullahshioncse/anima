@@ -1,0 +1,143 @@
+{{ header }}
+
+<!-- Info Banner -->
+<div class="info-2">
+  <div class="info-item">
+    <img class="iconly-sharp" src="catalog/view/image/iconly-sharp-bag-2-1.svg" alt="Iconly/Sharp/Bag 2" />
+    <div class="info-3">
+      <div class="text-3 text-5 poppins-semi-bold-white-16px">الاسترجاع و التبديل</div>
+      <p class="text poppins-normal-white-12px">إمكانيه الأسترجاع في حال كان القياس غير مناسب</p>
+    </div>
+  </div>
+  <div class="x2">
+    <img class="iconly-sharp" src="catalog/view/image/iconly-sharp-time-circle.svg" alt="Iconly/Sharp/Time Circle" />
+    <div class="info-4">
+      <div class="text-3 text-5 poppins-semi-bold-white-16px">توصيل خلال ٢٤ ساعة</div>
+      <p class="text poppins-normal-white-12px">
+        توصيل محلي لجميع مناطق الكويت خلال ٢٤ ساعه فقط ١ دينار كويتي من العبدلي الى الخيران
+      </p>
+    </div>
+  </div>
+  <div class="info-item">
+    <img class="iconly-sharp" src="catalog/view/image/iconly-sharp-tick-square.svg" alt="Iconly/Sharp/Tick Square" />
+    <div class="info">
+      <div class="text-41 text-5 poppins-semi-bold-white-16px">منتجات أصلية 100%</div>
+      <p class="text-42 text-5 poppins-normal-white-12px">
+        جميع المنتجات الأصلية من المصنع مباشره ملابس رياضية - أكسسوارات لتمارين
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Hero Section -->
+<img class="rectangle-5" src="catalog/view/image/rectangle-5-1.png" alt="Rectangle 5" />
+<div class="main">
+  <h1 class="text-48 text-5">تسوّق الآن</h1>
+  <div class="buttons">
+    <article class="button-3"><div class="button poppins-medium-white-16px">عرض التفاصيل</div></article>
+    <article class="button-4"><div class="button poppins-semi-bold-white-16px">ابدأ التسوّق</div></article>
+  </div>
+  <div class="way">
+    <div class="rectangle-116"></div>
+    <div class="rectangle-116"></div>
+    <div class="rectangle-116"></div>
+    <div class="rectangle-1162-1"></div>
+  </div>
+</div>
+
+<!-- You May Like Products Section -->
+<div class="you-may-like">
+  <div class="text-1 text-5 poppins-semi-bold-eerie-black-40px">منتجات قد تعجبك</div>
+  <div class="cards">
+    {% if products is defined %}
+    {% for product in products %}
+    <article class="card">
+      <div class="info-1">
+        <div class="image">
+          <img class="iconly-sharp" src="catalog/view/image/iconly-sharp-heart.svg" alt="Iconly/Sharp/Heart" />
+          {% if product.special %}
+          <div class="frame-5 frame">
+            <div class="button-1"><div class="button-5 poppins-medium-white-14px">مجموعة جديدة</div></div>
+          </div>
+          {% endif %}
+        </div>
+        <div class="info">
+          <p class="t-shirt-energy-red-and-white poppins-medium-eerie-black-12px">
+            {{ product.name }}
+          </p>
+          <div class="phone poppins-normal-eerie-black-12px">{{ product.model }}</div>
+        </div>
+        <div class="x5000-kd poppins-semi-bold-eerie-black-16px">{{ product.price }}</div>
+      </div>
+      <div class="button-2"><div class="button poppins-semi-bold-white-16px">أضف إلى السلة</div></div>
+    </article>
+    {% endfor %}
+  </div>
+  <div class="way-3">
+    <div class="rectangle-116-1"></div>
+    <div class="rectangle-116-1"></div>
+    <div class="rectangle-116-1"></div>
+    <div class="rectangle-1162"></div>
+  </div>
+</div>
+
+<!-- Navigation Arrows -->
+<div class="arrows">
+  <div class="left">
+    <img class="iconly-sharp" src="catalog/view/image/iconly-sharp-arrow---left.svg" alt="Iconly/Sharp/Arrow - Left" />
+  </div>
+  <div class="right">
+    <img
+      class="iconly-sharp-arrow-left"
+      src="catalog/view/image/iconly-sharp-arrow---left-1.svg"
+      alt="Iconly/Sharp/Arrow - Left"
+    />
+  </div>
+</div>
+
+<!-- New Arrivals Section -->
+<div class="new-in">
+  <div class="new-in-1">
+    <div class="text-1 text-5 poppins-semi-bold-eerie-black-40px">وصل حديثًا</div>
+    <div class="categories poppins-normal-eerie-black-16px">
+      <div class="text-51 text-5">إكسسوارات</div>
+      <div class="text-52 text-5">ملابس نسائية</div>
+      <div class="active">
+        <div class="text-53 text-5 poppins-semi-bold-eerie-black-16px">ملابس رجالية</div>
+        <img class="line-1" src="catalog/view/image/line-1-1.svg" alt="Line 1" />
+      </div>
+    </div>
+  </div>
+  <div class="cards">
+    {% if latest_products is defined %}
+    {% for product in latest_products %}
+    <article class="card">
+      <div class="info-1">
+        <div class="image">
+          <img class="iconly-sharp" src="catalog/view/image/iconly-sharp-heart.svg" alt="Iconly/Sharp/Heart" />
+          <div class="frame-5-1">
+            <div class="button-1"><div class="button-9 poppins-medium-white-14px">مجموعة جديدة</div></div>
+          </div>
+        </div>
+        <div class="info">
+          <p class="t-shirt-energy-red-and-white poppins-medium-eerie-black-12px">
+            {{ product.name }}
+          </p>
+          <div class="phone poppins-normal-eerie-black-12px">{{ product.model }}</div>
+        </div>
+        <div class="x5000-kd poppins-semi-bold-eerie-black-16px">{{ product.price }}</div>
+      </div>
+      <div class="button-2"><div class="button poppins-semi-bold-white-16px">أضف إلى السلة</div></div>
+    </article>
+    {% endfor %}
+    {% endif %}
+  </div>
+  <div class="way-3">
+    <div class="rectangle-116-1"></div>
+    <div class="rectangle-116-1"></div>
+    <div class="rectangle-116-1"></div>
+    <div class="rectangle-1162"></div>
+  </div>
+</div>
+
+{{ footer }}

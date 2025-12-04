@@ -1,0 +1,1046 @@
+/* screen - desktop-2 */
+
+.desktop-2 {
+  background-color: var(--ffffff);
+  min-height: 168.4vw;
+  min-width: 100.0vw;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-2 .sale {
+  align-items: center;
+  background-color: var(--x1c1c1c);
+  display: flex;
+  gap: 0.69vw;
+  height: 3.54vw;
+  justify-content: center;
+  left: 0;
+  padding: 0.9vw 33.82vw;
+  position: absolute;
+  top: 0;
+  width: 100.0vw;
+}
+
+.desktop-2 .text-113 {
+  direction: rtl;
+  line-height: normal;
+  margin-top: -0.03vw;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .header {
+  align-items: center;
+  background-color: var(--ffffff);
+  border-bottom-style: solid;
+  border-bottom-width: 0.07vw;
+  border-color: var(--ececec);
+  display: flex;
+  height: 3.54vw;
+  justify-content: space-between;
+  left: 0;
+  padding: 0.9vw 4.86vw;
+  position: absolute;
+  top: 3.54vw;
+  width: 100.0vw;
+}
+
+.desktop-2 .menu-1 {
+  align-items: center;
+  display: flex;
+  gap: 1.67vw;
+  position: relative;
+  width: 27.36vw;
+}
+
+.desktop-2 .iconly-sharp {
+  height: 1.67vw;
+  position: relative;
+  width: 1.67vw;
+}
+
+.desktop-2 .frame-6 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.56vw;
+  position: relative;
+}
+
+.desktop-2 .phone-1 {
+  margin-top: -0.07vw;
+  width: fit-content;
+}
+
+.desktop-2 .logo {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-bottom: -0.1vw;
+  margin-top: -0.24vw;
+  position: relative;
+  width: fit-content;
+}
+
+.desktop-2 .you-may-like {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2.22vw;
+  left: 4.86vw;
+  position: absolute;
+  top: 86.74vw;
+  width: 90.28vw;
+}
+
+.desktop-2 .text-118 {
+  align-self: stretch;
+  direction: rtl;
+  height: 4.58vw;
+  line-height: normal;
+  margin-top: -0.07vw;
+  text-align: center;
+}
+
+.desktop-2 .cards {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-2 .card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.83vw;
+  position: relative;
+  width: 21.04vw;
+}
+
+.desktop-2 .info {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 0.56vw;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-2 .image {
+  align-items: flex-start;
+  align-self: stretch;
+  background-image: url(../img/image-1@2x.png);
+  background-position: 50% 50%;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  height: 21.32vw;
+  justify-content: space-between;
+  padding: 0.83vw;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-2 .frame-5 {
+  align-items: flex-end;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 0.69vw;
+  opacity: 0;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-2 .button {
+  align-items: center;
+  background-color: var(--x1c1c1c);
+  border-radius: 0.14vw;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.28vw;
+  justify-content: center;
+  padding: 0.56vw 1.11vw;
+  position: relative;
+}
+
+.desktop-2 .button-2 {
+  direction: rtl;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.07vw;
+  position: relative;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .info-1 {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+  width: 14.44vw;
+}
+
+.desktop-2 .phone {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: 1.35vw;
+  opacity: 0.4;
+  position: relative;
+  text-align: center;
+}
+
+.desktop-2 .x5000-kd {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: 1.35vw;
+  position: relative;
+  text-align: center;
+}
+
+.desktop-2 .button-1 {
+  align-items: center;
+  align-self: stretch;
+  background-color: var(--ff7c17);
+  border-radius: 0.14vw;
+  display: flex;
+  gap: 0.28vw;
+  height: 3.12vw;
+  justify-content: center;
+  padding: 0.56vw 1.11vw;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-2 .button-3 {
+  direction: rtl;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .button-4 {
+  direction: rtl;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.07vw;
+  position: relative;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .button-5 {
+  direction: rtl;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .button-6 {
+  direction: rtl;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.07vw;
+  position: relative;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .button-7 {
+  direction: rtl;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .button-8 {
+  direction: rtl;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.07vw;
+  position: relative;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .button-9 {
+  direction: rtl;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .way {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 1.11vw;
+  position: relative;
+}
+
+.desktop-2 .rectangle-116 {
+  background-color: var(--d7d7d7);
+}
+
+.desktop-2 .rectangle-1162 {
+  background-color: var(--x1c1c1c);
+}
+
+.desktop-2 .arrows {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  left: 2.99vw;
+  position: absolute;
+  top: 110.62vw;
+  width: 94.03vw;
+}
+
+.desktop-2 .iconly-sharp-arrow-left {
+  height: 1.67vw;
+  position: relative;
+  transform: rotate(180deg);
+  width: 1.67vw;
+}
+
+.desktop-2 .footer {
+  align-items: flex-end;
+  background-color: var(--x1c1c1c);
+  display: flex;
+  flex-direction: column;
+  gap: 3.06vw;
+  left: 0;
+  padding: 3.75vw 4.86vw;
+  position: absolute;
+  top: 133.68vw;
+  width: 100.0vw;
+}
+
+.desktop-2 .email {
+  align-items: flex-end;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 1.39vw;
+  position: relative;
+}
+
+.desktop-2 .text-119 {
+  direction: rtl;
+  line-height: normal;
+  margin-top: -0.07vw;
+  width: fit-content;
+}
+
+.desktop-2 .email-1 {
+  align-items: center;
+  background-color: var(--ffffff);
+  border-radius: 0.14vw;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  padding: 0.56vw 1.11vw 0.56vw 0.56vw;
+  position: relative;
+  width: 36.39vw;
+}
+
+.desktop-2 .button-10 {
+  align-items: center;
+  background-color: var(--ff7c17);
+  border-radius: 0.14vw;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.28vw;
+  justify-content: center;
+  padding: 0.56vw 1.11vw;
+  position: relative;
+}
+
+.desktop-2 .button-11 {
+  direction: rtl;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.07vw;
+  position: relative;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .text-120 {
+  direction: rtl;
+  line-height: normal;
+  opacity: 0.5;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .info-2 {
+  align-items: flex-end;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 2.22vw;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-2 .menu-2 {
+  align-items: flex-end;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-2 .payment-icons-2 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.83vw;
+  position: relative;
+}
+
+.desktop-2 .payment-icons {
+  background-image: url(../img/size-sm--payment-method-visa.svg);
+  background-position: 50% 50%;
+  background-size: cover;
+  border: 0.07vw solid;
+  border-color: var(--ffffff);
+  border-radius: 0.28vw;
+  height: 1.67vw;
+  position: relative;
+  width: 2.36vw;
+}
+
+.desktop-2 .payment-icons-1 {
+  background-color: var(--ffffff);
+  border: 0.07vw solid;
+  border-radius: 0.28vw;
+  height: 1.67vw;
+  position: relative;
+  width: 2.36vw;
+}
+
+.desktop-2 .visa-logo {
+  height: 32.58%;
+  left: 14.12%;
+  position: absolute;
+  top: 33.75%;
+  width: 70.00%;
+}
+
+.desktop-2 .apple-pay {
+  height: 43.41%;
+  left: 14.71%;
+  position: absolute;
+  top: 29.17%;
+  width: 71.62%;
+}
+
+.desktop-2 .mastercard {
+  height: 0.9vw;
+  left: 0.42vw;
+  position: absolute;
+  top: 0.35vw;
+  width: 1.53vw;
+}
+
+.desktop-2 .menu-3 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 6.94vw;
+  position: relative;
+}
+
+.desktop-2 .menu-item {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 0.83vw;
+  position: relative;
+  width: 8.33vw;
+}
+
+.desktop-2 .menu {
+  align-items: flex-end;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 0.83vw;
+  position: relative;
+}
+
+.desktop-2 .text-121 {
+  align-items: center;
+  direction: rtl;
+  display: flex;
+  justify-content: center;
+  line-height: normal;
+  margin-top: -0.07vw;
+  width: fit-content;
+}
+
+.desktop-2 .text-12 {
+  direction: rtl;
+  line-height: normal;
+  opacity: 0.7;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .text-1 {
+  align-items: center;
+  direction: rtl;
+  display: flex;
+  justify-content: center;
+  line-height: 1.46vw;
+  margin-top: -0.07vw;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.desktop-2 .text-1-1 {
+  line-height: 1.46vw;
+  opacity: 0.7;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.desktop-2 .text-136 {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  line-height: 1.46vw;
+  text-align: right;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.desktop-2 .photos {
+  align-items: flex-start;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.08vw 2.08vw;
+  left: 41.25vw;
+  position: absolute;
+  top: 9.86vw;
+  width: 53.89vw;
+}
+
+.desktop-2 .rectangle-116-1 {
+  width: 25.9vw;
+}
+
+.desktop-2 .rectangle-116-2 {
+  width: 25.83vw;
+}
+
+.desktop-2 .info-3 {
+  align-items: flex-end;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2.22vw;
+  left: 4.86vw;
+  padding: 0.83vw 0.0vw 0.0vw;
+  position: absolute;
+  top: 9.86vw;
+}
+
+.desktop-2 .info-item {
+  align-items: flex-end;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 0.83vw;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-2 .t-shirt-energy-red-and-white-1 {
+  align-self: stretch;
+  letter-spacing: 0;
+  line-height: 1.35vw;
+  margin-top: -0.07vw;
+  position: relative;
+  text-align: right;
+}
+
+.desktop-2 .phone-2 {
+  align-items: center;
+  align-self: stretch;
+  color: var(--x1c1c1c);
+  display: flex;
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-xs);
+  font-weight: 400;
+  justify-content: center;
+  opacity: 0.4;
+  text-align: right;
+}
+
+.desktop-2 .x5000-kd-1 {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 0;
+  line-height: 1.35vw;
+  position: relative;
+  text-align: right;
+}
+
+.desktop-2 .settings {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 1.11vw;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-2 .settings-item {
+  align-items: flex-end;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 0.56vw;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-2 .text-1-2 {
+  align-self: stretch;
+  line-height: normal;
+  margin-top: -0.07vw;
+  opacity: 0.4;
+}
+
+.desktop-2 .size {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.28vw;
+  position: relative;
+}
+
+.desktop-2 .frame-1 {
+  align-items: center;
+  border: 0.07vw solid;
+  border-color: var(--ececec);
+  border-radius: 0.14vw;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.69vw;
+  justify-content: center;
+  padding: 0.28vw 0.56vw;
+  position: relative;
+}
+
+.desktop-2 .xxxl {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.07vw;
+  opacity: 0.3;
+  position: relative;
+  width: fit-content;
+}
+
+.desktop-2 .xxl {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.07vw;
+  opacity: 0.3;
+  position: relative;
+  width: fit-content;
+}
+
+.desktop-2 .xl {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.07vw;
+  opacity: 0.3;
+  position: relative;
+  width: fit-content;
+}
+
+.desktop-2 .frame-1-1 {
+  align-items: center;
+  border: 0.07vw solid;
+  border-color: var(--ececec);
+  border-radius: 0.14vw;
+  display: flex;
+  gap: 0.69vw;
+  justify-content: center;
+  padding: 0.28vw 0.56vw;
+  position: relative;
+  width: 2.5vw;
+}
+
+.desktop-2 .price {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.07vw;
+  opacity: 0.3;
+  position: relative;
+  width: fit-content;
+}
+
+.desktop-2 .m {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.07vw;
+  opacity: 0.3;
+  position: relative;
+  width: fit-content;
+}
+
+.desktop-2 .frame-11 {
+  align-items: center;
+  border: 0.07vw solid;
+  border-color: var(--d7d7d7);
+  border-radius: 0.14vw;
+  display: flex;
+  gap: 0.69vw;
+  justify-content: center;
+  padding: 0.28vw 0.56vw;
+  position: relative;
+  width: 2.5vw;
+}
+
+.desktop-2 .price-1 {
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.07vw;
+  opacity: 0.7;
+  position: relative;
+  width: fit-content;
+}
+
+.desktop-2 .color {
+  align-items: center;
+  border: 0.07vw solid;
+  border-color: var(--d7d7d7);
+  border-radius: 0.14vw;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.69vw;
+  justify-content: center;
+  padding: 0.28vw 0.56vw;
+  position: relative;
+}
+
+.desktop-2 .text-139 {
+  direction: rtl;
+  line-height: normal;
+  margin-top: -0.07vw;
+  opacity: 0.7;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .number {
+  align-items: center;
+  border: 0.07vw solid;
+  border-color: var(--ececec);
+  border-radius: 0.14vw;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.83vw;
+  justify-content: center;
+  padding: 0.28vw 0.56vw;
+  position: relative;
+}
+
+.desktop-2 .vuesaxlinearadd {
+  background-image: url(../img/add.png);
+  background-size: 100% 100%;
+  height: 1.67vw;
+  position: relative;
+  width: 1.67vw;
+}
+
+.desktop-2 .line {
+  height: 1.94vw;
+  object-fit: cover;
+  position: relative;
+  width: 0.07vw;
+}
+
+.desktop-2 .frame-17 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 0.69vw;
+  justify-content: center;
+  padding: 0.0vw 1.11vw;
+  position: relative;
+}
+
+.desktop-2 .number-1 {
+  align-self: stretch;
+  letter-spacing: 0;
+  line-height: normal;
+  margin-top: -0.07vw;
+  opacity: 0.7;
+  position: relative;
+}
+
+.desktop-2 .vuesaxlinearminus {
+  background-image: url(../img/minus.png);
+  background-size: 100% 100%;
+  height: 1.67vw;
+  position: relative;
+  width: 1.67vw;
+}
+
+.desktop-2 .buttons {
+  align-items: flex-end;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 1.39vw;
+  position: relative;
+}
+
+.desktop-2 .buttons-1 {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 0.56vw;
+  position: relative;
+  width: 30.76vw;
+}
+
+.desktop-2 .button-12 {
+  align-items: center;
+  background-color: var(--x1c1c1c);
+  border-radius: 0.14vw;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 0.83vw;
+  height: 3.12vw;
+  justify-content: center;
+  padding: 0.56vw 1.11vw;
+  position: relative;
+}
+
+.desktop-2 .button-13 {
+  align-items: center;
+  background-color: var(--x1c1c1c);
+  border-radius: 0.14vw;
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  gap: 0.83vw;
+  height: 3.12vw;
+  justify-content: center;
+  padding: 0.56vw 1.11vw;
+  position: relative;
+}
+
+.desktop-2 .text-141 {
+  direction: rtl;
+  line-height: normal;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .button-14 {
+  align-items: center;
+  background-color: var(--ff7c17);
+  border-radius: 0.14vw;
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  gap: 0.28vw;
+  height: 3.12vw;
+  justify-content: center;
+  padding: 0.56vw 1.11vw;
+  position: relative;
+}
+
+.desktop-2 .button-15 {
+  direction: rtl;
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+  text-align: left;
+  width: fit-content;
+}
+
+.desktop-2 .x1 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 1.11vw;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.desktop-2 .text-142 {
+  align-items: center;
+  color: var(--ff7c17);
+  direction: rtl;
+  display: flex;
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-s);
+  font-weight: 600;
+  justify-content: center;
+  line-height: normal;
+  margin-top: -0.07vw;
+  text-align: center;
+  width: fit-content;
+}
+
+.desktop-2 .line-1 {
+  align-self: stretch;
+  height: 0.07vw;
+  object-fit: cover;
+  position: relative;
+  width: 100%;
+}
+
+.desktop-2 .frame-18 {
+  align-items: flex-end;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 2.22vw;
+  position: relative;
+}
+
+.desktop-2 .x1-1 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 1.11vw;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.desktop-2 .text-14 {
+  align-items: center;
+  direction: rtl;
+  display: flex;
+  justify-content: center;
+  line-height: 1.35vw;
+  text-align: center;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.desktop-2 .x2 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 1.11vw;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.desktop-2 .x3 {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 1.11vw;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.desktop-2 .text-145 {
+  align-items: center;
+  direction: rtl;
+  display: flex;
+  justify-content: center;
+  line-height: normal;
+  margin-top: -0.07vw;
+  text-align: center;
+  width: fit-content;
+}
+
+.desktop-2 .text-147 {
+  align-self: stretch;
+  direction: rtl;
+  line-height: normal;
+  opacity: 0.7;
+}
+
+.desktop-2 .text-149 {
+  direction: rtl;
+  line-height: normal;
+  opacity: 0.7;
+  width: fit-content;
+}
+
+.desktop-2 .line-2 {
+  height: 0.14vw;
+  left: 0;
+  position: absolute;
+  top: 83.54vw;
+  width: 100.0vw;
+}
+
+.desktop-2 .phone-3 {
+  letter-spacing: 0;
+  line-height: normal;
+  position: relative;
+}
+
+.desktop-2 .rectangle {
+  border-radius: 0.14vw;
+  height: 0.42vw;
+  position: relative;
+  width: 2.22vw;
+}
+
+.desktop-2 .rectangle-116-3 {
+  height: 29.38vw;
+  object-fit: cover;
+  position: relative;
+}
+
+.desktop-2 .text {
+  letter-spacing: 0;
+  position: relative;
+}
+
+.desktop-2 .text-1-3 {
+  align-items: center;
+  direction: rtl;
+  display: flex;
+  justify-content: center;
+  letter-spacing: 0;
+  position: relative;
+}

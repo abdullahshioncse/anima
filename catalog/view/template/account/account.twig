@@ -1,0 +1,23 @@
+{{ header }}
+
+<div class="account-page">
+  <h1 class="poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+  
+  <div class="account-content">
+    {{ content }}
+  </div>
+  
+  {% if success %}
+  <div class="alert alert-success">
+    {{ success }}
+  </div>
+  {% endif %}
+  
+  {% if error_warning %}
+  <div class="alert alert-warning">
+    {{ error_warning }}
+  </div>
+  {% endif %}
+</div>
+
+{{ footer }}
