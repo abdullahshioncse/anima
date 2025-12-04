@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html dir="{{ direction }}" lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ title }}</title>
+  <base href="{{ base }}">
+  {% if description %}
+    <meta name="description" content="{{ description }}">
+  {% endif %}
+  {% if keywords %}
+    <meta name="keywords" content="{{ keywords }}">
+  {% endif %}
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/globals.css">
+  <link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/styleguide.css">
+  <link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/anima.css">
+  
+  {% for style in styles %}
+    <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}">
+  {% endfor %}
+  
+  <!-- Scripts -->
+  {% for script in scripts %}
+    <script src="{{ script.href }}" type="text/javascript"></script>
+  {% endfor %}
+  
+  {% for link in links %}
+    <link href="{{ link.href }}" rel="{{ link.rel }}">
+  {% endfor %}
+  
+  {% for analytic in analytics %}
+    {{ analytic }}
+  {% endfor %}
+</head>
+<body>
+
+<!-- Sale Banner -->
+{% if config_theme_anima_sale_banner %}
+<div class="sale">
+  <p class="text-43 text-5 poppins-medium-white-16px">{{ config_theme_anima_sale_banner|default('حصل على خصم 20٪ قبل نهاية نوفمبر!') }}</p>
+</div>
+{% endif %}
+
+<!-- Header -->
+<header class="header">
+  <div class="menu-1">
+    <!-- User Account -->
+    <a href="{{ account }}" title="{{ text_account }}">
+      <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-profile.svg" alt="{{ text_account }}">
+    </a>
+    
+    <!-- Shopping Cart -->
+    <a href="{{ shopping_cart }}" title="{{ text_shopping_cart }}">
+      <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-bag-2.svg" alt="{{ text_shopping_cart }}">
+      {% if cart_total %}
+        <span class="cart-badge">{{ cart_total }}</span>
+      {% endif %}
+    </a>
+    
+    <!-- Wishlist -->
+    <a href="{{ wishlist }}" title="{{ text_wishlist }}">
+      <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-heart.svg" alt="{{ text_wishlist }}">
+      {% if wishlist_total %}
+        <span class="wishlist-badge">{{ wishlist_total }}</span>
+      {% endif %}
+    </a>
+    
+    <!-- Search -->
+    <a href="#" id="search-toggle" title="{{ text_search }}">
+      <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-search-1.svg" alt="{{ text_search }}">
+    </a>
+    
+    <!-- Phone Contact -->
+    <div class="frame-6 frame">
+      <div class="phone-1 poppins-normal-eerie-black-16px">{{ telephone|default('965-22091914') }}</div>
+      <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-call.svg" alt="{{ text_contact }}">
+    </div>
+  </div>
+  
+  <!-- Logo -->
+  <div class="logo poppins-medium-eerie-black-20px">
+    {% if logo %}
+      <a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}"></a>
+    {% else %}
+      <a href="{{ home }}">{{ name|default('LOGO') }}</a>
+    {% endif %}
+  </div>
+  
+  <!-- Main Navigation -->
+  <nav class="navbar poppins-medium-eerie-black-16px">
+    {% if categories %}
+      {% for category in categories %}
+        <a href="{{ category.href }}" class="navbar-link-text">{{ category.name }}</a>
+      {% endfor %}
+    {% else %}
+      <!-- Default menu items -->
+      <a href="{{ link_category_men }}" class="navbar-link-text">ملابس رجالية</a>
+      <a href="{{ link_category_women }}" class="navbar-link-text">ملابس نسائية</a>
+      <a href="{{ link_category_accessories }}" class="navbar-link-text">إكسسوارات</a>
+      <a href="{{ link_category_sale }}" class="navbar-link-text">تخفيضات</a>
+    {% endif %}
+  </nav>
+</header>
+
+<!-- Search Popup (Hidden by default) -->
+<div id="search-popup" class="search-popup" style="display: none;">
+  <div class="search-popup-content">
+    <input type="text" id="search-input" placeholder="{{ text_search }}" class="form-control">
+    <button type="button" id="search-close" class="btn-close"></button>
+  </div>
+</div>
+
+<!-- Success/Error Messages -->
+{% if success %}
+  <div class="alert alert-success alert-dismissible">
+    <i class="fa-solid fa-circle-check"></i> {{ success }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+{% endif %}
+
+{% if error_warning %}
+  <div class="alert alert-danger alert-dismissible">
+    <i class="fa-solid fa-circle-exclamation"></i> {{ error_warning }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+{% endif %}

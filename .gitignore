@@ -1,0 +1,31 @@
+# Node modules (if any)
+node_modules/
+npm-debug.log
+
+# Composer
+vendor/
+composer.lock
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.cache
+
+# Build artifacts
+dist/
+build/
+
+# PHP cache
+*.php~
