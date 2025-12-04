@@ -48,9 +48,9 @@
       <article class="card">
         <div class="info">
           <div class="image">
-            <a href="{{ product.wishlist }}" class="wishlist-icon">
+            <button type="button" onclick="wishlist.add('{{ product.product_id }}');" class="wishlist-icon">
               <img class="iconly-sharp" src="extension/oc_theme_anima/catalog/view/image/iconly-sharp-heart.svg" alt="Iconly/Sharp/Heart" />
-            </a>
+            </button>
             {% if product.special %}
             <div class="frame-5 hidden">
               <div class="button"><div class="button-2 poppins-medium-white-14px">مجموعة جديدة</div></div>
