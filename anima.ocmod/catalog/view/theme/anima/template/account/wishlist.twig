@@ -1,0 +1,49 @@
+{{ header }}
+
+<div id="account-wishlist" class="container">
+  <h1>{{ heading_title }}</h1>
+  
+  {% if products %}
+  <div class="cards">
+    {% for product in products %}
+    <article class="card">
+      <div class="info-1">
+        <div class="image">
+          <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a>
+          <button type="button" class="btn-remove" onclick="wishlist.remove('{{ product.product_id }}');">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+        <div class="info">
+          <a href="{{ product.href }}">
+            <p class="poppins-medium-eerie-black-12px">{{ product.name }}</p>
+          </a>
+          {% if product.model %}
+          <div class="poppins-normal-eerie-black-12px">{{ product.model }}</div>
+          {% endif %}
+        </div>
+        <div class="price poppins-semi-bold-eerie-black-16px">
+          {% if product.special %}
+          <span class="price-old">{{ product.price }}</span>
+          {{ product.special }}
+          {% else %}
+          {{ product.price }}
+          {% endif %}
+        </div>
+      </div>
+      <div class="button-2">
+        <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button poppins-semi-bold-white-16px">{{ button_cart }}</button>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p>{{ text_empty }}</p>
+  {% endif %}
+  
+  <div class="buttons clearfix">
+    <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+  </div>
+</div>
+
+{{ footer }}

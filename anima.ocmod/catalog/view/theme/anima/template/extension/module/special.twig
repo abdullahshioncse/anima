@@ -1,0 +1,31 @@
+<div class="module-special">
+  <h3>{{ heading_title }}</h3>
+  <div class="cards">
+    {% for product in products %}
+    <article class="card">
+      <div class="info-1">
+        <div class="image">
+          <a href="{{ product.href }}">
+            <img src="{{ product.thumb }}" alt="{{ product.name }}" />
+          </a>
+          <div class="frame-5 frame">
+            <div class="button-1">
+              <div class="button poppins-medium-white-14px">{{ text_sale }}</div>
+            </div>
+          </div>
+        </div>
+        <div class="info">
+          <p class="poppins-medium-eerie-black-12px">{{ product.name }}</p>
+        </div>
+        <div class="price">
+          <span class="price-old">{{ product.price }}</span>
+          <span class="price-new poppins-semi-bold-eerie-black-16px">{{ product.special }}</span>
+        </div>
+      </div>
+      <div class="button-2">
+        <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button poppins-semi-bold-white-16px">أضف إلى السلة</button>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>

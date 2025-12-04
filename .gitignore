@@ -1,0 +1,42 @@
+# OpenCart cache and temporary files
+/system/storage/cache/*
+/system/storage/logs/*
+/system/storage/download/*
+/system/storage/upload/*
+/system/storage/modification/*
+
+# Image cache
+/image/cache/*
+
+# Vendor
+/vendor/
+
+# Node modules (if using npm)
+/node_modules/
+
+# Build artifacts
+*.zip
+*.tar.gz
+*.ocmod.zip
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.sublime-*
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+config.php.bak
+
+# Backup files
+*.bak
+*.backup
+*~
+
+# Temporary files
+/tmp/
+*.tmp
+*.log
