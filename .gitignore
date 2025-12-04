@@ -1,0 +1,22 @@
+# Original static files (can be removed after conversion is verified)
+# desktop-*.html
+# iphone-*.html
+# .html
+
+# Old directories (assets moved to OpenCart structure)
+# css/
+# img/
+# fonts/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*~
