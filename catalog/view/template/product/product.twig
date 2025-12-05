@@ -1,0 +1,183 @@
+{{ header }}
+
+<div class="desktop-2 screen">
+  <!-- Product Images -->
+  <div class="photos">
+    {% if images %}
+    {% for image in images %}
+    <img class="rectangle-116-1 rectangle-116-3" src="{{ image.thumb }}" alt="{{ heading_title }}" onclick="window.open('{{ image.popup }}');" />
+    {% endfor %}
+    {% endif %}
+  </div>
+  
+  <!-- Product Information -->
+  <div class="info-3">
+    <div class="info-item">
+      <p class="t-shirt-energy-red-and-white-1 poppins-medium-eerie-black-20px">{{ heading_title }}</p>
+      <div class="phone-2 phone-3">{{ model }}</div>
+    </div>
+    
+    <!-- Price -->
+    <div class="x5000-kd-1 poppins-semi-bold-eerie-black-24px">
+      {% if special %}
+      <span class="price-old">{{ price }}</span>
+      <span class="price-new">{{ special }}</span>
+      {% else %}
+      {{ price }}
+      {% endif %}
+    </div>
+    
+    <!-- Product Options -->
+    <div class="settings">
+      {% for option in options %}
+      <div class="settings-item">
+        <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ option.name }}</div>
+        {% if option.type == 'select' %}
+        <div class="size">
+          {% for option_value in option.product_option_value %}
+          <div class="frame-1">
+            <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" id="option-value-{{ option_value.product_option_value_id }}" />
+            <label for="option-value-{{ option_value.product_option_value_id }}" class="poppins-medium-eerie-black-18px">{{ option_value.name }}</label>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% if option.type == 'radio' %}
+        <div class="color">
+          {% for option_value in option.product_option_value %}
+          <div class="text-139 text poppins-medium-eerie-black-18px">
+            <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" id="option-value-{{ option_value.product_option_value_id }}" />
+            <label for="option-value-{{ option_value.product_option_value_id }}">{{ option_value.name }}</label>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+      
+      <!-- Quantity -->
+      <div class="settings-item">
+        <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ text_qty|default('الكمية') }}</div>
+        <div class="number">
+          <button type="button" class="vuesaxlinearadd" onclick="$('input[name=\'quantity\']').val(parseInt($('input[name=\'quantity\']').val()) + 1);"></button>
+          <img class="line" src="catalog/view/theme/anima/image/line-4-2.svg" alt="Line" />
+          <div class="frame-17">
+            <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="number-1 poppins-medium-eerie-black-18px" />
+          </div>
+          <img class="line" src="catalog/view/theme/anima/image/line-4-2.svg" alt="Line" />
+          <button type="button" class="vuesaxlinearminus" onclick="var qty = parseInt($('input[name=\'quantity\']').val()) - 1; $('input[name=\'quantity\']').val(qty > 0 ? qty : 1);"></button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="buttons">
+      <div class="buttons-1 poppins-semi-bold-white-16px">
+        <button type="button" class="button-12" onclick="wishlist.add('{{ product_id }}');">
+          <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-heart-39.svg" alt="Add to Wishlist" />
+        </button>
+        <button type="button" class="button-13" id="button-cart">
+          <div class="text-141 text">{{ button_cart|default('أضف إلى السلة') }}</div>
+          <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-bag-2-1.svg" alt="Add to Cart" />
+        </button>
+        <button type="button" class="button-14" onclick="cart.add('{{ product_id }}', $('input[name=\'quantity\']').val()); window.location='{{ checkout }}';">
+          <div class="button-15">{{ text_buy_now|default('اشتري الآن') }}</div>
+        </button>
+      </div>
+      <div class="x1">
+        <div class="text-142 text">{{ text_stock|default('الكمية المتوفرة') }}: {{ stock }}</div>
+        <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-shield-done-1.svg" alt="Shield" />
+      </div>
+    </div>
+    
+    <img class="line-1" src="catalog/view/theme/anima/image/line-5-2.svg" alt="Line" />
+    
+    <!-- Features -->
+    <div class="frame-18">
+      <div class="x1-1">
+        <div class="text-14 text poppins-semi-bold-eerie-black-16px">الاسترجاع و التبديل</div>
+        <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-bag-2.svg" alt="Return" />
+      </div>
+      <div class="x2">
+        <div class="text-14 text poppins-semi-bold-eerie-black-16px">توصيل خلال ٢٤ ساعة</div>
+        <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-time-circle-2.svg" alt="Delivery" />
+      </div>
+      <div class="x3">
+        <div class="text-145 text poppins-semi-bold-eerie-black-16px">منتجات أصلية 100%</div>
+        <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-tick-square-2.svg" alt="Original" />
+      </div>
+    </div>
+    
+    <img class="line-1" src="catalog/view/theme/anima/image/line-5-2.svg" alt="Line" />
+    
+    <!-- Description -->
+    <div class="info-item">
+      <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ text_description|default('الوصف') }}</div>
+      <div class="text-147 text poppins-medium-eerie-black-18px">{{ description }}</div>
+    </div>
+    
+    <!-- Additional Information -->
+    {% if attribute_groups %}
+    {% for attribute_group in attribute_groups %}
+    <div class="info-item">
+      <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ attribute_group.name }}</div>
+      {% for attribute in attribute_group.attribute %}
+      <div class="text-149 text poppins-medium-eerie-black-18px">{{ attribute.name }}: {{ attribute.text }}</div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+  
+  <img class="line-2" src="catalog/view/theme/anima/image/line-2-1.svg" alt="Line" />
+  
+  <!-- Related Products Section -->
+  {{ content_bottom }}
+</div>
+
+<script type="text/javascript">
+$('#button-cart').on('click', function() {
+  $.ajax({
+    url: 'index.php?route=checkout/cart.add',
+    type: 'post',
+    data: $('#product input[type=\'text\'], #product input[type=\'hidden\'], #product input[type=\'radio\']:checked, #product input[type=\'checkbox\']:checked, #product select, #product textarea'),
+    dataType: 'json',
+    beforeSend: function() {
+      $('#button-cart').button('loading');
+    },
+    complete: function() {
+      $('#button-cart').button('reset');
+    },
+    success: function(json) {
+      if (json['error']) {
+        if (json['error']['option']) {
+          for (i in json['error']['option']) {
+            var element = $('#input-option' + i.replace('_', '-'));
+            
+            if (element.parent().hasClass('input-group')) {
+              element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+            } else {
+              element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+            }
+          }
+        }
+      }
+      
+      if (json['success']) {
+        $('#content').parent().before('<div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+        
+        $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+        
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
+        
+        $('#cart > ul').load('index.php?route=common/cart.info ul li');
+      }
+    },
+    error: function(xhr, ajaxOptions, thrownError) {
+      alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+    }
+  });
+});
+</script>
+
+{{ footer }}
