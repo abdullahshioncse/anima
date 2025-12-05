@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html dir="{{ direction }}" lang="{{ lang }}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>{{ title }}</title>
+<base href="{{ base }}" />
+{% if description %}
+<meta name="description" content="{{ description }}" />
+{% endif %}
+{% if keywords %}
+<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+
+<!-- Stylesheets -->
+<link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/anima.css" />
+{% if page_type == 'home' %}
+<link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/anima-home.css" />
+{% endif %}
+{% if page_type == 'product' or page_type == 'category' %}
+<link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/anima-product.css" />
+{% endif %}
+<link rel="stylesheet" type="text/css" href="catalog/view/stylesheet/anima-responsive.css" />
+
+{% for style in styles %}
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+
+{% for link in links %}
+<link href="{{ link.href }}" rel="{{ link.rel }}" />
+{% endfor %}
+
+{% for analytic in analytics %}
+{{ analytic }}
+{% endfor %}
+</head>
+<body>
+
+<!-- Info Bar -->
+<div class="info-2">
+  <div class="info-item">
+    <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-bag-2-1.svg" alt="Return & Exchange" />
+    <div class="info-3">
+      <div class="text-3 text-5 poppins-semi-bold-white-16px">الاسترجاع و التبديل</div>
+      <p class="text poppins-normal-white-12px">إمكانيه الأسترجاع في حال كان القياس غير مناسب</p>
+    </div>
+  </div>
+  <div class="x2">
+    <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-time-circle.svg" alt="24 Hour Delivery" />
+    <div class="info-4">
+      <div class="text-3 text-5 poppins-semi-bold-white-16px">توصيل خلال ٢٤ ساعة</div>
+      <p class="text poppins-normal-white-12px">
+        توصيل محلي لجميع مناطق الكويت خلال ٢٤ ساعه فقط ١ دينار كويتي من العبدلي الى الخيران
+      </p>
+    </div>
+  </div>
+  <div class="info-item">
+    <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-tick-square.svg" alt="100% Original" />
+    <div class="info">
+      <div class="text-41 text-5 poppins-semi-bold-white-16px">منتجات أصلية 100%</div>
+      <p class="text-42 text-5 poppins-normal-white-12px">
+        جميع المنتجات الأصلية من المصنع مباشره ملابس رياضية - أكسسوارات لتمارين
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- Sale Banner -->
+<div class="sale">
+  <p class="text-43 text-5 poppins-medium-white-16px">حصل على خصم 20٪ قبل نهاية نوفمبر!</p>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="menu-1">
+    <a href="{{ account }}"><img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-profile.svg" alt="Profile" /></a>
+    <a href="{{ shopping_cart }}"><img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-bag-2.svg" alt="Shopping Cart" /></a>
+    <a href="{{ wishlist }}"><img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-heart.svg" alt="Wishlist" /></a>
+    <a href="{{ search }}"><img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-search-1.svg" alt="Search" /></a>
+    <div class="frame-6 frame">
+      <div class="phone-1 poppins-normal-eerie-black-16px">{{ telephone }}</div>
+      <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-call.svg" alt="Call" />
+    </div>
+  </div>
+  <div class="logo poppins-medium-eerie-black-20px">
+    {% if logo %}
+    <a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" /></a>
+    {% else %}
+    <a href="{{ home }}">{{ name }}</a>
+    {% endif %}
+  </div>
+  <nav class="navbar poppins-medium-eerie-black-16px">
+    {% for category in categories %}
+    <a href="{{ category.href }}" class="navbar-link-text">{{ category.name }}</a>
+    {% endfor %}
+  </nav>
+</header>
