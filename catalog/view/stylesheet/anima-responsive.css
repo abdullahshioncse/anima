@@ -405,7 +405,7 @@
 .iphone-13-u38-14-1 .image {
   align-items: flex-start;
   align-self: stretch;
-  background-image: url(../img/image-1@2x.png);
+  background-image: url(../theme/anima/image/image-1@2x.png);
   background-position: 50% 50%;
   background-size: cover;
   display: flex;
@@ -717,7 +717,7 @@
 }
 
 .iphone-13-u38-14-1 .payment-icons {
-  background-image: url(../img/size-sm--payment-method-visa.svg);
+  background-image: url(../theme/anima/image/size-sm--payment-method-visa.svg);
   background-position: 50% 50%;
   background-size: cover;
   border: 0.26vw solid;
@@ -1210,7 +1210,7 @@
 }
 
 .iphone-13-u38-14-4 .payment-icons {
-  background-image: url(../img/size-sm--payment-method-visa.svg);
+  background-image: url(../theme/anima/image/size-sm--payment-method-visa.svg);
   background-position: 50% 50%;
   background-size: cover;
   border: 0.26vw solid;
@@ -1524,7 +1524,7 @@
 }
 
 .iphone-13-u38-14-5 .payment-icons {
-  background-image: url(../img/size-sm--payment-method-visa.svg);
+  background-image: url(../theme/anima/image/size-sm--payment-method-visa.svg);
   background-position: 50% 50%;
   background-size: cover;
   border: 0.26vw solid;
@@ -1669,7 +1669,7 @@
 .iphone-13-u38-14-5 .image {
   align-items: flex-start;
   align-self: stretch;
-  background-image: url(../img/image-1@2x.png);
+  background-image: url(../theme/anima/image/image-1@2x.png);
   background-position: 50% 50%;
   background-size: cover;
   display: flex;
@@ -2467,7 +2467,7 @@
 .iphone-13-u38-14-6 .image {
   align-items: flex-start;
   align-self: stretch;
-  background-image: url(../img/image-1@2x.png);
+  background-image: url(../theme/anima/image/image-1@2x.png);
   background-position: 50% 50%;
   background-size: cover;
   display: flex;
@@ -2834,7 +2834,7 @@
 }
 
 .iphone-13-u38-14-6 .payment-icons {
-  background-image: url(../img/size-sm--payment-method-visa.svg);
+  background-image: url(../theme/anima/image/size-sm--payment-method-visa.svg);
   background-position: 50% 50%;
   background-size: cover;
   border: 0.26vw solid;
