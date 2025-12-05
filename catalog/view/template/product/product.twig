@@ -1,11 +1,14 @@
 {{ header }}
 
 <div class="desktop-2 screen">
+  <form id="product">
   <!-- Product Images -->
   <div class="photos">
     {% if images %}
     {% for image in images %}
-    <img class="rectangle-116-1 rectangle-116-3" src="{{ image.thumb }}" alt="{{ heading_title }}" onclick="window.open('{{ image.popup }}');" />
+    <a href="{{ image.popup }}" target="_blank" rel="noopener noreferrer">
+      <img class="rectangle-116-1 rectangle-116-3" src="{{ image.thumb }}" alt="{{ heading_title }}" />
+    </a>
     {% endfor %}
     {% endif %}
   </div>
@@ -59,13 +62,13 @@
       <div class="settings-item">
         <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ text_qty|default('الكمية') }}</div>
         <div class="number">
-          <button type="button" class="vuesaxlinearadd" onclick="$('input[name=\'quantity\']').val(parseInt($('input[name=\'quantity\']').val()) + 1);"></button>
+          <button type="button" class="vuesaxlinearadd qty-plus"></button>
           <img class="line" src="catalog/view/theme/anima/image/line-4-2.svg" alt="Line" />
           <div class="frame-17">
             <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="number-1 poppins-medium-eerie-black-18px" />
           </div>
           <img class="line" src="catalog/view/theme/anima/image/line-4-2.svg" alt="Line" />
-          <button type="button" class="vuesaxlinearminus" onclick="var qty = parseInt($('input[name=\'quantity\']').val()) - 1; $('input[name=\'quantity\']').val(qty > 0 ? qty : 1);"></button>
+          <button type="button" class="vuesaxlinearminus qty-minus"></button>
         </div>
       </div>
     </div>
@@ -128,6 +131,7 @@
     {% endfor %}
     {% endif %}
   </div>
+  </form>
   
   <img class="line-2" src="catalog/view/theme/anima/image/line-2-1.svg" alt="Line" />
   
@@ -136,6 +140,18 @@
 </div>
 
 <script type="text/javascript">
+// Quantity controls
+$('.qty-plus').on('click', function() {
+  var qty = parseInt($('input[name="quantity"]').val()) + 1;
+  $('input[name="quantity"]').val(qty);
+});
+
+$('.qty-minus').on('click', function() {
+  var qty = parseInt($('input[name="quantity"]').val()) - 1;
+  $('input[name="quantity"]').val(qty > 0 ? qty : 1);
+});
+
+// Add to cart
 $('#button-cart').on('click', function() {
   $.ajax({
     url: 'index.php?route=checkout/cart.add',
