@@ -1,0 +1,205 @@
+{{ header }}
+
+<h1 class="text-173 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+
+{{ content_top }}
+
+<div class="cart-wrapper">
+    {% if products or vouchers %}
+    <form action="{{ action }}" method="post" id="form-cart">
+        <table class="cart-table">
+            <thead>
+                <tr>
+                    <th class="text-right">{{ column_image }}</th>
+                    <th class="text-right">{{ column_name }}</th>
+                    <th class="text-right">{{ column_model }}</th>
+                    <th class="text-right">{{ column_quantity }}</th>
+                    <th class="text-right">{{ column_price }}</th>
+                    <th class="text-right">{{ column_total }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td class="text-center">
+                        {% if product.thumb %}
+                        <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="cart-thumb" /></a>
+                        {% endif %}
+                    </td>
+                    <td class="text-right">
+                        <a href="{{ product.href }}" class="poppins-medium-eerie-black-16px">{{ product.name }}</a>
+                        {% if product.option %}
+                        <br />
+                        {% for option in product.option %}
+                        <small class="poppins-normal-eerie-black-12px">- {{ option.name }}: {{ option.value }}</small><br />
+                        {% endfor %}
+                        {% endif %}
+                        {% if product.subscription %}
+                        <br />
+                        <small class="poppins-normal-eerie-black-12px">- {{ product.subscription }}</small>
+                        {% endif %}
+                        {% if product.reward %}
+                        <br />
+                        <small class="poppins-normal-eerie-black-12px">{{ product.reward }}</small>
+                        {% endif %}
+                    </td>
+                    <td class="text-right poppins-normal-eerie-black-14px">{{ product.model }}</td>
+                    <td class="text-right">
+                        <div class="quantity-input">
+                            <input type="number" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" min="1" class="form-control" />
+                            <button type="button" onclick="removeFromCart('{{ product.cart_id }}');" class="btn btn-danger">
+                                <img src="catalog/view/theme/anima/image/iconly-sharp-delete.svg" alt="{{ button_remove }}" width="20" />
+                            </button>
+                        </div>
+                    </td>
+                    <td class="text-right poppins-medium-eerie-black-16px">{{ product.price }}</td>
+                    <td class="text-right poppins-semi-bold-eerie-black-16px">{{ product.total }}</td>
+                </tr>
+                {% endfor %}
+                
+                {% for voucher in vouchers %}
+                <tr>
+                    <td class="text-center"></td>
+                    <td class="text-right poppins-medium-eerie-black-16px">{{ voucher.description }}</td>
+                    <td class="text-right"></td>
+                    <td class="text-right">
+                        <button type="button" onclick="removeVoucher('{{ voucher.key }}');" class="btn btn-danger">
+                            <img src="catalog/view/theme/anima/image/iconly-sharp-delete.svg" alt="{{ button_remove }}" width="20" />
+                        </button>
+                    </td>
+                    <td class="text-right"></td>
+                    <td class="text-right poppins-semi-bold-eerie-black-16px">{{ voucher.amount }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <!-- Update Cart -->
+        <div class="cart-actions">
+            <button type="submit" class="button-3">
+                <span class="button poppins-medium-white-16px">{{ button_update }}</span>
+            </button>
+        </div>
+    </form>
+    
+    <!-- Coupon & Voucher -->
+    <div class="cart-extras">
+        <!-- Coupon -->
+        <div class="cart-coupon">
+            <h3 class="poppins-semi-bold-eerie-black-18px">{{ text_coupon|default('كود الخصم') }}</h3>
+            <form id="form-coupon">
+                <div class="email-1">
+                    <button type="submit" class="button-14">
+                        <span class="button-15 poppins-semi-bold-white-14px">{{ button_coupon|default('تطبيق') }}</span>
+                    </button>
+                    <input type="text" name="coupon" value="{{ coupon }}" class="form-control" placeholder="{{ entry_coupon|default('أدخل كود الخصم') }}" />
+                </div>
+            </form>
+        </div>
+        
+        <!-- Voucher -->
+        <div class="cart-voucher">
+            <h3 class="poppins-semi-bold-eerie-black-18px">{{ text_voucher|default('قسيمة هدية') }}</h3>
+            <form id="form-voucher">
+                <div class="email-1">
+                    <button type="submit" class="button-14">
+                        <span class="button-15 poppins-semi-bold-white-14px">{{ button_voucher|default('تطبيق') }}</span>
+                    </button>
+                    <input type="text" name="voucher" value="{{ voucher }}" class="form-control" placeholder="{{ entry_voucher|default('أدخل كود القسيمة') }}" />
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Totals -->
+    <div class="cart-totals">
+        {% for total in totals %}
+        <div class="cart-total-row">
+            <span class="poppins-medium-eerie-black-16px">{{ total.title }}</span>
+            <span class="poppins-semi-bold-eerie-black-18px">{{ total.text }}</span>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Checkout Buttons -->
+    <div class="cart-buttons">
+        <a href="{{ continue }}" class="button-3">
+            <span class="button poppins-medium-white-16px">{{ button_shopping }}</span>
+        </a>
+        <a href="{{ checkout }}" class="button-4">
+            <span class="button poppins-semi-bold-white-16px">{{ button_checkout }}</span>
+        </a>
+    </div>
+    
+    {% else %}
+    <div class="cart-empty text-center">
+        <img src="catalog/view/theme/anima/image/iconly-sharp-bag-2.svg" alt="" width="100" />
+        <p class="poppins-medium-eerie-black-18px">{{ text_empty }}</p>
+        <a href="{{ continue }}" class="button-4">
+            <span class="button poppins-semi-bold-white-16px">{{ button_shopping }}</span>
+        </a>
+    </div>
+    {% endif %}
+</div>
+
+{{ content_bottom }}
+
+<script type="text/javascript">
+// Update Cart
+$('#form-cart').on('submit', function(e) {
+    e.preventDefault();
+    $.ajax({
+        url: 'index.php?route=checkout/cart.edit',
+        type: 'post',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function(json) {
+            if (json.success) {
+                location.reload();
+            }
+        }
+    });
+});
+
+// Apply Coupon
+$('#form-coupon').on('submit', function(e) {
+    e.preventDefault();
+    $.ajax({
+        url: 'index.php?route=checkout/coupon.save',
+        type: 'post',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function(json) {
+            if (json.success) {
+                showToast(json.success, 'success');
+                location.reload();
+            }
+            if (json.error) {
+                showToast(json.error, 'error');
+            }
+        }
+    });
+});
+
+// Apply Voucher
+$('#form-voucher').on('submit', function(e) {
+    e.preventDefault();
+    $.ajax({
+        url: 'index.php?route=checkout/voucher.save',
+        type: 'post',
+        data: $(this).serialize(),
+        dataType: 'json',
+        success: function(json) {
+            if (json.success) {
+                showToast(json.success, 'success');
+                location.reload();
+            }
+            if (json.error) {
+                showToast(json.error, 'error');
+            }
+        }
+    });
+});
+</script>
+
+{{ footer }}

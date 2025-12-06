@@ -1,0 +1,50 @@
+{{ header }}
+
+<h1 class="text-173 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+
+{{ content_top }}
+
+<div class="login-wrapper">
+    <div class="login-columns">
+        <!-- New Customer -->
+        <div class="login-column">
+            <h2 class="poppins-semi-bold-eerie-black-24px">{{ text_new_customer }}</h2>
+            <p class="poppins-medium-eerie-black-18px">{{ text_register }}</p>
+            <a href="{{ register }}" class="button-4">
+                <span class="button poppins-semi-bold-white-16px">{{ button_continue }}</span>
+            </a>
+        </div>
+        
+        <img class="line-vertical" src="catalog/view/theme/anima/image/line-2-5.svg" alt="" />
+        
+        <!-- Returning Customer -->
+        <div class="login-column">
+            <h2 class="poppins-semi-bold-eerie-black-24px">{{ text_returning_customer }}</h2>
+            <p class="poppins-medium-eerie-black-18px">{{ text_i_am_returning_customer }}</p>
+            
+            <form id="form-login" action="{{ action }}" method="post" data-oc-toggle="ajax">
+                <div class="form-group">
+                    <label for="input-email" class="poppins-normal-eerie-black-16px">{{ entry_email }}</label>
+                    <input type="email" name="email" value="{{ email }}" id="input-email" class="form-control" placeholder="{{ entry_email }}" required />
+                </div>
+                
+                <div class="form-group">
+                    <label for="input-password" class="poppins-normal-eerie-black-16px">{{ entry_password }}</label>
+                    <input type="password" name="password" value="{{ password }}" id="input-password" class="form-control" placeholder="{{ entry_password }}" required />
+                </div>
+                
+                <div class="form-actions">
+                    <a href="{{ forgotten }}" class="forgotten-link poppins-medium-eerie-black-16px">{{ text_forgotten }}</a>
+                    
+                    <button type="submit" class="button-4">
+                        <span class="button poppins-semi-bold-white-16px">{{ button_login }}</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{{ content_bottom }}
+
+{{ footer }}

@@ -1,0 +1,29 @@
+{{ header }}
+
+<div class="checkout-success">
+    <div class="success-icon">
+        <img src="catalog/view/theme/anima/image/iconly-sharp-tick-square.svg" alt="Success" width="100" />
+    </div>
+    
+    <h1 class="text-173 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+    
+    <div class="success-message">
+        <p class="poppins-medium-eerie-black-18px">{{ text_customer }}</p>
+        
+        {% if text_order %}
+        <p class="poppins-medium-eerie-black-18px">{{ text_order }}</p>
+        {% endif %}
+    </div>
+    
+    {{ content_top }}
+    
+    <div class="success-actions">
+        <a href="{{ continue }}" class="button-4">
+            <span class="button poppins-semi-bold-white-16px">{{ button_continue }}</span>
+        </a>
+    </div>
+    
+    {{ content_bottom }}
+</div>
+
+{{ footer }}

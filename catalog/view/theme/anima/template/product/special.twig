@@ -1,0 +1,88 @@
+{{ header }}
+
+<!-- Special Offers Title -->
+<h1 class="text-173 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+
+<!-- Product Count -->
+{% if products %}
+<div class="number-1">
+    <img class="line-2 line-3" src="catalog/view/theme/anima/image/line-2-1.svg" alt="" />
+    <p class="text-174">{{ text_product_count|format(pagination.total)|default('تم العثور على ' ~ (products|length) ~ ' عرض') }}</p>
+    <img class="line" src="catalog/view/theme/anima/image/line-2-1.svg" alt="" />
+</div>
+{% endif %}
+
+{{ content_top }}
+
+<!-- Products Grid -->
+{% if products %}
+<div class="cards">
+    {% for product in products %}
+    <article class="card">
+        <div class="info">
+            <div class="image" style="background-image: url('{{ product.thumb }}');">
+                <img class="iconly-sharp wishlist-btn" src="catalog/view/theme/anima/image/iconly-sharp-heart.svg" alt="Wishlist" data-product-id="{{ product.product_id }}" />
+                <div class="frame-5 frame">
+                    <div class="button"><div class="button-5 poppins-medium-white-14px">تخفيض</div></div>
+                </div>
+            </div>
+            <div class="info-1 info-3">
+                <a href="{{ product.href }}" class="t-shirt-energy-red-and-white poppins-medium-eerie-black-12px">{{ product.name }}</a>
+                <div class="phone poppins-normal-eerie-black-12px">{{ product.model }}</div>
+            </div>
+            <div class="x5000-kd poppins-semi-bold-eerie-black-16px">
+                {% if product.special %}
+                <span class="price-old">{{ product.price }}</span>
+                <span class="price-new">{{ product.special }}</span>
+                {% else %}
+                {{ product.price }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="button-1" onclick="addToCart('{{ product.product_id }}');">
+            <div class="button-2 poppins-semi-bold-white-16px">أضف إلى السلة</div>
+        </div>
+    </article>
+    {% endfor %}
+</div>
+
+<!-- Filters Sidebar -->
+<div class="menu-4">
+    <!-- Sort By -->
+    <div class="menu-item-1">
+        <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">فرز حسب</div>
+        {% for sort_option in sorts %}
+        <a href="{{ sort_option.href }}" class="frame-20 frame{% if sort_option.value == sort ~ '-' ~ order %} active{% endif %}">
+            <div class="text-189 poppins-medium-eerie-black-18px">{{ sort_option.text }}</div>
+            {% if sort_option.value == sort ~ '-' ~ order %}
+            <div class="ellipse-11"></div>
+            {% endif %}
+        </a>
+        {% else %}
+        <div class="frame-20 frame">
+            <div class="text-189 poppins-medium-eerie-black-18px">أكبر تخفيض</div>
+            <div class="ellipse-11"></div>
+        </div>
+        <div class="text-1 poppins-medium-eerie-black-18px">من الأعلى إلى الأقل سعرًا</div>
+        <div class="text-1 poppins-medium-eerie-black-18px">من الأقل إلى الأعلى سعرًا</div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Pagination -->
+{% if pagination %}
+<div class="pages">
+    {{ pagination }}
+</div>
+{% endif %}
+
+{% else %}
+<div class="no-products text-center">
+    <p class="poppins-medium-eerie-black-18px">{{ text_empty }}</p>
+    <a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a>
+</div>
+{% endif %}
+
+{{ content_bottom }}
+
+{{ footer }}
