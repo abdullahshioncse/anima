@@ -1,0 +1,82 @@
+<!-- Footer -->
+<footer class="footer">
+  <div class="email">
+    <p class="text poppins-semi-bold-white-24px">{{ text_newsletter }}</p>
+    <div class="email-1">
+      <form id="newsletter-form">
+        <input type="email" name="email" placeholder="{{ entry_newsletter }}" class="text poppins-medium-eerie-black-16px newsletter-input" />
+        <button type="submit" class="button-14">
+          <span class="button-15 poppins-semi-bold-white-14px">{{ button_subscribe }}</span>
+        </button>
+      </form>
+    </div>
+  </div>
+  
+  <div class="info-5">
+    <div class="menu-2">
+      <!-- Payment Icons -->
+      <div class="payment-icons-2">
+        <article class="payment-icons"></article>
+        <article class="payment-icons"></article>
+        <article class="payment-icons-1">
+          <img class="visa-logo" src="catalog/view/theme/anima/image/visa-logo-1.svg" alt="Visa" />
+        </article>
+        <article class="payment-icons-1">
+          <img class="apple-pay" src="catalog/view/theme/anima/image/applepay-1.svg" alt="Apple Pay" />
+        </article>
+        <article class="payment-icons-1">
+          <img class="mastercard" src="catalog/view/theme/anima/image/mastercard-1@2x.png" alt="Mastercard" />
+        </article>
+      </div>
+      
+      <!-- Footer Menus -->
+      <div class="menu-3">
+        <!-- Shop Now Menu -->
+        <div class="menu-item">
+          <div class="menu">
+            <div class="text poppins-bold-white-18px">{{ text_shop_now }}</div>
+            {% for category in categories %}
+            <a href="{{ category.href }}" class="text-2 poppins-semi-bold-white-14px">{{ category.name }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <!-- Contact Us Menu -->
+        <div class="menu-item">
+          <div class="menu">
+            <div class="text poppins-bold-white-18px">{{ text_contact }}</div>
+            {% for information in informations %}
+            <a href="{{ information.href }}" class="text-2 poppins-semi-bold-white-14px">{{ information.title }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <!-- Quick Links Menu -->
+        <div class="menu-item">
+          <div class="menu">
+            <div class="text poppins-bold-white-18px">{{ text_quick_links }}</div>
+            <a href="{{ account }}" class="text-2 poppins-semi-bold-white-14px">{{ text_account }}</a>
+            <a href="{{ about }}" class="text-2 poppins-semi-bold-white-14px">{{ text_about }}</a>
+            <a href="{{ contact }}" class="text-2 poppins-semi-bold-white-14px">{{ text_contact_us }}</a>
+            {% if privacy %}
+            <a href="{{ privacy }}" class="text-2 poppins-semi-bold-white-14px">{{ text_privacy }}</a>
+            {% endif %}
+            {% if terms %}
+            <a href="{{ terms }}" class="text-2 poppins-semi-bold-white-14px">{{ text_terms }}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Copyright -->
+    <div class="text poppins-medium-white-14px">{{ powered }}</div>
+  </div>
+</footer>
+
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+
+</body>
+</html>

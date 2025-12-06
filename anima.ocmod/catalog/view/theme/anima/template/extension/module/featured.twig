@@ -1,0 +1,41 @@
+<div class="module-featured">
+  <h3>{{ heading_title }}</h3>
+  <div class="cards">
+    {% for product in products %}
+    <article class="card">
+      <div class="info-1">
+        <div class="image">
+          <a href="{{ product.href }}">
+            <img src="{{ product.thumb }}" alt="{{ product.name }}" />
+          </a>
+          <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-heart.svg" alt="Wishlist" />
+          {% if product.special %}
+          <div class="frame-5-1">
+            <div class="button-1">
+              <div class="button poppins-medium-white-14px">{{ text_sale }}</div>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        <div class="info">
+          <p class="poppins-medium-eerie-black-12px">{{ product.name }}</p>
+          {% if product.model %}
+          <div class="poppins-normal-eerie-black-12px">{{ product.model }}</div>
+          {% endif %}
+        </div>
+        <div class="poppins-semi-bold-eerie-black-16px">
+          {% if product.special %}
+          <span class="price-old">{{ product.price }}</span>
+          {{ product.special }}
+          {% else %}
+          {{ product.price }}
+          {% endif %}
+        </div>
+      </div>
+      <div class="button-2">
+        <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button poppins-semi-bold-white-16px">{{ button_cart }}</button>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</div>

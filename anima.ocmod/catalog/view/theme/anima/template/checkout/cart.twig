@@ -1,0 +1,70 @@
+{{ header }}
+
+<div id="checkout-cart" class="container">
+  <h1>{{ heading_title }}</h1>
+  
+  {% if products or vouchers %}
+  <div class="table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <td class="text-center">{{ column_image }}</td>
+          <td class="text-left">{{ column_name }}</td>
+          <td class="text-left">{{ column_model }}</td>
+          <td class="text-left">{{ column_quantity }}</td>
+          <td class="text-right">{{ column_price }}</td>
+          <td class="text-right">{{ column_total }}</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+        <tr>
+          <td class="text-center">
+            <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a>
+          </td>
+          <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a></td>
+          <td class="text-left">{{ product.model }}</td>
+          <td class="text-left">
+            <div class="input-group btn-block" style="max-width: 200px;">
+              <input type="text" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" class="form-control" />
+              <span class="input-group-btn">
+                <button type="button" data-toggle="tooltip" title="{{ button_update }}" class="btn btn-primary" onclick="cart.update('{{ product.cart_id }}', this);"><i class="fa fa-refresh"></i></button>
+                <button type="button" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger" onclick="cart.remove('{{ product.cart_id }}');"><i class="fa fa-times-circle"></i></button>
+              </span>
+            </div>
+          </td>
+          <td class="text-right">{{ product.price }}</td>
+          <td class="text-right">{{ product.total }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="row">
+    <div class="col-sm-4 col-sm-offset-8">
+      <table class="table table-bordered">
+        {% for total in totals %}
+        <tr>
+          <td class="text-right"><strong>{{ total.title }}</strong></td>
+          <td class="text-right">{{ total.text }}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+  
+  <div class="buttons clearfix">
+    <div class="pull-left"><a href="{{ continue }}" class="btn btn-default">{{ button_shopping }}</a></div>
+    <div class="pull-right"><a href="{{ checkout }}" class="btn btn-primary">{{ button_checkout }}</a></div>
+  </div>
+  
+  {% else %}
+  <p>{{ text_empty }}</p>
+  <div class="buttons">
+    <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+  </div>
+  {% endif %}
+</div>
+
+{{ footer }}

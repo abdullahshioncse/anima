@@ -1,0 +1,29 @@
+<div class="shipping-methods">
+  {% if error_warning %}
+  <div class="alert alert-warning">{{ error_warning }}</div>
+  {% endif %}
+  
+  {% if shipping_methods %}
+  <p>{{ text_shipping_method }}</p>
+  {% for shipping_method in shipping_methods %}
+  <div class="radio">
+    <label>
+      {% if shipping_method.quote %}
+      {% for quote in shipping_method.quote %}
+      <input type="radio" name="shipping_method" value="{{ quote.code }}"{% if quote.code == code %} checked{% endif %} />
+      <strong>{{ shipping_method.title }}</strong> - {{ quote.title }} - {{ quote.text }}
+      {% endfor %}
+      {% endif %}
+    </label>
+  </div>
+  {% endfor %}
+  {% else %}
+  <div class="alert alert-danger">{{ error_no_shipping }}</div>
+  {% endif %}
+  
+  <div class="buttons">
+    <div class="pull-right">
+      <input type="button" value="{{ button_continue }}" id="button-shipping-method" class="btn btn-primary" />
+    </div>
+  </div>
+</div>

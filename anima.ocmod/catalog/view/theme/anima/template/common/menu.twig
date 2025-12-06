@@ -1,0 +1,16 @@
+{% if categories %}
+<nav class="navbar-categories">
+  {% for category in categories %}
+  <div class="category-item">
+    <a href="{{ category.href }}" class="navbar-link-text">{{ category.name }}</a>
+    {% if category.children %}
+    <ul class="submenu">
+      {% for child in category.children %}
+      <li><a href="{{ child.href }}">{{ child.name }}</a></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+  {% endfor %}
+</nav>
+{% endif %}

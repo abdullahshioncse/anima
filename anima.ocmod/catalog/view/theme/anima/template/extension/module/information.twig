@@ -1,0 +1,6 @@
+<div class="module-information list-group">
+  {% for information in informations %}
+  <a href="{{ information.href }}" class="list-group-item">{{ information.title }}</a>
+  {% endfor %}
+  <a href="{{ contact }}" class="list-group-item">{{ text_contact }}</a>
+</div>

@@ -1,0 +1,32 @@
+{{ header }}
+
+<div id="product-manufacturer" class="container">
+  <h1>{{ heading_title }}</h1>
+  
+  {% if products %}
+  <div class="cards">
+    {% for product in products %}
+    <article class="card">
+      <div class="info-1">
+        <div class="image">
+          <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a>
+        </div>
+        <div class="info">
+          <p class="poppins-medium-eerie-black-12px">{{ product.name }}</p>
+          <div class="poppins-semi-bold-eerie-black-16px">{{ product.price }}</div>
+        </div>
+      </div>
+      <div class="button-2">
+        <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button poppins-semi-bold-white-16px">{{ button_cart }}</button>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  
+  {{ pagination }}
+  {% else %}
+  <p>{{ text_empty }}</p>
+  {% endif %}
+</div>
+
+{{ footer }}

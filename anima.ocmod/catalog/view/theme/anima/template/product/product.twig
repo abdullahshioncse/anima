@@ -1,0 +1,257 @@
+{{ header }}
+
+<div id="product-product" class="container">
+  
+  <div class="product-detail">
+    
+    <!-- Product Images -->
+    <div class="product-images">
+      <div class="main-image">
+        {% if thumb %}
+        <img src="{{ thumb }}" alt="{{ heading_title }}" id="main-product-image" />
+        {% endif %}
+      </div>
+      
+      {% if images %}
+      <div class="thumbnail-images">
+        <img src="{{ thumb }}" alt="{{ heading_title }}" onclick="changeMainImage('{{ thumb }}')" />
+        {% for image in images %}
+        <img src="{{ image.thumb }}" alt="{{ heading_title }}" onclick="changeMainImage('{{ image.popup }}')" />
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+    
+    <!-- Product Info -->
+    <div class="product-info">
+      <h1 class="poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+      
+      {% if manufacturer %}
+      <p class="manufacturer">{{ text_manufacturer }}: <a href="{{ manufacturers }}">{{ manufacturer }}</a></p>
+      {% endif %}
+      
+      {% if model %}
+      <p class="model poppins-normal-eerie-black-12px">{{ text_model }}: {{ model }}</p>
+      {% endif %}
+      
+      <!-- Price -->
+      <div class="price">
+        {% if special %}
+        <span class="price-old">{{ price }}</span>
+        <span class="price-new poppins-semi-bold-eerie-black-16px">{{ special }}</span>
+        {% else %}
+        <span class="price-current poppins-semi-bold-eerie-black-16px">{{ price }}</span>
+        {% endif %}
+      </div>
+      
+      <!-- Rating -->
+      {% if rating %}
+      <div class="rating">
+        <div class="stars">
+          {% for i in 1..5 %}
+          <i class="fa fa-star{% if i > rating %}-o{% endif %}"></i>
+          {% endfor %}
+        </div>
+        <a href="" onclick="$('a[href=\'#tab-review\']').trigger('click'); return false;">{{ reviews }}</a>
+      </div>
+      {% endif %}
+      
+      <!-- Options -->
+      {% if options %}
+      <div class="product-options">
+        {% for option in options %}
+        <div class="form-group{% if option.required %} required{% endif %}">
+          <label class="control-label">{{ option.name }}</label>
+          {% if option.type == 'select' %}
+          <select name="option[{{ option.product_option_id }}]" class="form-control">
+            <option value="">{{ text_select }}</option>
+            {% for option_value in option.product_option_value %}
+            <option value="{{ option_value.product_option_value_id }}">{{ option_value.name }}
+              {% if option_value.price %}
+              ({{ option_value.price_prefix }}{{ option_value.price }})
+              {% endif %}
+            </option>
+            {% endfor %}
+          </select>
+          {% elseif option.type == 'radio' %}
+          <div id="input-option-{{ option.product_option_id }}">
+            {% for option_value in option.product_option_value %}
+            <div class="radio">
+              <label>
+                <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" />
+                {{ option_value.name }}
+                {% if option_value.price %}
+                ({{ option_value.price_prefix }}{{ option_value.price }})
+                {% endif %}
+              </label>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+      
+      <!-- Quantity -->
+      <div class="form-group">
+        <label for="input-quantity">{{ entry_qty }}</label>
+        <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control" />
+      </div>
+      
+      <!-- Buttons -->
+      <div class="buttons">
+        <button type="button" id="button-cart" class="button-2 poppins-semi-bold-white-16px">{{ button_cart }}</button>
+        <button type="button" class="btn-wishlist" onclick="wishlist.add('{{ product_id }}');">
+          <img src="catalog/view/theme/anima/image/iconly-sharp-heart.svg" alt="{{ button_wishlist }}" />
+        </button>
+      </div>
+      
+    </div>
+    
+  </div>
+  
+  <!-- Product Description Tabs -->
+  <div class="product-tabs">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#tab-description" data-toggle="tab">{{ tab_description }}</a></li>
+      {% if attribute_groups %}
+      <li><a href="#tab-specification" data-toggle="tab">{{ tab_attribute }}</a></li>
+      {% endif %}
+      <li><a href="#tab-review" data-toggle="tab">{{ tab_review }}</a></li>
+    </ul>
+    
+    <div class="tab-content">
+      <div class="tab-pane active" id="tab-description">{{ description }}</div>
+      
+      {% if attribute_groups %}
+      <div class="tab-pane" id="tab-specification">
+        <table class="table table-bordered">
+          {% for attribute_group in attribute_groups %}
+          <thead>
+            <tr>
+              <td colspan="2"><strong>{{ attribute_group.name }}</strong></td>
+            </tr>
+          </thead>
+          <tbody>
+            {% for attribute in attribute_group.attribute %}
+            <tr>
+              <td>{{ attribute.name }}</td>
+              <td>{{ attribute.text }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+          {% endfor %}
+        </table>
+      </div>
+      {% endif %}
+      
+      <div class="tab-pane" id="tab-review">
+        <div id="review"></div>
+        <h2>{{ text_write }}</h2>
+        <form class="form-horizontal" id="form-review">
+          <div class="form-group required">
+            <div class="col-sm-12">
+              <label for="input-name">{{ entry_name }}</label>
+              <input type="text" name="name" value="" id="input-name" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group required">
+            <div class="col-sm-12">
+              <label for="input-review">{{ entry_review }}</label>
+              <textarea name="text" rows="5" id="input-review" class="form-control"></textarea>
+            </div>
+          </div>
+          <div class="form-group required">
+            <div class="col-sm-12">
+              <label>{{ entry_rating }}</label>
+              <div class="rating-input">
+                {% for i in 1..5 %}
+                <input type="radio" name="rating" value="{{ i }}" />
+                <i class="fa fa-star"></i>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <div class="buttons">
+            <button type="button" id="button-review" class="btn btn-primary">{{ button_continue }}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Related Products -->
+  {% if products %}
+  <div class="you-may-like">
+    <h2 class="poppins-semi-bold-eerie-black-40px">{{ text_related }}</h2>
+    <div class="cards">
+      {% for product in products %}
+      <article class="card">
+        <div class="info-1">
+          <div class="image">
+            <a href="{{ product.href }}">
+              <img src="{{ product.thumb }}" alt="{{ product.name }}" />
+            </a>
+            <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-heart.svg" alt="Wishlist" />
+          </div>
+          <div class="info">
+            <p class="poppins-medium-eerie-black-12px">{{ product.name }}</p>
+            <div class="poppins-normal-eerie-black-12px">{{ product.model }}</div>
+          </div>
+          <div class="poppins-semi-bold-eerie-black-16px">{{ product.price }}</div>
+        </div>
+        <div class="button-2">
+          <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button poppins-semi-bold-white-16px">{{ button_cart }}</button>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  
+</div>
+
+<script>
+function changeMainImage(imageUrl) {
+  document.getElementById('main-product-image').src = imageUrl;
+}
+
+$('#button-cart').on('click', function() {
+  $.ajax({
+    url: 'index.php?route=checkout/cart.add',
+    type: 'post',
+    data: $('#product-product input[type=\'text\'], #product-product input[type=\'hidden\'], #product-product input[type=\'radio\']:checked, #product-product input[type=\'checkbox\']:checked, #product-product select, #product-product textarea'),
+    dataType: 'json',
+    success: function(json) {
+      if (json['error']) {
+        alert(json['error']);
+      }
+      if (json['success']) {
+        alert(json['success']);
+        $('#cart-total').html(json['total']);
+      }
+    }
+  });
+});
+
+$('#button-review').on('click', function() {
+  $.ajax({
+    url: 'index.php?route=product/product.review&product_id={{ product_id }}',
+    type: 'post',
+    dataType: 'json',
+    data: $('#form-review').serialize(),
+    success: function(json) {
+      if (json['error']) {
+        alert(json['error']);
+      }
+      if (json['success']) {
+        alert(json['success']);
+        $('#form-review')[0].reset();
+      }
+    }
+  });
+});
+</script>
+
+{{ footer }}

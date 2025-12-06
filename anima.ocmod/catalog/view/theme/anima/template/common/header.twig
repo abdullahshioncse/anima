@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html dir="{{ direction }}" lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{{ title }}</title>
+  <base href="{{ base }}" />
+  {% if description %}
+  <meta name="description" content="{{ description }}" />
+  {% endif %}
+  {% if keywords %}
+  <meta name="keywords" content="{{ keywords }}" />
+  {% endif %}
+  
+  <!-- Anima Theme Styles -->
+  <link rel="stylesheet" type="text/css" href="catalog/view/theme/anima/stylesheet/globals.css" />
+  <link rel="stylesheet" type="text/css" href="catalog/view/theme/anima/stylesheet/styleguide.css" />
+  <link rel="stylesheet" type="text/css" href="catalog/view/theme/anima/stylesheet/stylesheet.css" />
+  
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700" />
+  
+  {% for style in styles %}
+  <link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+  {% endfor %}
+  
+  {% for script in scripts %}
+  <script src="{{ script.href }}" type="text/javascript"></script>
+  {% endfor %}
+  
+  {% for link in links %}
+  <link href="{{ link.href }}" rel="{{ link.rel }}" />
+  {% endfor %}
+  
+  {% for analytic in analytics %}
+  {{ analytic }}
+  {% endfor %}
+</head>
+<body class="anima-theme {{ class }}">
+
+<!-- Sale Banner -->
+{% if sale_banner_text %}
+<div class="sale">
+  <p class="text poppins-medium-white-16px">{{ sale_banner_text }}</p>
+</div>
+{% endif %}
+
+<!-- Header -->
+<header class="header">
+  <div class="menu-1">
+    <!-- Profile Icon -->
+    <a href="{{ account }}" title="{{ text_account }}">
+      <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-profile.svg" alt="{{ text_account }}" />
+    </a>
+    
+    <!-- Shopping Cart Icon -->
+    <a href="{{ shopping_cart }}" title="{{ text_cart }}">
+      <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-bag-2.svg" alt="{{ text_cart }}" />
+      {% if cart_total %}
+      <span class="cart-badge">{{ cart_total }}</span>
+      {% endif %}
+    </a>
+    
+    <!-- Wishlist Icon -->
+    <a href="{{ wishlist }}" title="{{ text_wishlist }}">
+      <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-heart.svg" alt="{{ text_wishlist }}" />
+    </a>
+    
+    <!-- Search Icon -->
+    <a href="#" id="search-toggle" title="{{ text_search }}">
+      <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-search-1.svg" alt="{{ text_search }}" />
+    </a>
+    
+    <!-- Phone -->
+    {% if phone %}
+    <div class="frame-6 frame">
+      <div class="phone-1 poppins-normal-eerie-black-16px">{{ phone }}</div>
+      <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-call.svg" alt="Call" />
+    </div>
+    {% endif %}
+  </div>
+  
+  <!-- Logo -->
+  <div class="logo">
+    {% if logo %}
+    <a href="{{ home }}"><img src="{{ logo }}" title="{{ name }}" alt="{{ name }}" /></a>
+    {% else %}
+    <a href="{{ home }}" class="poppins-medium-eerie-black-20px">{{ name }}</a>
+    {% endif %}
+  </div>
+  
+  <!-- Main Navigation -->
+  <nav class="navbar poppins-medium-eerie-black-16px">
+    {% for category in categories %}
+    <a href="{{ category.href }}" class="navbar-link-text">{{ category.name }}</a>
+    {% endfor %}
+  </nav>
+</header>
+
+<!-- Search Modal/Dropdown -->
+<div id="search-modal" class="search-modal" style="display: none;">
+  <div class="search-container">
+    <input type="text" name="search" placeholder="{{ text_search }}" class="form-control" id="search-input" />
+    <button type="button" class="btn btn-search" id="search-button">{{ text_search }}</button>
+  </div>
+</div>

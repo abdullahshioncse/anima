@@ -1,0 +1,36 @@
+{{ header }}
+
+<div id="account-address" class="container">
+  <h1>{{ heading_title }}</h1>
+  
+  {% if addresses %}
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <td class="text-left">{{ text_address }}</td>
+        <td class="text-right">{{ text_action }}</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for address in addresses %}
+      <tr>
+        <td class="text-left">{{ address.address }}</td>
+        <td class="text-right">
+          <a href="{{ address.update }}" class="btn btn-info">{{ button_edit }}</a>
+          <a href="{{ address.delete }}" class="btn btn-danger">{{ button_delete }}</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <p>{{ text_empty }}</p>
+  {% endif %}
+  
+  <div class="buttons clearfix">
+    <div class="pull-left"><a href="{{ back }}" class="btn btn-default">{{ button_back }}</a></div>
+    <div class="pull-right"><a href="{{ add }}" class="btn btn-primary">{{ button_new_address }}</a></div>
+  </div>
+</div>
+
+{{ footer }}

@@ -1,0 +1,10 @@
+<div class="module-category list-group">
+  {% for category_1 in categories %}
+  <a href="{{ category_1.href }}" class="list-group-item{% if category_1.category_id == category_id %} active{% endif %}">{{ category_1.name }}</a>
+  {% if category_1.children %}
+  {% for category_2 in category_1.children %}
+  <a href="{{ category_2.href }}" class="list-group-item{% if category_2.category_id == child_id %} active{% endif %}">&nbsp;&nbsp;&nbsp;- {{ category_2.name }}</a>
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+</div>

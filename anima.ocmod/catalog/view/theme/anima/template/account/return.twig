@@ -1,0 +1,44 @@
+{{ header }}
+
+<div id="account-return" class="container">
+  <h1>{{ heading_title }}</h1>
+  
+  {% if returns %}
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <td class="text-right">{{ column_return_id }}</td>
+        <td class="text-left">{{ column_order_id }}</td>
+        <td class="text-left">{{ column_status }}</td>
+        <td class="text-left">{{ column_date_added }}</td>
+        <td class="text-right">{{ column_customer }}</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for return in returns %}
+      <tr>
+        <td class="text-right">{{ return.return_id }}</td>
+        <td class="text-left">{{ return.order_id }}</td>
+        <td class="text-left">{{ return.status }}</td>
+        <td class="text-left">{{ return.date_added }}</td>
+        <td class="text-right">{{ return.name }}</td>
+        <td class="text-right">
+          <a href="{{ return.view }}" class="btn btn-info">{{ button_view }}</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+  {{ pagination }}
+  {% else %}
+  <p>{{ text_empty }}</p>
+  {% endif %}
+  
+  <div class="buttons clearfix">
+    <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+  </div>
+</div>
+
+{{ footer }}

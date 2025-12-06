@@ -1,0 +1,16 @@
+<div id="review-list">
+  {% for review in reviews %}
+  <div class="review-item">
+    <div class="review-author">{{ review.author }}</div>
+    <div class="review-rating">
+      {% for i in 1..5 %}
+      <i class="fa fa-star{% if i > review.rating %}-o{% endif %}"></i>
+      {% endfor %}
+    </div>
+    <div class="review-date">{{ review.date_added }}</div>
+    <div class="review-text">{{ review.text }}</div>
+  </div>
+  {% endfor %}
+</div>
+
+{{ pagination }}

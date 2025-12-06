@@ -1,0 +1,23 @@
+<div class="module-filter">
+  <h3>{{ heading_title }}</h3>
+  <div class="list-group">
+    {% for filter_group in filter_groups %}
+    <div class="list-group-item">
+      <div id="filter-group{{ filter_group.filter_group_id }}">
+        <strong>{{ filter_group.name }}</strong>
+        {% for filter in filter_group.filter %}
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="filter[]" value="{{ filter.filter_id }}"{% if filter.filter_id in filter_category_id %} checked{% endif %} />
+            {{ filter.name }}
+          </label>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  <div class="panel-footer text-right">
+    <button type="button" id="button-filter" class="btn btn-primary">{{ button_filter }}</button>
+  </div>
+</div>

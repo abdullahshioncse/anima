@@ -1,0 +1,39 @@
+{{ header }}
+
+<div id="product-compare" class="container">
+  <h1>{{ heading_title }}</h1>
+  
+  {% if products %}
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td>{{ text_product }}</td>
+        {% for product in products %}
+        <td>
+          <a href="{{ product.href }}">{{ product.name }}</a>
+          <button type="button" class="btn btn-danger" onclick="compare.remove('{{ product.product_id }}');"><i class="fa fa-times"></i></button>
+        </td>
+        {% endfor %}
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ text_image }}</td>
+        {% for product in products %}
+        <td><img src="{{ product.thumb }}" alt="{{ product.name }}" /></td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <td>{{ text_price }}</td>
+        {% for product in products %}
+        <td>{{ product.price }}</td>
+        {% endfor %}
+      </tr>
+    </tbody>
+  </table>
+  {% else %}
+  <p>{{ text_empty }}</p>
+  {% endif %}
+</div>
+
+{{ footer }}

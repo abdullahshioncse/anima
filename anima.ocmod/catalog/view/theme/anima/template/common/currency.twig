@@ -1,0 +1,14 @@
+{% if currencies|length > 1 %}
+<div class="currency-selector">
+  <div class="dropdown">
+    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+      {{ code }}
+    </button>
+    <ul class="dropdown-menu">
+      {% for currency in currencies %}
+      <li><a href="{{ currency.href }}">{{ currency.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endif %}
