@@ -1,0 +1,18 @@
+<form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-currency">
+  <div class="btn-group">
+    <button type="button" class="btn btn-link dropdown-toggle" data-bs-toggle="dropdown">
+      <strong>{{ code }}</strong>
+      <span class="d-none d-md-inline">{{ name }}</span>
+      <i class="fa-solid fa-caret-down"></i>
+    </button>
+    <ul class="dropdown-menu">
+      {% for currency in currencies %}
+        <li>
+          <button type="button" name="code" value="{{ currency.code }}" class="dropdown-item">{{ currency.name }}</button>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <input type="hidden" name="code" value="" />
+  <input type="hidden" name="redirect" value="{{ redirect }}" />
+</form>

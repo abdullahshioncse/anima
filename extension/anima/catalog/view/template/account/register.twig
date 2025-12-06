@@ -1,0 +1,90 @@
+{{ header }}
+
+<div id="account-register" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  
+  <div class="row">
+    <div id="content" class="col">
+      {{ content_top }}
+      
+      <h1>{{ heading_title }}</h1>
+      
+      <p>{{ text_account_already }}</p>
+      
+      <form id="form-register">
+        <fieldset>
+          <legend>{{ text_your_details }}</legend>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="mb-3 required">
+                <label for="input-firstname" class="form-label">{{ entry_firstname }}</label>
+                <input type="text" name="firstname" value="{{ firstname }}" placeholder="{{ entry_firstname }}" id="input-firstname" class="form-control" />
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="mb-3 required">
+                <label for="input-lastname" class="form-label">{{ entry_lastname }}</label>
+                <input type="text" name="lastname" value="{{ lastname }}" placeholder="{{ entry_lastname }}" id="input-lastname" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 required">
+            <label for="input-email" class="form-label">{{ entry_email }}</label>
+            <input type="email" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
+          </div>
+          <div class="mb-3 required">
+            <label for="input-telephone" class="form-label">{{ entry_telephone }}</label>
+            <input type="tel" name="telephone" value="{{ telephone }}" placeholder="{{ entry_telephone }}" id="input-telephone" class="form-control" />
+          </div>
+        </fieldset>
+        
+        <fieldset>
+          <legend>{{ text_your_password }}</legend>
+          <div class="mb-3 required">
+            <label for="input-password" class="form-label">{{ entry_password }}</label>
+            <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="form-control" />
+          </div>
+          <div class="mb-3 required">
+            <label for="input-confirm" class="form-label">{{ entry_confirm }}</label>
+            <input type="password" name="confirm" value="{{ confirm }}" placeholder="{{ entry_confirm }}" id="input-confirm" class="form-control" />
+          </div>
+        </fieldset>
+        
+        <fieldset>
+          <legend>{{ text_newsletter }}</legend>
+          <div class="mb-3">
+            <div class="form-check form-check-inline">
+              <input type="radio" name="newsletter" value="1" id="newsletter-yes" class="form-check-input"{% if newsletter %} checked{% endif %} />
+              <label for="newsletter-yes" class="form-check-label">{{ text_yes }}</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input type="radio" name="newsletter" value="0" id="newsletter-no" class="form-check-input"{% if not newsletter %} checked{% endif %} />
+              <label for="newsletter-no" class="form-check-label">{{ text_no }}</label>
+            </div>
+          </div>
+        </fieldset>
+        
+        {% if agree %}
+          <div class="mb-3">
+            <div class="form-check">
+              <input type="checkbox" name="agree" value="1" id="input-agree" class="form-check-input" />
+              <label for="input-agree" class="form-check-label">{{ text_agree }}</label>
+            </div>
+          </div>
+        {% endif %}
+        
+        <div class="text-end">
+          <button type="submit" class="btn btn-primary">{{ button_continue }}</button>
+        </div>
+      </form>
+      
+      {{ content_bottom }}
+    </div>
+  </div>
+</div>
+
+{{ footer }}

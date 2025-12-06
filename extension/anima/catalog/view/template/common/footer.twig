@@ -1,0 +1,91 @@
+<footer class="footer-main">
+  <div class="container-fluid">
+    <!-- Newsletter Section -->
+    <div class="newsletter-section">
+      <p class="newsletter-title">{{ language.get('text_newsletter_title') ?: 'هل ترغب في الاشتراك في نشرتنا الإخبارية؟' }}</p>
+      <div class="newsletter-form">
+        <form id="newsletter-form">
+          <input type="email" name="email" placeholder="{{ language.get('text_email_placeholder') ?: 'البريد الإلكتروني' }}" class="email-input" required />
+          <button type="submit" class="newsletter-btn">{{ language.get('button_send') ?: 'إرسال' }}</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Footer Info -->
+    <div class="footer-info">
+      <div class="footer-content">
+        <!-- Footer Menus -->
+        <div class="footer-menus">
+          <!-- Shop Now Menu -->
+          <div class="footer-menu-item">
+            <div class="footer-menu">
+              <div class="menu-title">{{ language.get('text_shop_now') ?: 'تسوّق الآن' }}</div>
+              {% if categories %}
+                {% for category in categories|slice(0, 4) %}
+                  <a href="{{ category.href }}" class="menu-link">{{ category.name }}</a>
+                {% endfor %}
+              {% else %}
+                <a href="#" class="menu-link">ملابس رجالية</a>
+                <a href="#" class="menu-link">ملابس نسائية</a>
+                <a href="#" class="menu-link">إكسسوارات</a>
+                <a href="#" class="menu-link">تخفيضات</a>
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- Contact Us Menu -->
+          <div class="footer-menu-item">
+            <div class="footer-menu">
+              <div class="menu-title">{{ language.get('text_contact_us') ?: 'تواصل معنا' }}</div>
+              <a href="{{ contact }}" class="menu-link">{{ language.get('text_contact') ?: 'تواصل معنا' }}</a>
+              <a href="{{ information }}" class="menu-link">{{ language.get('text_privacy_policy') ?: 'سياسه الخصوصيه' }}</a>
+              <a href="{{ returns }}" class="menu-link">{{ language.get('text_return_policy') ?: 'سياسة الاسترجاع' }}</a>
+            </div>
+          </div>
+
+          <!-- Quick Links Menu -->
+          <div class="footer-menu-item">
+            <div class="footer-menu">
+              <div class="menu-title">{{ language.get('text_quick_links') ?: 'روابط سريعة' }}</div>
+              <a href="{{ account }}" class="menu-link">{{ language.get('text_my_account') ?: 'حسابي' }}</a>
+              <a href="{{ about }}" class="menu-link">{{ language.get('text_about_us') ?: 'من نحن' }}</a>
+              <a href="{{ help }}" class="menu-link">{{ language.get('text_help') ?: 'مساعدة' }}</a>
+              <a href="{{ privacy }}" class="menu-link">{{ language.get('text_privacy') ?: 'سياسة الخصوصية' }}</a>
+              <a href="{{ terms }}" class="menu-link">{{ language.get('text_terms') ?: 'شروط الاستخدام' }}</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment Icons -->
+        <div class="payment-icons">
+          <div class="payment-icon">
+            <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/mastercard-1.png" alt="Mastercard" />
+          </div>
+          <div class="payment-icon">
+            <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/applepay-1.svg" alt="Apple Pay" />
+          </div>
+          <div class="payment-icon">
+            <img src="{{ base }}{{ base }}extension/anima/catalog/view/image/visa-logo-1.svg" alt="Visa" />
+          </div>
+          <div class="payment-icon placeholder"></div>
+          <div class="payment-icon placeholder"></div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="footer-copyright">
+        <p>{{ language.get('text_footer_copyright') ?: '@2025' }} {{ name }}</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="{{ base }}extension/anima/catalog/view/javascript/anima.js"></script>
+
+{% for script in scripts %}
+  <script src="{{ script }}"></script>
+{% endfor %}
+
+</body>
+</html>

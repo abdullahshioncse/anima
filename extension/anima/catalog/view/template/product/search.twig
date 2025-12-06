@@ -1,0 +1,134 @@
+{{ header }}
+
+<div id="product-search" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  
+  <div class="row">
+    {% if column_left %}
+      {{ column_left }}
+    {% endif %}
+    
+    <div id="content" class="col">
+      {{ content_top }}
+      
+      <h1>{{ heading_title }}</h1>
+      
+      <div class="row">
+        <div class="col-sm-4">
+          <input type="text" name="search" value="{{ search }}" placeholder="{{ text_keyword }}" id="input-search" class="form-control" />
+        </div>
+        <div class="col-sm-3">
+          <select name="category_id" class="form-select">
+            <option value="0">{{ text_category }}</option>
+            {% for category_1 in categories %}
+              <option value="{{ category_1.category_id }}"{% if category_1.category_id == category_id %} selected{% endif %}>{{ category_1.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-sm-3">
+          <label class="form-check-label">
+            <input type="checkbox" name="sub_category" value="1"{% if sub_category %} checked{% endif %} class="form-check-input" />
+            {{ text_sub_category }}
+          </label>
+        </div>
+        <div class="col-sm-2">
+          <button type="button" id="button-search" class="btn btn-primary">{{ button_search }}</button>
+        </div>
+      </div>
+      <hr>
+      
+      {% if products %}
+        <div class="products-grid row">
+          {% for product in products %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <article class="product-card">
+                <div class="product-info">
+                  <div class="product-image">
+                    <a href="{{ product.href }}">
+                      <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" />
+                    </a>
+                    <button type="button" class="wishlist-btn" onclick="wishlist.add('{{ product.product_id }}');">
+                      <img src="{{ base }}extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
+                    </button>
+                  </div>
+                  <div class="product-details">
+                    <p class="product-name">
+                      <a href="{{ product.href }}">{{ product.name }}</a>
+                    </p>
+                    {% if product.model %}
+                      <div class="product-model">{{ product.model }}</div>
+                    {% endif %}
+                  </div>
+                  <div class="product-price">
+                    {% if product.special %}
+                      <span class="price-old">{{ product.price }}</span>
+                      <span class="price-new">{{ product.special }}</span>
+                    {% else %}
+                      <span class="price">{{ product.price }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+                <button type="button" class="add-to-cart-btn" onclick="cart.add('{{ product.product_id }}');">
+                  {{ button_cart }}
+                </button>
+              </article>
+            </div>
+          {% endfor %}
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-6 text-start">{{ pagination }}</div>
+          <div class="col-sm-6 text-end">{{ results }}</div>
+        </div>
+      {% endif %}
+      
+      {% if not products %}
+        <p>{{ text_empty }}</p>
+      {% endif %}
+      
+      {{ content_bottom }}
+    </div>
+    
+    {% if column_right %}
+      {{ column_right }}
+    {% endif %}
+  </div>
+</div>
+
+<script>
+$('#button-search').on('click', function() {
+  var url = 'index.php?route=product/search';
+  
+  var search = $('input[name=\'search\']').val();
+  
+  if (search) {
+    url += '&search=' + encodeURIComponent(search);
+  }
+  
+  var category_id = $('select[name=\'category_id\']').val();
+  
+  if (category_id > 0) {
+    url += '&category_id=' + encodeURIComponent(category_id);
+  }
+  
+  var sub_category = $('input[name=\'sub_category\']:checked').val();
+  
+  if (sub_category) {
+    url += '&sub_category=true';
+  }
+  
+  location = url;
+});
+
+$('input[name=\'search\']').on('keydown', function(e) {
+  if (e.keyCode == 13) {
+    $('#button-search').trigger('click');
+  }
+});
+</script>
+
+{{ footer }}

@@ -1,0 +1,18 @@
+{% if categories %}
+  <nav id="menu" class="navbar">
+    <ul class="nav navbar-nav">
+      {% for category in categories %}
+        <li class="nav-item{% if category.children %} dropdown{% endif %}">
+          <a href="{{ category.href }}" class="nav-link{% if category.children %} dropdown-toggle{% endif %}"{% if category.children %} data-bs-toggle="dropdown"{% endif %}>{{ category.name }}</a>
+          {% if category.children %}
+            <ul class="dropdown-menu">
+              {% for child in category.children %}
+                <li><a href="{{ child.href }}" class="dropdown-item">{{ child.name }}</a></li>
+              {% endfor %}
+            </ul>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+{% endif %}

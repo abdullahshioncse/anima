@@ -1,0 +1,76 @@
+{{ header }}
+
+<div id="product-manufacturer" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  
+  <div class="row">
+    {% if column_left %}
+      {{ column_left }}
+    {% endif %}
+    
+    <div id="content" class="col">
+      {{ content_top }}
+      
+      <h2>{{ heading_title }}</h2>
+      
+      {% if products %}
+        <div class="products-grid row">
+          {% for product in products %}
+            <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+              <article class="product-card">
+                <div class="product-info">
+                  <div class="product-image">
+                    <a href="{{ product.href }}">
+                      <img src="{{ product.thumb }}" alt="{{ product.name }}" class="img-fluid" />
+                    </a>
+                    <button type="button" class="wishlist-btn" onclick="wishlist.add('{{ product.product_id }}');">
+                      <img src="{{ base }}extension/anima/catalog/view/image/iconly-sharp-heart.svg" alt="Wishlist" />
+                    </button>
+                  </div>
+                  <div class="product-details">
+                    <p class="product-name">
+                      <a href="{{ product.href }}">{{ product.name }}</a>
+                    </p>
+                    {% if product.model %}
+                      <div class="product-model">{{ product.model }}</div>
+                    {% endif %}
+                  </div>
+                  <div class="product-price">
+                    {% if product.special %}
+                      <span class="price-old">{{ product.price }}</span>
+                      <span class="price-new">{{ product.special }}</span>
+                    {% else %}
+                      <span class="price">{{ product.price }}</span>
+                    {% endif %}
+                  </div>
+                </div>
+                <button type="button" class="add-to-cart-btn" onclick="cart.add('{{ product.product_id }}');">
+                  {{ button_cart }}
+                </button>
+              </article>
+            </div>
+          {% endfor %}
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-6 text-start">{{ pagination }}</div>
+          <div class="col-sm-6 text-end">{{ results }}</div>
+        </div>
+      {% else %}
+        <p>{{ text_empty }}</p>
+      {% endif %}
+      
+      {{ content_bottom }}
+    </div>
+    
+    {% if column_right %}
+      {{ column_right }}
+    {% endif %}
+  </div>
+</div>
+
+{{ footer }}

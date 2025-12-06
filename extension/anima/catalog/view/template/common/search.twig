@@ -1,0 +1,24 @@
+<div id="search" class="search-wrapper">
+  <div class="search-form">
+    <input type="text" name="search" value="{{ search }}" placeholder="{{ text_search }}" class="form-control search-input" />
+    <button type="button" class="btn btn-search" onclick="search();">
+      <img src="{{ base }}extension/anima/catalog/view/image/iconly-sharp-search-1.svg" alt="{{ button_search }}" />
+    </button>
+  </div>
+</div>
+
+<script>
+function search() {
+  var value = $('input[name=\'search\']').val();
+  
+  if (value) {
+    location = 'index.php?route=product/search&search=' + encodeURIComponent(value);
+  }
+}
+
+$('input[name=\'search\']').on('keydown', function(e) {
+  if (e.keyCode == 13) {
+    search();
+  }
+});
+</script>

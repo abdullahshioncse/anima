@@ -1,0 +1,33 @@
+{{ header }}
+
+<div id="checkout-checkout" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  
+  <div class="row">
+    <div id="content" class="col">
+      {{ content_top }}
+      
+      <h1>{{ heading_title }}</h1>
+      
+      <div class="row">
+        <div class="col-sm-8">
+          <div id="checkout-payment-address"></div>
+          <div id="checkout-shipping-address"></div>
+          <div id="checkout-shipping-method"></div>
+          <div id="checkout-payment-method"></div>
+        </div>
+        <div class="col-sm-4">
+          <div id="checkout-confirm"></div>
+        </div>
+      </div>
+      
+      {{ content_bottom }}
+    </div>
+  </div>
+</div>
+
+{{ footer }}

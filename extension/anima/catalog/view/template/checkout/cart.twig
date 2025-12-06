@@ -1,0 +1,100 @@
+{{ header }}
+
+<div id="checkout-cart" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  
+  <h1>{{ heading_title }}{% if weight %} ({{ weight }}){% endif %}</h1>
+  
+  <form id="form-cart">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td class="text-center">{{ column_image }}</td>
+            <td class="text-start">{{ column_name }}</td>
+            <td class="text-start">{{ column_model }}</td>
+            <td class="text-start">{{ column_quantity }}</td>
+            <td class="text-end">{{ column_price }}</td>
+            <td class="text-end">{{ column_total }}</td>
+          </tr>
+        </thead>
+        <tbody>
+          {% for product in products %}
+            <tr>
+              <td class="text-center">
+                {% if product.thumb %}
+                  <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail" /></a>
+                {% endif %}
+              </td>
+              <td class="text-start">
+                <a href="{{ product.href }}">{{ product.name }}</a>
+                {% if product.option %}
+                  <div>
+                    {% for option in product.option %}
+                      <small>{{ option.name }}: {{ option.value }}</small><br />
+                    {% endfor %}
+                  </div>
+                {% endif %}
+                {% if product.reward %}
+                  <div><small>{{ product.reward }}</small></div>
+                {% endif %}
+                {% if product.recurring %}
+                  <div><small>{{ text_recurring }}: {{ product.recurring }}</small></div>
+                {% endif %}
+              </td>
+              <td class="text-start">{{ product.model }}</td>
+              <td class="text-start">
+                <div class="input-group">
+                  <input type="text" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" class="form-control" />
+                  <button type="button" onclick="cart.update('{{ product.cart_id }}', this);" class="btn btn-primary">
+                    <i class="fa-solid fa-rotate"></i>
+                  </button>
+                  <button type="button" onclick="cart.remove('{{ product.cart_id }}');" class="btn btn-danger">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                  </button>
+                </div>
+              </td>
+              <td class="text-end">{{ product.price }}</td>
+              <td class="text-end">{{ product.total }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </form>
+  
+  <div class="row">
+    <div class="col-sm-6">
+      <fieldset>
+        <legend>{{ text_next }}</legend>
+        <p>{{ text_next_choice }}</p>
+        <div class="form-check">
+          <input type="radio" name="next" value="checkout" id="next-checkout" class="form-check-input" checked />
+          <label for="next-checkout" class="form-check-label">{{ text_checkout }}</label>
+        </div>
+      </fieldset>
+    </div>
+    <div class="col-sm-6">
+      <table class="table table-bordered">
+        {% for total in totals %}
+          <tr>
+            <td class="text-end"><strong>{{ total.title }}</strong></td>
+            <td class="text-end">{{ total.text }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+      <div class="text-end">
+        <a href="{{ continue }}" class="btn btn-light">{{ button_shopping }}</a>
+        <a href="{{ checkout }}" class="btn btn-primary">{{ button_checkout }}</a>
+      </div>
+    </div>
+  </div>
+  
+  {{ content_bottom }}
+</div>
+
+{{ footer }}
