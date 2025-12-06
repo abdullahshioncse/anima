@@ -1,0 +1,208 @@
+/**
+ * Anima Theme Main Stylesheet
+ * OpenCart 4.1.0.3 Compatible
+ * RTL Support Enabled
+ * Version: 1.0.0
+ */
+
+/* Import base styles */
+@import url("globals.css");
+@import url("styleguide.css");
+
+/* Import page-specific styles */
+@import url("desktop-1.css");
+@import url("desktop-2.css");
+@import url("desktop-3.css");
+@import url("desktop-4.css");
+
+/* Import mobile responsive styles */
+@import url("iphone-13-u38-14-1.css");
+@import url("iphone-13-u38-14-4.css");
+@import url("iphone-13-u38-14-5.css");
+@import url("iphone-13-u38-14-6.css");
+
+/* OpenCart specific overrides */
+.breadcrumb {
+  background: transparent;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+
+.breadcrumb li {
+  display: inline-block;
+}
+
+.breadcrumb li + li:before {
+  content: "/";
+  padding: 0 10px;
+  color: #a4a4a4;
+}
+
+/* RTL Support */
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .navbar {
+  flex-direction: row-reverse;
+}
+
+[dir="rtl"] .menu-1 {
+  flex-direction: row-reverse;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1440px) {
+  .desktop-1,
+  .desktop-2,
+  .desktop-3,
+  .desktop-4 {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mobile specific styles */
+  .header {
+    padding: 10px;
+  }
+  
+  .navbar {
+    display: none;
+  }
+  
+  .cards {
+    flex-direction: column;
+  }
+}
+
+/* OpenCart product grid compatibility */
+.product-thumb {
+  margin-bottom: 30px;
+}
+
+.product-thumb .image {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.product-thumb .caption {
+  min-height: 140px;
+}
+
+/* Cart compatibility */
+.table-responsive {
+  border: 0;
+}
+
+.table-responsive table {
+  width: 100%;
+}
+
+/* Form elements */
+.form-control {
+  border: 1px solid #d6d6d6;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-family: "Poppins", Helvetica;
+  font-size: 16px;
+}
+
+.form-control:focus {
+  border-color: #000000;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  font-family: "Poppins", Helvetica;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #1c1c1c;
+}
+
+/* Alert messages */
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  color: #721c24;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+  color: #0c5460;
+}
+
+/* Loading spinner */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top-color: #000000;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.pagination li {
+  list-style: none;
+}
+
+.pagination li a,
+.pagination li span {
+  display: block;
+  padding: 8px 12px;
+  border: 1px solid #d6d6d6;
+  color: #1c1c1c;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.pagination li.active span {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.pagination li a:hover {
+  background-color: #ebebeb;
+}
