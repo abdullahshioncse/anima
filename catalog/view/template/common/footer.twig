@@ -1,0 +1,91 @@
+<footer class="footer">
+  <!-- Newsletter Subscription -->
+  <div class="email">
+    <p class="text-155 poppins-semi-bold-white-24px">هل ترغب في الاشتراك في نشرتنا الإخبارية؟</p>
+    <div class="email-1">
+      <form action="{{ newsletter }}" method="post">
+        <div class="button-3">
+          <button type="submit" class="button-4 poppins-semi-bold-white-14px">إرسال</button>
+        </div>
+        <input type="email" name="email" class="text-156 poppins-medium-eerie-black-16px" placeholder="البريد الإلكتروني" required/>
+      </form>
+    </div>
+  </div>
+  
+  <div class="info-2 info-3">
+    <!-- Payment Icons and Menus -->
+    <div class="menu-2">
+      <div class="payment-icons-2">
+        <article class="payment-icons"></article>
+        <article class="payment-icons"></article>
+        <article class="payment-icons-1">
+          <img class="visa-logo" src="catalog/view/image/visa-logo-1.svg" alt="visa-logo"/>
+        </article>
+        <article class="payment-icons-1">
+          <img class="apple-pay" src="catalog/view/image/applepay-1.svg" alt="ApplePay"/>
+        </article>
+        <article class="payment-icons-1">
+          <img class="mastercard" src="catalog/view/image/mastercard-1@2x.png" alt="Mastercard"/>
+        </article>
+      </div>
+      
+      <!-- Footer Menu -->
+      <div class="menu-3">
+        <!-- Shop Now Menu -->
+        <div class="menu-item">
+          <div class="menu">
+            <div class="text-157 poppins-bold-white-18px">تسوّق الآن</div>
+            {% for category in categories %}
+              <div class="text-1 poppins-semi-bold-white-14px">
+                <a href="{{ category.href }}">{{ category.name }}</a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <!-- Contact Menu -->
+        <div class="menu-item">
+          <div class="menu">
+            <div class="text-16 poppins-bold-white-18px">تواصل معنا</div>
+            {% for info in informations %}
+              <div class="text-1-1 text-1-3 poppins-semi-bold-white-14px">
+                <a href="{{ info.href }}">{{ info.title }}</a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <!-- Quick Links Menu -->
+        <div class="menu-item">
+          <div class="menu">
+            <div class="text-16 poppins-bold-white-18px">روابط سريعة</div>
+            <div class="text-1-1 text-1-3 poppins-semi-bold-white-14px">
+              <a href="{{ account }}">حسابي</a>
+            </div>
+            <div class="text-1-1 text-1-3 poppins-semi-bold-white-14px">
+              <a href="{{ contact }}">من نحن</a>
+            </div>
+            <div class="text-1-1 text-1-3 poppins-semi-bold-white-14px">
+              <a href="{{ contact }}">مساعدة</a>
+            </div>
+            {% for info in informations %}
+              {% if info.title == 'Privacy Policy' or info.title == 'Terms & Conditions' %}
+              <div class="text-1-1 text-1-3 poppins-semi-bold-white-14px">
+                <a href="{{ info.href }}">{{ info.title }}</a>
+              </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Copyright -->
+    <div class="text-172 poppins-medium-white-14px">
+      {{ powered }}
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
