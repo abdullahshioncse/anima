@@ -1,0 +1,136 @@
+{{ header }}
+
+<!-- Hero Section -->
+<img class="rectangle-5" src="extension/oc_theme_anima/catalog/view/image/rectangle-5-1.png" alt="Rectangle 5" />
+<div class="main">
+  <h1 class="text-48 text-5">تسوّق الآن</h1>
+  <div class="buttons">
+    <article class="button-3"><a href="{{ special }}" class="button poppins-medium-white-16px">عرض التفاصيل</a></article>
+    <article class="button-4"><a href="{{ categories[0].href }}" class="button poppins-semi-bold-white-16px">ابدأ التسوّق</a></article>
+  </div>
+  <div class="way">
+    <div class="rectangle-116"></div>
+    <div class="rectangle-116"></div>
+    <div class="rectangle-116"></div>
+    <div class="rectangle-1162-1"></div>
+  </div>
+</div>
+
+<!-- You May Like Section -->
+<div class="you-may-like">
+  <div class="text-1 text-5 poppins-semi-bold-eerie-black-40px">منتجات قد تعجبك</div>
+  <div class="cards">
+    {% for product in products %}
+      {% if loop.index <= 4 %}
+      <article class="card">
+        <div class="info-1">
+          <div class="image">
+            <button type="button" onclick="wishlist.add('{{ product.product_id }}');" class="wishlist-icon">
+              <img class="iconly-sharp" src="extension/oc_theme_anima/catalog/view/image/iconly-sharp-heart.svg" alt="Iconly/Sharp/Heart" />
+            </button>
+            {% if product.special %}
+            <div class="frame-5 frame">
+              <div class="button-1"><div class="button-5 poppins-medium-white-14px">مجموعة جديدة</div></div>
+            </div>
+            {% endif %}
+            <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a>
+          </div>
+          <div class="info">
+            <p class="t-shirt-energy-red-and-white poppins-medium-eerie-black-12px">
+              <a href="{{ product.href }}">{{ product.name }}</a>
+            </p>
+            <div class="phone poppins-normal-eerie-black-12px">{{ product.model }}</div>
+          </div>
+          <div class="x5000-kd poppins-semi-bold-eerie-black-16px">{{ product.price }}</div>
+        </div>
+        <div class="button-2">
+          <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button poppins-semi-bold-white-16px">أضف إلى السلة</button>
+        </div>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="way-3">
+    <div class="rectangle-116-1"></div>
+    <div class="rectangle-116-1"></div>
+    <div class="rectangle-116-1"></div>
+    <div class="rectangle-1162"></div>
+  </div>
+</div>
+
+<!-- Arrows -->
+<div class="arrows">
+  <div class="left">
+    <img class="iconly-sharp" src="extension/oc_theme_anima/catalog/view/image/iconly-sharp-arrow---left.svg" alt="Iconly/Sharp/Arrow - Left" />
+  </div>
+  <div class="right">
+    <img class="iconly-sharp-arrow-left" src="extension/oc_theme_anima/catalog/view/image/iconly-sharp-arrow---left-1.svg" alt="Iconly/Sharp/Arrow - Left" />
+  </div>
+</div>
+
+<!-- New In Section -->
+<div class="new-in">
+  <div class="new-in-1">
+    <div class="text-1 text-5 poppins-semi-bold-eerie-black-40px">وصل حديثًا</div>
+    <div class="categories poppins-normal-eerie-black-16px">
+      {% for category in categories %}
+        {% if loop.index <= 3 %}
+        <div class="text-5{% if loop.index == 1 %} active{% endif %}">
+          <a href="{{ category.href }}">{{ category.name }}</a>
+          {% if loop.index == 1 %}
+          <img class="line-1" src="extension/oc_theme_anima/catalog/view/image/line-1-1.svg" alt="Line 1" />
+          {% endif %}
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+  <div class="cards">
+    {% for product in products %}
+      {% if loop.index > 4 and loop.index <= 8 %}
+      <article class="card">
+        <div class="info-1">
+          <div class="image">
+            <button type="button" onclick="wishlist.add('{{ product.product_id }}');" class="wishlist-icon">
+              <img class="iconly-sharp" src="extension/oc_theme_anima/catalog/view/image/iconly-sharp-heart.svg" alt="Iconly/Sharp/Heart" />
+            </button>
+            <div class="frame-5-1">
+              <div class="button-1"><div class="button-9 poppins-medium-white-14px">مجموعة جديدة</div></div>
+            </div>
+            <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" /></a>
+          </div>
+          <div class="info">
+            <p class="t-shirt-energy-red-and-white poppins-medium-eerie-black-12px">
+              <a href="{{ product.href }}">{{ product.name }}</a>
+            </p>
+            <div class="phone poppins-normal-eerie-black-12px">{{ product.model }}</div>
+          </div>
+          <div class="x5000-kd poppins-semi-bold-eerie-black-16px">{{ product.price }}</div>
+        </div>
+        <div class="button-2">
+          <button type="button" onclick="cart.add('{{ product.product_id }}');" class="button poppins-semi-bold-white-16px">أضف إلى السلة</button>
+        </div>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="way-3">
+    <div class="rectangle-116-1"></div>
+    <div class="rectangle-116-1"></div>
+    <div class="rectangle-116-1"></div>
+    <div class="rectangle-1162"></div>
+  </div>
+  <div class="button-1"><a href="{{ categories[0].href }}" class="button-13 poppins-medium-white-14px">عرض الكل</a></div>
+</div>
+
+<!-- Arrows -->
+<div class="arrows-1">
+  <div class="left">
+    <img class="iconly-sharp" src="extension/oc_theme_anima/catalog/view/image/iconly-sharp-arrow---left.svg" alt="Iconly/Sharp/Arrow - Left" />
+  </div>
+  <div class="right">
+    <img class="iconly-sharp-arrow-left" src="extension/oc_theme_anima/catalog/view/image/iconly-sharp-arrow---left-1.svg" alt="Iconly/Sharp/Arrow - Left" />
+  </div>
+</div>
+
+{{ footer }}
