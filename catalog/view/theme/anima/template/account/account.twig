@@ -1,0 +1,53 @@
+{{ header }}
+<div class="desktop-4 screen" dir="{{ direction }}">
+    <h1 class="text-217 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+    
+    <div class="account-container">
+        <!-- Welcome Message -->
+        {% if customer_name %}
+        <div class="welcome-message poppins-medium-eerie-black-18px">
+            {{ text_welcome|default('مرحبًا') }} {{ customer_name }}!
+        </div>
+        {% endif %}
+        
+        <div class="account-sections">
+            <!-- My Account Section -->
+            <div class="account-section">
+                <h2 class="text-2 poppins-semi-bold-eerie-black-24px">{{ text_my_account }}</h2>
+                <ul class="account-links">
+                    <li><a href="{{ edit }}" class="poppins-medium-eerie-black-16px">{{ text_edit }}</a></li>
+                    <li><a href="{{ password }}" class="poppins-medium-eerie-black-16px">{{ text_password }}</a></li>
+                    <li><a href="{{ address }}" class="poppins-medium-eerie-black-16px">{{ text_address }}</a></li>
+                    <li><a href="{{ wishlist }}" class="poppins-medium-eerie-black-16px">{{ text_wishlist }}</a></li>
+                </ul>
+            </div>
+            
+            <!-- My Orders Section -->
+            <div class="account-section">
+                <h2 class="text-2 poppins-semi-bold-eerie-black-24px">{{ text_my_orders }}</h2>
+                <ul class="account-links">
+                    <li><a href="{{ order }}" class="poppins-medium-eerie-black-16px">{{ text_order }}</a></li>
+                    <li><a href="{{ download }}" class="poppins-medium-eerie-black-16px">{{ text_download }}</a></li>
+                    <li><a href="{{ return }}" class="poppins-medium-eerie-black-16px">{{ text_return }}</a></li>
+                    <li><a href="{{ transaction }}" class="poppins-medium-eerie-black-16px">{{ text_transaction }}</a></li>
+                </ul>
+            </div>
+            
+            <!-- Newsletter Section -->
+            <div class="account-section">
+                <h2 class="text-2 poppins-semi-bold-eerie-black-24px">{{ text_my_newsletter }}</h2>
+                <ul class="account-links">
+                    <li><a href="{{ newsletter }}" class="poppins-medium-eerie-black-16px">{{ text_newsletter }}</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Logout Button -->
+        <div class="account-actions">
+            <a href="{{ logout }}" class="button-3">
+                <div class="button poppins-medium-white-16px">{{ text_logout }}</div>
+            </a>
+        </div>
+    </div>
+</div>
+{{ footer }}

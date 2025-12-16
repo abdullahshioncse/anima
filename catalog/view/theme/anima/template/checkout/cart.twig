@@ -1,0 +1,122 @@
+{{ header }}
+<div class="desktop-4 screen" dir="{{ direction }}">
+    <h1 class="text-217 poppins-semi-bold-eerie-black-40px">{{ heading_title }}</h1>
+    
+    {% if attention %}
+    <div class="alert alert-info">{{ attention }}</div>
+    {% endif %}
+    
+    {% if success %}
+    <div class="alert alert-success">{{ success }}</div>
+    {% endif %}
+    
+    {% if error_warning %}
+    <div class="alert alert-danger">{{ error_warning }}</div>
+    {% endif %}
+    
+    <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-cart">
+        {% if products or vouchers %}
+        <div class="cart-items">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th class="poppins-semi-bold-eerie-black-16px">{{ column_image }}</th>
+                        <th class="poppins-semi-bold-eerie-black-16px">{{ column_name }}</th>
+                        <th class="poppins-semi-bold-eerie-black-16px">{{ column_model }}</th>
+                        <th class="poppins-semi-bold-eerie-black-16px">{{ column_quantity }}</th>
+                        <th class="poppins-semi-bold-eerie-black-16px">{{ column_price }}</th>
+                        <th class="poppins-semi-bold-eerie-black-16px">{{ column_total }}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td class="cart-image">
+                            {% if product.thumb %}
+                            <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" /></a>
+                            {% endif %}
+                        </td>
+                        <td class="cart-name poppins-medium-eerie-black-16px">
+                            <a href="{{ product.href }}">{{ product.name }}</a>
+                            {% if product.option %}
+                                {% for option in product.option %}
+                                <br />
+                                <small>- {{ option.name }}: {{ option.value }}</small>
+                                {% endfor %}
+                            {% endif %}
+                            {% if product.reward %}
+                            <br />
+                            <small>{{ product.reward }}</small>
+                            {% endif %}
+                        </td>
+                        <td class="cart-model poppins-normal-eerie-black-14px">{{ product.model }}</td>
+                        <td class="cart-quantity">
+                            <div class="number">
+                                <input type="text" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}" size="1" class="form-control" />
+                            </div>
+                        </td>
+                        <td class="cart-price poppins-medium-eerie-black-16px">{{ product.price }}</td>
+                        <td class="cart-total poppins-semi-bold-eerie-black-16px">{{ product.total }}</td>
+                        <td class="cart-remove">
+                            <button type="button" onclick="cart.remove('{{ product.cart_id }}');" class="btn-remove">
+                                <img src="catalog/view/theme/anima/image/iconly-sharp-delete.svg" alt="{{ button_remove }}" />
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% for voucher in vouchers %}
+                    <tr>
+                        <td></td>
+                        <td class="poppins-medium-eerie-black-16px">{{ voucher.description }}</td>
+                        <td></td>
+                        <td>1</td>
+                        <td class="poppins-medium-eerie-black-16px">{{ voucher.amount }}</td>
+                        <td class="poppins-semi-bold-eerie-black-16px">{{ voucher.amount }}</td>
+                        <td>
+                            <button type="button" onclick="voucher.remove('{{ voucher.key }}');" class="btn-remove">
+                                <img src="catalog/view/theme/anima/image/iconly-sharp-delete.svg" alt="{{ button_remove }}" />
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="cart-summary">
+            <table class="totals-table">
+                {% for total in totals %}
+                <tr>
+                    <td class="poppins-medium-eerie-black-16px">{{ total.title }}</td>
+                    <td class="poppins-semi-bold-eerie-black-18px">{{ total.text }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        
+        <div class="cart-actions">
+            <div class="buttons">
+                <a href="{{ continue }}" class="button-3">
+                    <div class="button poppins-medium-white-16px">{{ button_shopping }}</div>
+                </a>
+                <button type="submit" formaction="{{ update }}" class="button-3 btn-update">
+                    <div class="button poppins-medium-white-16px">{{ button_update }}</div>
+                </button>
+                <a href="{{ checkout }}" class="button-4">
+                    <div class="button poppins-semi-bold-white-16px">{{ button_checkout }}</div>
+                </a>
+            </div>
+        </div>
+        
+        {% else %}
+        <div class="cart-empty">
+            <p class="poppins-medium-eerie-black-18px">{{ text_empty }}</p>
+            <a href="{{ continue }}" class="button-4">
+                <div class="button poppins-semi-bold-white-16px">{{ button_shopping }}</div>
+            </a>
+        </div>
+        {% endif %}
+    </form>
+</div>
+{{ footer }}

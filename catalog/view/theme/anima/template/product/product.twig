@@ -1,0 +1,287 @@
+{{ header }}
+<div class="desktop-2 screen" dir="{{ direction }}">
+    <div class="photos">
+        {% if images %}
+            {% for image in images %}
+            <img class="rectangle-116-{% if loop.index is odd %}1{% else %}2{% endif %} rectangle-116-3" src="{{ image.popup }}" alt="{{ heading_title }}" data-popup="{{ image.popup }}" />
+            {% endfor %}
+        {% else %}
+        <img class="rectangle-116-1 rectangle-116-3" src="{{ thumb }}" alt="{{ heading_title }}" />
+        {% endif %}
+    </div>
+    
+    <div class="info-3">
+        <div class="info-item">
+            <h1 class="t-shirt-energy-red-and-white-1 poppins-medium-eerie-black-20px">{{ heading_title }}</h1>
+            <div class="phone-2 phone-3">{{ model }}</div>
+        </div>
+        
+        <div class="x5000-kd-1 poppins-semi-bold-eerie-black-24px">
+            {% if special %}
+            <span class="price-old">{{ price }}</span>
+            {{ special }}
+            {% else %}
+            {{ price }}
+            {% endif %}
+        </div>
+        
+        <div class="settings">
+            {% if options %}
+                {% for option in options %}
+                <div class="settings-item">
+                    <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ option.name }}</div>
+                    {% if option.type == 'select' %}
+                    <div class="size">
+                        {% for option_value in option.product_option_value %}
+                        <div class="frame-1{% if loop.index <= 2 %}-1{% endif %}" data-option-id="{{ option.product_option_id }}" data-value-id="{{ option_value.product_option_value_id }}">
+                            <div class="price poppins-medium-eerie-black-18px">{{ option_value.name }}</div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% elseif option.type == 'radio' %}
+                    <div class="color">
+                        {% for option_value in option.product_option_value %}
+                        <label class="radio-option">
+                            <input type="radio" name="option[{{ option.product_option_id }}]" value="{{ option_value.product_option_value_id }}" {% if loop.first %}checked{% endif %} />
+                            <span class="text-139 text poppins-medium-eerie-black-18px">{{ option_value.name }}</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                    {% elseif option.type == 'checkbox' %}
+                    <div class="checkbox-group">
+                        {% for option_value in option.product_option_value %}
+                        <label class="checkbox-option">
+                            <input type="checkbox" name="option[{{ option.product_option_id }}][]" value="{{ option_value.product_option_value_id }}" />
+                            <span>{{ option_value.name }}</span>
+                        </label>
+                        {% endfor %}
+                    </div>
+                    {% elseif option.type == 'text' %}
+                    <input type="text" name="option[{{ option.product_option_id }}]" value="{{ option.value }}" class="form-control" placeholder="{{ option.name }}" />
+                    {% elseif option.type == 'textarea' %}
+                    <textarea name="option[{{ option.product_option_id }}]" rows="3" class="form-control" placeholder="{{ option.name }}">{{ option.value }}</textarea>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            {% endif %}
+            
+            <!-- Quantity -->
+            <div class="settings-item">
+                <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ text_qty }}</div>
+                <div class="number">
+                    <div class="vuesaxlinearadd" onclick="incrementQuantity()">
+                        <img src="catalog/view/theme/anima/image/add.png" alt="+" />
+                    </div>
+                    <img class="line" src="catalog/view/theme/anima/image/line-4-2.svg" alt="Line" />
+                    <div class="frame-17">
+                        <input type="text" name="quantity" value="{{ minimum }}" id="input-quantity" class="number-1 poppins-medium-eerie-black-18px" size="2" min="{{ minimum }}" />
+                    </div>
+                    <img class="line" src="catalog/view/theme/anima/image/line-4-2.svg" alt="Line" />
+                    <div class="vuesaxlinearminus" onclick="decrementQuantity()">
+                        <img src="catalog/view/theme/anima/image/minus.png" alt="-" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <div class="buttons-1 poppins-semi-bold-white-16px">
+                <div class="button-12" id="btn-wishlist" data-product-id="{{ product_id }}">
+                    <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-heart-39.svg" alt="{{ button_wishlist }}" />
+                </div>
+                <div class="button-13" id="btn-cart" data-product-id="{{ product_id }}">
+                    <div class="text-141 text">{{ button_cart }}</div>
+                    <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-bag-2-1.svg" alt="{{ button_cart }}" />
+                </div>
+                <div class="button-14" id="btn-buy-now" data-product-id="{{ product_id }}">
+                    <div class="button-15">{{ button_buy_now|default('اشتري الآن') }}</div>
+                </div>
+            </div>
+            <div class="x1">
+                <div class="text-142 text">{{ text_stock }}: {{ stock }}</div>
+                <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-shield-done-1.svg" alt="{{ text_stock }}" />
+            </div>
+        </div>
+        
+        <img class="line-1" src="catalog/view/theme/anima/image/line-5-2.svg" alt="Line" />
+        
+        <!-- Info Bar -->
+        <div class="frame-18">
+            <div class="x1-1">
+                <div class="text-14 text poppins-semi-bold-eerie-black-16px">{{ text_return_exchange|default('الاسترجاع و التبديل') }}</div>
+                <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-bag-2.svg" alt="{{ text_return_exchange|default('Return') }}" />
+            </div>
+            <div class="x2">
+                <div class="text-14 text poppins-semi-bold-eerie-black-16px">{{ text_delivery_24h|default('توصيل خلال ٢٤ ساعة') }}</div>
+                <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-time-circle-2.svg" alt="{{ text_delivery_24h|default('Delivery') }}" />
+            </div>
+            <div class="x3">
+                <div class="text-145 text poppins-semi-bold-eerie-black-16px">{{ text_original_100|default('منتجات أصلية 100%') }}</div>
+                <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-tick-square-2.svg" alt="{{ text_original_100|default('Original') }}" />
+            </div>
+        </div>
+        
+        <img class="line-1" src="catalog/view/theme/anima/image/line-5-2.svg" alt="Line" />
+        
+        <!-- Description -->
+        {% if description %}
+        <div class="info-item">
+            <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ text_description }}</div>
+            <div class="text-147 text poppins-medium-eerie-black-18px">{{ description }}</div>
+        </div>
+        {% endif %}
+        
+        <!-- Attributes/Specifications -->
+        {% if attribute_groups %}
+            {% for attribute_group in attribute_groups %}
+            <div class="info-item">
+                <div class="text-1-2 text-1-3 poppins-normal-eerie-black-16px">{{ attribute_group.name }}</div>
+                {% for attribute in attribute_group.attribute %}
+                <div class="text-149 text poppins-medium-eerie-black-18px">{{ attribute.name }}: {{ attribute.text }}</div>
+                {% endfor %}
+            </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    
+    <!-- Related Products -->
+    {% if products %}
+    <div class="you-may-like">
+        <h2 class="text-118 text poppins-semi-bold-eerie-black-40px">{{ text_related }}</h2>
+        <div class="cards">
+            {% for product in products %}
+            <article class="card">
+                <div class="info">
+                    <div class="image" style="background-image: url('{{ product.thumb }}');">
+                        <a href="javascript:void(0);" onclick="wishlist.add('{{ product.product_id }}');">
+                            <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-heart.svg" alt="{{ button_wishlist }}" />
+                        </a>
+                        <div class="frame-5 hidden">
+                            <div class="button"><div class="button-2 poppins-medium-white-14px">{{ text_new|default('مجموعة جديدة') }}</div></div>
+                        </div>
+                    </div>
+                    <div class="info-1">
+                        <a href="{{ product.href }}" class="t-shirt-energy-red-and-white poppins-medium-eerie-black-12px">{{ product.name }}</a>
+                        <div class="phone poppins-normal-eerie-black-12px">{{ product.model|default('') }}</div>
+                    </div>
+                    <div class="x5000-kd poppins-semi-bold-eerie-black-16px">
+                        {% if product.special %}
+                        <span class="price-old">{{ product.price }}</span>
+                        {{ product.special }}
+                        {% else %}
+                        {{ product.price }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="button-1" onclick="cart.add('{{ product.product_id }}');">
+                    <div class="button-3 poppins-semi-bold-white-16px">{{ button_cart }}</div>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        <div class="way">
+            <div class="rectangle-116 rectangle"></div>
+            <div class="rectangle-116 rectangle"></div>
+            <div class="rectangle-116 rectangle"></div>
+            <div class="rectangle-1162 rectangle"></div>
+        </div>
+    </div>
+    
+    <div class="arrows">
+        <div class="left">
+            <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-arrow---left.svg" alt="{{ text_prev|default('Previous') }}" />
+        </div>
+        <div class="right">
+            <img class="iconly-sharp-arrow-left" src="catalog/view/theme/anima/image/iconly-sharp-arrow---left-1.svg" alt="{{ text_next|default('Next') }}" />
+        </div>
+    </div>
+    {% endif %}
+    
+    <img class="line-2" src="catalog/view/theme/anima/image/line-2-1.svg" alt="Line" />
+</div>
+
+<script type="text/javascript">
+var product_id = {{ product_id|e('js') }};
+var minimum = {{ minimum|e('js') }};
+
+function incrementQuantity() {
+    var input = document.getElementById('input-quantity');
+    var value = parseInt(input.value, 10) || minimum;
+    // Limit to reasonable max quantity
+    if (value < 999) {
+        input.value = value + 1;
+    }
+}
+
+function decrementQuantity() {
+    var input = document.getElementById('input-quantity');
+    var value = parseInt(input.value, 10) || minimum;
+    if (value > minimum) {
+        input.value = value - 1;
+    }
+}
+
+function buyNow(pid) {
+    // Validate product_id is numeric
+    if (!/^\d+$/.test(pid)) {
+        return;
+    }
+    var quantityInput = document.getElementById('input-quantity');
+    var quantity = parseInt(quantityInput.value, 10);
+    // Validate quantity
+    if (isNaN(quantity) || quantity < minimum || quantity > 999) {
+        quantity = minimum;
+    }
+    cart.add(pid, quantity, function() {
+        window.location.href = '{{ checkout|e('js') }}';
+    });
+}
+
+// Option selection
+document.querySelectorAll('.frame-1, .frame-1-1, .frame-11').forEach(function(el) {
+    el.addEventListener('click', function() {
+        var parent = this.parentElement;
+        parent.querySelectorAll('.frame-1, .frame-1-1, .frame-11').forEach(function(sibling) {
+            sibling.classList.remove('selected');
+        });
+        this.classList.add('selected');
+    });
+});
+
+// Product page button event listeners
+document.addEventListener('DOMContentLoaded', function() {
+    var btnWishlist = document.getElementById('btn-wishlist');
+    if (btnWishlist) {
+        btnWishlist.addEventListener('click', function() {
+            var pid = this.getAttribute('data-product-id');
+            if (/^\d+$/.test(pid)) {
+                wishlist.add(pid);
+            }
+        });
+    }
+    
+    var btnCart = document.getElementById('btn-cart');
+    if (btnCart) {
+        btnCart.addEventListener('click', function() {
+            var pid = this.getAttribute('data-product-id');
+            var quantityInput = document.getElementById('input-quantity');
+            var quantity = parseInt(quantityInput.value, 10);
+            if (/^\d+$/.test(pid) && !isNaN(quantity) && quantity >= minimum && quantity <= 999) {
+                cart.add(pid, quantity);
+            }
+        });
+    }
+    
+    var btnBuyNow = document.getElementById('btn-buy-now');
+    if (btnBuyNow) {
+        btnBuyNow.addEventListener('click', function() {
+            var pid = this.getAttribute('data-product-id');
+            if (/^\d+$/.test(pid)) {
+                buyNow(pid);
+            }
+        });
+    }
+});
+</script>
+
+{{ footer }}

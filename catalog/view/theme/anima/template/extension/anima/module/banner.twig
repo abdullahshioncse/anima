@@ -1,0 +1,36 @@
+{% if banners %}
+<div class="banner-module" id="banner-{{ module_id|default('1') }}">
+    <div class="banner-slider">
+        {% for banner in banners %}
+        <div class="banner-slide">
+            {% if banner.link %}
+            <a href="{{ banner.link }}">
+                <img src="{{ banner.image }}" alt="{{ banner.title }}" class="banner-image" width="{{ width }}" height="{{ height }}" />
+            </a>
+            {% else %}
+            <img src="{{ banner.image }}" alt="{{ banner.title }}" class="banner-image" width="{{ width }}" height="{{ height }}" />
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+    
+    {% if banners|length > 1 %}
+    <div class="banner-navigation">
+        <div class="arrows">
+            <div class="left banner-prev">
+                <img class="iconly-sharp" src="catalog/view/theme/anima/image/iconly-sharp-arrow---left.svg" alt="{{ text_prev|default('Previous') }}" />
+            </div>
+            <div class="right banner-next">
+                <img class="iconly-sharp-arrow-left" src="catalog/view/theme/anima/image/iconly-sharp-arrow---left-1.svg" alt="{{ text_next|default('Next') }}" />
+            </div>
+        </div>
+        
+        <div class="way banner-dots">
+            {% for banner in banners %}
+            <div class="rectangle-116{% if loop.last %} rectangle-1162-1{% endif %}" data-index="{{ loop.index0 }}"></div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endif %}

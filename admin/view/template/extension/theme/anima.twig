@@ -1,0 +1,289 @@
+{{ header }}{{ column_left }}
+<div id="content">
+    <div class="page-header">
+        <div class="container-fluid">
+            <div class="float-end">
+                <button type="button" id="button-save" class="btn btn-primary" data-bs-toggle="tooltip" title="{{ button_save }}"><i class="fa-solid fa-floppy-disk"></i></button>
+                <a href="{{ back }}" class="btn btn-light" data-bs-toggle="tooltip" title="{{ button_back }}"><i class="fa-solid fa-reply"></i></a>
+            </div>
+            <h1>{{ heading_title }}</h1>
+            <ol class="breadcrumb">
+                {% for breadcrumb in breadcrumbs %}
+                <li class="breadcrumb-item"><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                {% endfor %}
+            </ol>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header"><i class="fa-solid fa-pencil"></i> {{ text_edit }}</div>
+            <div class="card-body">
+                <form id="form-theme" action="{{ save }}" method="post" data-oc-toggle="ajax">
+                    <ul class="nav nav-tabs" id="tabs">
+                        <li class="nav-item"><a href="#tab-general" data-bs-toggle="tab" class="nav-link active">{{ text_general }}</a></li>
+                        <li class="nav-item"><a href="#tab-colors" data-bs-toggle="tab" class="nav-link">{{ text_colors }}</a></li>
+                        <li class="nav-item"><a href="#tab-product" data-bs-toggle="tab" class="nav-link">{{ text_product }}</a></li>
+                        <li class="nav-item"><a href="#tab-image" data-bs-toggle="tab" class="nav-link">{{ text_image }}</a></li>
+                        <li class="nav-item"><a href="#tab-social" data-bs-toggle="tab" class="nav-link">{{ text_social }}</a></li>
+                        <li class="nav-item"><a href="#tab-banner" data-bs-toggle="tab" class="nav-link">{{ text_banner }}</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <!-- General Tab -->
+                        <div id="tab-general" class="tab-pane active">
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">{{ entry_status }}</label>
+                                <div class="col-sm-10">
+                                    <div class="form-check form-switch form-switch-lg">
+                                        <input type="hidden" name="theme_anima_status" value="0"/>
+                                        <input type="checkbox" name="theme_anima_status" value="1" id="input-status" class="form-check-input"{% if theme_anima_status %} checked{% endif %}/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">{{ entry_sale_banner_enabled }}</label>
+                                <div class="col-sm-10">
+                                    <div class="form-check form-switch form-switch-lg">
+                                        <input type="hidden" name="theme_anima_sale_banner_enabled" value="0"/>
+                                        <input type="checkbox" name="theme_anima_sale_banner_enabled" value="1" id="input-sale-banner" class="form-check-input"{% if theme_anima_sale_banner_enabled %} checked{% endif %}/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-sale-banner-text">{{ entry_sale_banner_text }}</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="theme_anima_sale_banner_text" value="{{ theme_anima_sale_banner_text }}" id="input-sale-banner-text" class="form-control" dir="rtl"/>
+                                    <div class="form-text">{{ help_sale_banner_text }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Colors Tab -->
+                        <div id="tab-colors" class="tab-pane">
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-color-primary">{{ entry_color_primary }}</label>
+                                <div class="col-sm-10">
+                                    <input type="color" name="theme_anima_color_primary" value="{{ theme_anima_color_primary }}" id="input-color-primary" class="form-control form-control-color"/>
+                                    <div class="form-text">{{ help_color_primary }}</div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-color-secondary">{{ entry_color_secondary }}</label>
+                                <div class="col-sm-10">
+                                    <input type="color" name="theme_anima_color_secondary" value="{{ theme_anima_color_secondary }}" id="input-color-secondary" class="form-control form-control-color"/>
+                                    <div class="form-text">{{ help_color_secondary }}</div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-color-background">{{ entry_color_background }}</label>
+                                <div class="col-sm-10">
+                                    <input type="color" name="theme_anima_color_background" value="{{ theme_anima_color_background }}" id="input-color-background" class="form-control form-control-color"/>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-color-text">{{ entry_color_text }}</label>
+                                <div class="col-sm-10">
+                                    <input type="color" name="theme_anima_color_text" value="{{ theme_anima_color_text }}" id="input-color-text" class="form-control form-control-color"/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Tab -->
+                        <div id="tab-product" class="tab-pane">
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-product-limit">{{ entry_product_limit }}</label>
+                                <div class="col-sm-10">
+                                    <input type="number" name="theme_anima_product_limit" value="{{ theme_anima_product_limit }}" id="input-product-limit" class="form-control" min="1"/>
+                                    <div class="form-text">{{ help_product_limit }}</div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-description-length">{{ entry_product_description_length }}</label>
+                                <div class="col-sm-10">
+                                    <input type="number" name="theme_anima_product_description_length" value="{{ theme_anima_product_description_length }}" id="input-description-length" class="form-control" min="0"/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Image Tab -->
+                        <div id="tab-image" class="tab-pane">
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">{{ entry_image_category }}</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input type="text" name="theme_anima_image_category_width" value="{{ theme_anima_image_category_width }}" placeholder="{{ entry_width }}" class="form-control"/>
+                                        <span class="input-group-text">x</span>
+                                        <input type="text" name="theme_anima_image_category_height" value="{{ theme_anima_image_category_height }}" placeholder="{{ entry_height }}" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">{{ entry_image_thumb }}</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input type="text" name="theme_anima_image_thumb_width" value="{{ theme_anima_image_thumb_width }}" placeholder="{{ entry_width }}" class="form-control"/>
+                                        <span class="input-group-text">x</span>
+                                        <input type="text" name="theme_anima_image_thumb_height" value="{{ theme_anima_image_thumb_height }}" placeholder="{{ entry_height }}" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">{{ entry_image_popup }}</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input type="text" name="theme_anima_image_popup_width" value="{{ theme_anima_image_popup_width }}" placeholder="{{ entry_width }}" class="form-control"/>
+                                        <span class="input-group-text">x</span>
+                                        <input type="text" name="theme_anima_image_popup_height" value="{{ theme_anima_image_popup_height }}" placeholder="{{ entry_height }}" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">{{ entry_image_product }}</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input type="text" name="theme_anima_image_product_width" value="{{ theme_anima_image_product_width }}" placeholder="{{ entry_width }}" class="form-control"/>
+                                        <span class="input-group-text">x</span>
+                                        <input type="text" name="theme_anima_image_product_height" value="{{ theme_anima_image_product_height }}" placeholder="{{ entry_height }}" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">{{ entry_image_additional }}</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input type="text" name="theme_anima_image_additional_width" value="{{ theme_anima_image_additional_width }}" placeholder="{{ entry_width }}" class="form-control"/>
+                                        <span class="input-group-text">x</span>
+                                        <input type="text" name="theme_anima_image_additional_height" value="{{ theme_anima_image_additional_height }}" placeholder="{{ entry_height }}" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">{{ entry_image_related }}</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input type="text" name="theme_anima_image_related_width" value="{{ theme_anima_image_related_width }}" placeholder="{{ entry_width }}" class="form-control"/>
+                                        <span class="input-group-text">x</span>
+                                        <input type="text" name="theme_anima_image_related_height" value="{{ theme_anima_image_related_height }}" placeholder="{{ entry_height }}" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">{{ entry_image_compare }}</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input type="text" name="theme_anima_image_compare_width" value="{{ theme_anima_image_compare_width }}" placeholder="{{ entry_width }}" class="form-control"/>
+                                        <span class="input-group-text">x</span>
+                                        <input type="text" name="theme_anima_image_compare_height" value="{{ theme_anima_image_compare_height }}" placeholder="{{ entry_height }}" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">{{ entry_image_wishlist }}</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input type="text" name="theme_anima_image_wishlist_width" value="{{ theme_anima_image_wishlist_width }}" placeholder="{{ entry_width }}" class="form-control"/>
+                                        <span class="input-group-text">x</span>
+                                        <input type="text" name="theme_anima_image_wishlist_height" value="{{ theme_anima_image_wishlist_height }}" placeholder="{{ entry_height }}" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label">{{ entry_image_cart }}</label>
+                                <div class="col-sm-10">
+                                    <div class="input-group">
+                                        <input type="text" name="theme_anima_image_cart_width" value="{{ theme_anima_image_cart_width }}" placeholder="{{ entry_width }}" class="form-control"/>
+                                        <span class="input-group-text">x</span>
+                                        <input type="text" name="theme_anima_image_cart_height" value="{{ theme_anima_image_cart_height }}" placeholder="{{ entry_height }}" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Social Tab -->
+                        <div id="tab-social" class="tab-pane">
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-facebook">{{ entry_facebook }}</label>
+                                <div class="col-sm-10">
+                                    <input type="url" name="theme_anima_facebook" value="{{ theme_anima_facebook }}" id="input-facebook" class="form-control" placeholder="https://facebook.com/..."/>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-twitter">{{ entry_twitter }}</label>
+                                <div class="col-sm-10">
+                                    <input type="url" name="theme_anima_twitter" value="{{ theme_anima_twitter }}" id="input-twitter" class="form-control" placeholder="https://twitter.com/..."/>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-instagram">{{ entry_instagram }}</label>
+                                <div class="col-sm-10">
+                                    <input type="url" name="theme_anima_instagram" value="{{ theme_anima_instagram }}" id="input-instagram" class="form-control" placeholder="https://instagram.com/..."/>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-youtube">{{ entry_youtube }}</label>
+                                <div class="col-sm-10">
+                                    <input type="url" name="theme_anima_youtube" value="{{ theme_anima_youtube }}" id="input-youtube" class="form-control" placeholder="https://youtube.com/..."/>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-whatsapp">{{ entry_whatsapp }}</label>
+                                <div class="col-sm-10">
+                                    <input type="text" name="theme_anima_whatsapp" value="{{ theme_anima_whatsapp }}" id="input-whatsapp" class="form-control" placeholder="+965..."/>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Banner Tab -->
+                        <div id="tab-banner" class="tab-pane">
+                            <div class="row mb-3">
+                                <label class="col-sm-2 col-form-label" for="input-banner-home">{{ entry_banner_home }}</label>
+                                <div class="col-sm-10">
+                                    <select name="theme_anima_banner_home" id="input-banner-home" class="form-select">
+                                        <option value="0">---</option>
+                                        {% for banner in banners %}
+                                        <option value="{{ banner.banner_id }}"{% if banner.banner_id == theme_anima_banner_home %} selected{% endif %}>{{ banner.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$('#button-save').on('click', function(e) {
+    e.preventDefault();
+    
+    var form = $('#form-theme');
+    
+    $.ajax({
+        url: form.attr('action'),
+        type: 'post',
+        data: form.serialize(),
+        dataType: 'json',
+        beforeSend: function() {
+            $('#button-save').prop('disabled', true).addClass('loading');
+        },
+        complete: function() {
+            $('#button-save').prop('disabled', false).removeClass('loading');
+        },
+        success: function(json) {
+            $('.alert-dismissible').remove();
+            
+            if (json['error']) {
+                $('#content > .container-fluid').prepend('<div class="alert alert-danger alert-dismissible"><i class="fa-solid fa-circle-exclamation"></i> ' + json['error'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+            
+            if (json['success']) {
+                $('#content > .container-fluid').prepend('<div class="alert alert-success alert-dismissible"><i class="fa-solid fa-check-circle"></i> ' + json['success'] + ' <button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>');
+            }
+        },
+        error: function(xhr, ajaxOptions, thrownError) {
+            console.error(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+    });
+});
+</script>
+{{ footer }}

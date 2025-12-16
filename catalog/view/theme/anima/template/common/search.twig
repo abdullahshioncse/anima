@@ -1,0 +1,12 @@
+<div class="search-box" dir="{{ direction }}">
+    <form action="{{ action }}" method="get" id="search-form">
+        <input type="hidden" name="route" value="product/search" />
+        <input type="hidden" name="language" value="{{ lang }}" />
+        <div class="search-input-container">
+            <input type="text" name="search" value="{{ search }}" placeholder="{{ text_search|default('بحث') }}" class="search-input poppins-medium-eerie-black-16px" autocomplete="off" />
+            <button type="submit" class="search-submit">
+                <img src="catalog/view/theme/anima/image/iconly-sharp-search-1.svg" alt="{{ text_search|default('Search') }}" />
+            </button>
+        </div>
+    </form>
+</div>
