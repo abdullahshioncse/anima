@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html dir="{{ direction }}" lang="{{ lang }}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ title }}</title>
+<base href="{{ base }}" />
+{% if description %}
+<meta name="description" content="{{ description }}" />
+{% endif %}
+{% if keywords %}
+<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+
+<!-- Anima Theme CSS -->
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/extension/anima/stylesheet/globals.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/extension/anima/stylesheet/styleguide.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/extension/anima/stylesheet/desktop-1.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/extension/anima/stylesheet/desktop-2.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/extension/anima/stylesheet/desktop-3.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/extension/anima/stylesheet/desktop-4.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/extension/anima/stylesheet/iphone-13-u38-14-1.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/extension/anima/stylesheet/iphone-13-u38-14-4.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/extension/anima/stylesheet/iphone-13-u38-14-5.css" />
+<link rel="stylesheet" type="text/css" href="catalog/view/theme/extension/anima/stylesheet/iphone-13-u38-14-6.css" />
+
+{% for style in styles %}
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+
+{% for script in scripts %}
+<script src="{{ script.href }}" type="text/javascript"></script>
+{% endfor %}
+
+{{ google_analytics }}
+</head>
+<body>
+
+<!-- Sale Banner -->
+<div class="sale">
+  <p class="text-43 text-5 poppins-medium-white-16px">{{ config_anima_sale_banner|default('حصل على خصم 20٪ قبل نهاية نوفمبر!') }}</p>
+</div>
+
+<!-- Header -->
+<header class="header">
+  <div class="menu-1">
+    <a href="{{ account }}">
+      <img class="iconly-sharp" src="catalog/view/theme/extension/anima/image/iconly-sharp-profile.svg" alt="Profile" />
+    </a>
+    <a href="{{ cart }}">
+      <img class="iconly-sharp" src="catalog/view/theme/extension/anima/image/iconly-sharp-bag-2.svg" alt="Cart" />
+    </a>
+    <a href="{{ wishlist }}">
+      <img class="iconly-sharp" src="catalog/view/theme/extension/anima/image/iconly-sharp-heart.svg" alt="Wishlist" />
+    </a>
+    <a href="{{ search }}">
+      <img class="iconly-sharp" src="catalog/view/theme/extension/anima/image/iconly-sharp-search-1.svg" alt="Search" />
+    </a>
+    <div class="frame-6 frame">
+      <div class="phone-1 poppins-normal-eerie-black-16px">{{ config_anima_telephone|default('965-22091914') }}</div>
+      <img class="iconly-sharp" src="catalog/view/theme/extension/anima/image/iconly-sharp-call.svg" alt="Call" />
+    </div>
+  </div>
+  
+  <a href="{{ home }}" class="logo poppins-medium-eerie-black-20px">
+    {% if logo %}
+      <img src="{{ logo }}" alt="{{ name }}" />
+    {% else %}
+      LOGO
+    {% endif %}
+  </a>
+  
+  <nav class="navbar poppins-medium-eerie-black-16px">
+    <a href="{{ mens_clothing }}" class="navbar-link-text">{{ text_mens_clothing|default('ملابس رجالية') }}</a>
+    <a href="{{ womens_clothing }}" class="navbar-link-text">{{ text_womens_clothing|default('ملابس نسائية') }}</a>
+    <a href="{{ accessories }}" class="navbar-link-text">{{ text_accessories|default('إكسسوارات') }}</a>
+    <a href="{{ sale }}" class="navbar-link-text">{{ text_sale|default('تخفيضات') }}</a>
+  </nav>
+</header>

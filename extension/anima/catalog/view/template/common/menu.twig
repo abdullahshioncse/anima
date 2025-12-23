@@ -1,0 +1,5 @@
+<nav class="navbar poppins-medium-eerie-black-16px">
+  {% for category in categories %}
+  <a href="{{ category.href }}" class="navbar-link-text">{{ category.name }}</a>
+  {% endfor %}
+</nav>

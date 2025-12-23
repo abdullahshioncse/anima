@@ -1,0 +1,30 @@
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Build artifacts
+node_modules/
+vendor/
+dist/
+build/
+
+# Package files (create these manually)
+*.zip
+*.tar.gz
+*.rar
+
+# Environment files
+.env
+.env.local
